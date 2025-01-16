@@ -1,5 +1,5 @@
 CREATE TABLE Internaute(
-   idInternaute INT,
+   idInternaute INT AUTO_INCREMENT,
    nom VARCHAR(50),
    prenom VARCHAR(50),
    adresse VARCHAR(50),
@@ -10,7 +10,7 @@ CREATE TABLE Internaute(
 );
 
 CREATE TABLE Groupe(
-   idGroupe INT,
+   idGroupe INT AUTO_INCREMENT,
    nomGroupe VARCHAR(50),
    imageGroupe VARCHAR(50),
    couleurGroupe VARCHAR(50),
@@ -20,7 +20,7 @@ CREATE TABLE Groupe(
 );
 
 CREATE TABLE Vote(
-   idVote INT,
+   idVote INT AUTO_INCREMENT,
    typeScrutin VARCHAR(50),
    dateDebut DATE,
    status VARCHAR(50),
@@ -29,7 +29,7 @@ CREATE TABLE Vote(
 );
 
 CREATE TABLE Notification(
-   idNotification INT,
+   idNotification INT AUTO_INCREMENT,
    message VARCHAR(50),
    typeNotification VARCHAR(50),
    dateNotification DATE,
@@ -38,19 +38,19 @@ CREATE TABLE Notification(
 );
 
 CREATE TABLE Role(
-   idRole VARCHAR(50),
+   idRole INT AUTO_INCREMENT,
    nomRole VARCHAR(50) NOT NULL,
    PRIMARY KEY(idRole)
 );
 
 CREATE TABLE Reaction(
-   idReaction INT,
+   idReaction INT AUTO_INCREMENT,
    emoticone VARCHAR(50),
    PRIMARY KEY(idReaction)
 );
 
 CREATE TABLE Membre(
-   idMembre INT,
+   idMembre INT AUTO_INCREMENT,
    dateAdhesion VARCHAR(50),
    status VARCHAR(50),
    idInternaute INT NOT NULL,
@@ -63,13 +63,13 @@ CREATE TABLE Membre(
 );
 
 CREATE TABLE Proposition(
-   idProposition INT,
+   idProposition INT AUTO_INCREMENT,
    titre VARCHAR(50),
    description VARCHAR(50),
    dateCreation DATE,
    theme VARCHAR(50),
    status VARCHAR(50),
-   voteDemande LOGICAL,
+   voteDemande BOOLEAN,
    idVote INT NOT NULL,
    idMembre INT NOT NULL,
    PRIMARY KEY(idProposition),
@@ -79,7 +79,7 @@ CREATE TABLE Proposition(
 );
 
 CREATE TABLE Commentaire(
-   idCommentaire INT,
+   idCommentaire INT AUTO_INCREMENT,
    texte VARCHAR(50),
    dateCommentaire DATE,
    status VARCHAR(50),
@@ -89,7 +89,7 @@ CREATE TABLE Commentaire(
 );
 
 CREATE TABLE Budget(
-   idBudget INT,
+   idBudget INT AUTO_INCREMENT,
    budgetGlobal DECIMAL(15,2),
    budgetTheme DECIMAL(15,2),
    themeDuBudget VARCHAR(50),
