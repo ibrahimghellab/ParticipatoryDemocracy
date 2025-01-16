@@ -3,7 +3,7 @@ CREATE TABLE Internaute(
    nom VARCHAR(50),
    prenom VARCHAR(50),
    adresse VARCHAR(50),
-   email VARCHAR(50),
+   email VARCHAR(50) UNIQUE,
    motDePass VARCHAR(50),
    dateCreation DATE,
    PRIMARY KEY(idInternaute)
@@ -33,7 +33,6 @@ CREATE TABLE Notification(
    message VARCHAR(50),
    typeNotification VARCHAR(50),
    dateNotification DATE,
-   status VARCHAR(50),
    PRIMARY KEY(idNotification)
 );
 

@@ -70,27 +70,27 @@ INSERT INTO Vote (idVote, typeScrutin, dateDebut, status, dateFin) VALUES
 
 ----
 
-INSERT INTO Notification (idNotification, message, typeNotification, dateNotification, status) VALUES
-(1, 'Votre vote est comptabilisé', 'Vote', '2023-01-10', 'Envoyée'),
-(2, 'Nouveau message du groupe', 'Message', '2023-01-15', 'Envoyée'),
-(3, 'Un nouveau membre a rejoint', 'Membre', '2023-02-05', 'Envoyée'),
-(4, 'Proposition acceptée', 'Proposition', '2023-02-20', 'Envoyée'),
-(5, 'Nouvelle notification', 'Général', '2023-03-01', 'Envoyée'),
-(6, 'Rappel de réunion', 'Agenda', '2023-03-10', 'Envoyée'),
-(7, 'Un commentaire a été ajouté', 'Commentaire', '2023-03-15', 'Envoyée'),
-(8, 'Statut mis à jour', 'Statut', '2023-04-01', 'Envoyée'),
-(9, 'Vote clôturé', 'Vote', '2023-04-15', 'Envoyée'),
-(10, 'Nouvelle annonce', 'Annonce', '2023-05-01', 'Envoyée'),
-(11, 'Un membre a quitté le groupe', 'Membre', '2023-05-15', 'Envoyée'),
-(12, 'Nouveau fichier partagé', 'Fichier', '2023-06-01', 'Envoyée'),
-(13, 'Changement de responsable', 'Responsable', '2023-06-15', 'Envoyée'),
-(14, 'Statut de proposition changé', 'Proposition', '2023-07-01', 'Envoyée'),
-(15, 'Réunion reportée', 'Agenda', '2023-07-15', 'Envoyée'),
-(16, 'Proposition rejetée', 'Proposition', '2023-08-01', 'Envoyée'),
-(17, 'Ajout au groupe validé', 'Groupe', '2023-08-15', 'Envoyée'),
-(18, 'Un rôle vous a été attribué', 'Rôle', '2023-09-01', 'Envoyée'),
-(19, 'Mise à jour des règles', 'Groupe', '2023-09-15', 'Envoyée'),
-(20, 'Proposition en cours de vote', 'Proposition', '2023-10-01', 'Envoyée');
+INSERT INTO Notification (idNotification, message, typeNotification, dateNotification) VALUES
+(1, 'Votre vote est comptabilisé', 'Vote', '2023-01-10'),
+(2, 'Nouveau message du groupe', 'Message', '2023-01-15'),
+(3, 'Un nouveau membre a rejoint', 'Membre', '2023-02-05'),
+(4, 'Proposition acceptée', 'Proposition', '2023-02-20'),
+(5, 'Nouvelle notification', 'Général', '2023-03-01'),
+(6, 'Rappel de réunion', 'Agenda', '2023-03-10'),
+(7, 'Un commentaire a été ajouté', 'Commentaire', '2023-03-15'),
+(8, 'Statut mis à jour', 'Statut', '2023-04-01'),
+(9, 'Vote clôturé', 'Vote', '2023-04-15'),
+(10, 'Nouvelle annonce', 'Annonce', '2023-05-01'),
+(11, 'Un membre a quitté le groupe', 'Membre', '2023-05-15'),
+(12, 'Nouveau fichier partagé', 'Fichier', '2023-06-01'),
+(13, 'Changement de responsable', 'Responsable', '2023-06-15'),
+(14, 'Statut de proposition changé', 'Proposition', '2023-07-01'),
+(15, 'Réunion reportée', 'Agenda', '2023-07-15'),
+(16, 'Proposition rejetée', 'Proposition', '2023-08-01'),
+(17, 'Ajout au groupe validé', 'Groupe', '2023-08-15'),
+(18, 'Un rôle vous a été attribué', 'Rôle', '2023-09-01'),
+(19, 'Mise à jour des règles', 'Groupe', '2023-09-15'),
+(20, 'Proposition en cours de vote', 'Proposition', '2023-10-01');
 
 ----
 
