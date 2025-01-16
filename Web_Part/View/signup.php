@@ -36,6 +36,8 @@
 
                 <label for="">Mot de passe : </label>
                 <input type="password">
+
+                <input type="submit">
             </form>
         </div>
     </main>
