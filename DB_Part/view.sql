@@ -16,7 +16,7 @@ FROM Proposition P
 LEFT JOIN Vote V ON P.idVote = V.idVote;
 
 
---Fournit les détails des commentaires signalés et les membres qui les ont signalés.
+--Fournit les détails des commentaires signalés et les membres qui les ont signalés. #ajouter qui a écrit le commentaire
 
 CREATE VIEW VueCommentairesSignales AS
 SELECT C.idCommentaire, C.texte, C.dateCommentaire, C.status, M.idMembre, I.nom, I.prenom 
