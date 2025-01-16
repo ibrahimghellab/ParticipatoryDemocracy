@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/navbar.css">
     <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="stylesheet" href="../CSS/default.css">
     <title>Sign-up</title>
 </head>
 
@@ -36,8 +37,9 @@
 
                 <label for="">Mot de passe : </label>
                 <input type="password">
-
-                <input type="submit">
+                <div class="submit">
+                    <input type="submit" id="submit-button">
+                </div>
             </form>
         </div>
     </main>

@@ -5,3 +5,13 @@
   --text-3: #8099df;
   --main-font: "Rubik";
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}

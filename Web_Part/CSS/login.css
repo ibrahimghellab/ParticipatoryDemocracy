@@ -8,5 +8,18 @@ main {
 form {
   display: flex;
   flex-direction: column;
-  width: min(30vh, 300px);
+  width: auto;
+}
+
+input {
+  margin: 5px;
+}
+#submit-button {
+  margin-top: 15px;
+  width: 50%;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
 }

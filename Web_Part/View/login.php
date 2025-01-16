@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/navbar.css">
     <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="stylesheet" href="../CSS/default.css">
     <title>Log-in</title>
 </head>
 
@@ -22,13 +23,16 @@
         </div>
         <div>
             <form action="" method="POST">
+
                 <label for="email">Email : </label>
                 <input type="text" name="email" id="email">
 
                 <label for="">Mot de passe : </label>
                 <input type="password">
+                <div class="submit">
+                    <input type="submit" id="submit-button">
+                </div>
 
-                <input type="submit">
             </form>
         </div>
     </main>
