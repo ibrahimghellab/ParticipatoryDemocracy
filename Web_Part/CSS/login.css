@@ -1,0 +1,12 @@
+main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: min(30vh, 300px);
+}
