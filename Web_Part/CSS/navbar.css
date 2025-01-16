@@ -1,0 +1,33 @@
+ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  align-items: center;
+}
+
+li {
+  margin: 0 15px;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+}
+img {
+  width: 100px;
+  height: 100px;
+  max-width: 200px;
+  max-height: 200px;
+}
