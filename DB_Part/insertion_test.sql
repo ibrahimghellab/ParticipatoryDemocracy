@@ -39,7 +39,7 @@ INNER JOIN Membre M ON I.idInternaute = M.idInternaute
 INNER JOIN MembreVote MV ON M.idMembre = MV.idMembre
 INNER JOIN Vote V ON MV.idVote = V.idVote;
 
-SELECT I.nom, I.prenom, N.message, N.typeNotification, N.status 
+SELECT I.nom, I.prenom, N.message, N.typeNotification
 FROM Internaute I
 INNER JOIN InternauteNotification INN ON I.idInternaute = INN.idInternaute
 INNER JOIN Notification N ON INN.idNotification = N.idNotification;
