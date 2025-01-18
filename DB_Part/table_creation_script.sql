@@ -54,12 +54,12 @@ CREATE TABLE Membre(
    dateAdhesion VARCHAR(50),
    status VARCHAR(50),
    idInternaute INT NOT NULL,
-   idRole VARCHAR(50) NOT NULL,
+   idRole INT NOT NULL,
    idGroupe INT NOT NULL,
    PRIMARY KEY(idMembre),
-   FOREIGN KEY(idInternaute) REFERENCES Internaute(idInternaute),
-   FOREIGN KEY(idRole) REFERENCES Role(idRole),
-   FOREIGN KEY(idGroupe) REFERENCES Groupe(idGroupe)
+   FOREIGN KEY (idInternaute) REFERENCES Internaute(idInternaute) ON DELETE CASCADE,
+   FOREIGN KEY (idRole) REFERENCES Role(idRole) ON DELETE CASCADE,
+   FOREIGN KEY (idGroupe) REFERENCES Groupe(idGroupe) ON DELETE CASCADE
 );
 
 CREATE TABLE Proposition(
@@ -74,8 +74,8 @@ CREATE TABLE Proposition(
    idMembre INT NOT NULL,
    PRIMARY KEY(idProposition),
    UNIQUE(idVote),
-   FOREIGN KEY(idVote) REFERENCES Vote(idVote),
-   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre)
+   FOREIGN KEY (idVote) REFERENCES Vote(idVote) ON DELETE CASCADE,
+   FOREIGN KEY (idMembre) REFERENCES Membre(idMembre) ON DELETE CASCADE
 );
 
 CREATE TABLE Commentaire(
@@ -86,8 +86,8 @@ CREATE TABLE Commentaire(
    idProposition INT NOT NULL,
    idMembre INT NOT NULL,
    PRIMARY KEY(idCommentaire),
-   FOREIGN KEY(idProposition) REFERENCES Proposition(idProposition),
-   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre)
+   FOREIGN KEY (idProposition) REFERENCES Proposition(idProposition) ON DELETE CASCADE,
+   FOREIGN KEY (idMembre) REFERENCES Membre(idMembre) ON DELETE CASCADE
 );
 
 CREATE TABLE Budget(
@@ -99,39 +99,39 @@ CREATE TABLE Budget(
    idProposition INT NOT NULL,
    PRIMARY KEY(idBudget),
    UNIQUE(idProposition),
-   FOREIGN KEY(idProposition) REFERENCES Proposition(idProposition)
+   FOREIGN KEY(idProposition) REFERENCES Proposition(idProposition) ON DELETE CASCADE
 );
 
 CREATE TABLE Signaler(
    idMembre INT,
    idCommentaire INT,
    PRIMARY KEY(idMembre, idCommentaire),
-   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre),
-   FOREIGN KEY(idCommentaire) REFERENCES Commentaire(idCommentaire)
+   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre) ON DELETE CASCADE,
+   FOREIGN KEY(idCommentaire) REFERENCES Commentaire(idCommentaire) ON DELETE CASCADE
 );
 
 CREATE TABLE CommentaireReaction(
    idCommentaire INT,
    idReaction INT,
    PRIMARY KEY(idCommentaire, idReaction),
-   FOREIGN KEY(idCommentaire) REFERENCES Commentaire(idCommentaire),
-   FOREIGN KEY(idReaction) REFERENCES Reaction(idReaction)
+   FOREIGN KEY(idCommentaire) REFERENCES Commentaire(idCommentaire) ON DELETE CASCADE,
+   FOREIGN KEY(idReaction) REFERENCES Reaction(idReaction) ON DELETE CASCADE
 );
 
 CREATE TABLE PropositionReaction(
    idProposition INT,
    idReaction INT,
    PRIMARY KEY(idProposition, idReaction),
-   FOREIGN KEY(idProposition) REFERENCES Proposition(idProposition),
-   FOREIGN KEY(idReaction) REFERENCES Reaction(idReaction)
+   FOREIGN KEY(idProposition) REFERENCES Proposition(idProposition) ON DELETE CASCADE,
+   FOREIGN KEY(idReaction) REFERENCES Reaction(idReaction) ON DELETE CASCADE
 );
 
 CREATE TABLE MembreReaction(
    idMembre INT,
    idReaction INT,
    PRIMARY KEY(idMembre, idReaction),
-   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre),
-   FOREIGN KEY(idReaction) REFERENCES Reaction(idReaction)
+   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre) ON DELETE CASCADE,
+   FOREIGN KEY(idReaction) REFERENCES Reaction(idReaction) ON DELETE CASCADE
 );
 
 CREATE TABLE MembreVote(
@@ -139,15 +139,15 @@ CREATE TABLE MembreVote(
    idVote INT,
    choix VARCHAR(50),
    PRIMARY KEY(idMembre, idVote),
-   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre),
-   FOREIGN KEY(idVote) REFERENCES Vote(idVote)
+   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre) ON DELETE CASCADE,
+   FOREIGN KEY(idVote) REFERENCES Vote(idVote) ON DELETE CASCADE
 );
 
 CREATE TABLE InternauteNotification(
    idInternaute INT,
    idNotification INT,
    PRIMARY KEY(idInternaute, idNotification),
-   FOREIGN KEY(idInternaute) REFERENCES Internaute(idInternaute),
-   FOREIGN KEY(idNotification) REFERENCES Notification(idNotification)
+   FOREIGN KEY(idInternaute) REFERENCES Internaute(idInternaute) ON DELETE CASCADE,
+   FOREIGN KEY(idNotification) REFERENCES Notification(idNotification) ON DELETE CASCADE
 );
 

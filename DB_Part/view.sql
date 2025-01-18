@@ -39,7 +39,7 @@ INNER JOIN Internaute I ON M.idInternaute = I.idInternaute;
 --Affiche toutes les notifications reçues par les internautes, avec leurs détails.
 
 CREATE VIEW VueNotificationsReçues AS
-SELECT INN.idInternaute, I.nom, I.prenom, N.message, N.typeNotification, N.dateNotification, N.status
+SELECT INN.idInternaute, I.nom, I.prenom, N.message, N.typeNotification, N.dateNotification, N.status AS StatutNotification
 FROM InternauteNotification INN
 INNER JOIN Notification N ON INN.idNotification = N.idNotification
 INNER JOIN Internaute I ON INN.idInternaute = I.idInternaute;
