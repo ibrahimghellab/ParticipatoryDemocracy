@@ -116,8 +116,6 @@ INSERT INTO Role (nomRole) VALUES
 ('Archiviste');
 
 
----
-
 INSERT INTO Reaction (emoticone) VALUES
 ('👍'),
 ('❤️'),
@@ -189,7 +187,6 @@ INSERT INTO Proposition (titre, description, dateCreation, theme, status, voteDe
 ('Mettre en place un système', 'Simplifier les inscriptions', '2024-04-01', 'Technologie', 'En cours', TRUE, 19, 19),
 ('Créer un partenariat', 'Collaborer avec d autres groupes', '2024-04-10', 'Social', 'Clôturé', FALSE, 20, 20);
 
--
 
 INSERT INTO Commentaire (texte, dateCommentaire, status, idProposition,idMembre) VALUES
 ('Très bonne idée !', '2023-01-16', 'Approuvé', 1,1),
@@ -214,7 +211,6 @@ INSERT INTO Commentaire (texte, dateCommentaire, status, idProposition,idMembre)
 ('Je suis enthousiaste', '2023-10-01', 'Approuvé', 19,20);
 
 
--
 
 INSERT INTO Budget (budgetGlobal, budgetTheme, themeDuBudget, limiteBudgetTheme, idProposition) VALUES
 (50000.00, 15000.00, 'Technologie', 20000.00, 1),
@@ -255,7 +251,6 @@ INSERT INTO PropositionReaction (idProposition, idReaction) VALUES
 (11, 11), (12, 12), (13, 13), (14, 14), (15, 15),
 (16, 16), (17, 17), (18, 18), (19, 19), (20, 20);
 
--
 
 INSERT INTO MembreReaction (idMembre, idReaction) VALUES
 (1, 1), (2, 2), (3, 3), (4, 4), (5, 5),
@@ -263,7 +258,6 @@ INSERT INTO MembreReaction (idMembre, idReaction) VALUES
 (11, 11), (12, 12), (13, 13), (14, 14), (15, 15),
 (16, 16), (17, 17), (18, 18), (19, 19), (20, 20);
 
--
 
 INSERT INTO MembreVote (idMembre, idVote, choix) VALUES
 (1, 1, 'Oui'), (2, 2, 'Non'), (3, 3, 'Oui'), (4, 4, 'Non'), (5, 5, 'Oui'),
