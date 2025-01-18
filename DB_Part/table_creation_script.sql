@@ -83,8 +83,10 @@ CREATE TABLE Commentaire(
    dateCommentaire DATE,
    status VARCHAR(50),
    idProposition INT NOT NULL,
+   idMembre INT NOT NULL,
    PRIMARY KEY(idCommentaire),
-   FOREIGN KEY(idProposition) REFERENCES Proposition(idProposition)
+   FOREIGN KEY(idProposition) REFERENCES Proposition(idProposition),
+   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre)
 );
 
 CREATE TABLE Budget(
@@ -148,10 +150,3 @@ CREATE TABLE InternauteNotification(
    FOREIGN KEY(idNotification) REFERENCES Notification(idNotification)
 );
 
-CREATE TABLE MembreCommentaire(
-   idMembre INT,
-   idCommentaire INT,
-   PRIMARY KEY(idMembre, idCommentaire),
-   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre),
-   FOREIGN KEY(idCommentaire) REFERENCES Commentaire(idCommentaire)
-);

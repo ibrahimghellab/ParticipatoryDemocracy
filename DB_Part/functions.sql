@@ -6,9 +6,9 @@ CREATE OR REPLACE FUNCTION compter_signalements_membre(
     v_signalements INT;
 BEGIN
     SELECT COUNT(*) INTO v_signalements
-    FROM Signaler
-    WHERE idMembre = p_idMembre;
-
+    FROM Signaler S
+    INNER JOIN Commentaire C ON S.idCommentaire = C.idCommentaire
+    WHERE C.idMembre=p_idMembre;
     RETURN v_signalements;
 END;
 /

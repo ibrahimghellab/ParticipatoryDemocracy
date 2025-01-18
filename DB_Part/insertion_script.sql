@@ -192,27 +192,27 @@ INSERT INTO Proposition (idProposition, titre, description, dateCreation, theme,
 
 -----
 
-INSERT INTO Commentaire (idCommentaire, texte, dateCommentaire, status, idProposition) VALUES
-(1, 'Très bonne idée !', '2023-01-16', 'Approuvé', 1),
-(2, 'Je suis d accord', '2023-01-17', 'Approuvé', 1),
-(3, 'Cela semble compliqué', '2023-02-12', 'Rejeté', 2),
-(4, 'Super initiative', '2023-02-15', 'Approuvé', 3),
-(5, 'Manque de détails', '2023-03-05', 'Rejeté', 4),
-(6, 'Excellente proposition', '2023-03-10', 'Approuvé', 5),
-(7, 'Besoin de précisions', '2023-03-20', 'En attente', 6),
-(8, 'Projet intéressant', '2023-04-05', 'Approuvé', 7),
-(9, 'Je suis pour', '2023-04-10', 'Approuvé', 8),
-(10, 'Pas convaincu', '2023-05-01', 'Rejeté', 9),
-(11, 'Bonne démarche', '2023-05-15', 'Approuvé', 10),
-(12, 'Trop ambitieux', '2023-06-01', 'Rejeté', 11),
-(13, 'Je soutiens', '2023-06-20', 'Approuvé', 12),
-(14, 'Peut être amélioré', '2023-07-01', 'En attente', 13),
-(15, 'Bien pensé', '2023-07-15', 'Approuvé', 14),
-(16, 'Difficile à réaliser', '2023-08-01', 'Rejeté', 15),
-(17, 'Excellent projet', '2023-08-20', 'Approuvé', 16),
-(18, 'Trop vague', '2023-09-01', 'Rejeté', 17),
-(19, 'À approfondir', '2023-09-15', 'En attente', 18),
-(20, 'Je suis enthousiaste', '2023-10-01', 'Approuvé', 19);
+INSERT INTO Commentaire (idCommentaire, texte, dateCommentaire, status, idProposition,idMembre) VALUES
+(1, 'Très bonne idée !', '2023-01-16', 'Approuvé', 1,1),
+(2, 'Je suis d accord', '2023-01-17', 'Approuvé', 1,2),
+(3, 'Cela semble compliqué', '2023-02-12', 'Rejeté', 2,2),
+(4, 'Super initiative', '2023-02-15', 'Approuvé', 3,2),
+(5, 'Manque de détails', '2023-03-05', 'Rejeté', 4,2),
+(6, 'Excellente proposition', '2023-03-10', 'Approuvé', 5,2),
+(7, 'Besoin de précisions', '2023-03-20', 'En attente', 6,5),
+(8, 'Projet intéressant', '2023-04-05', 'Approuvé', 7,6),
+(9, 'Je suis pour', '2023-04-10', 'Approuvé', 8,7),
+(10, 'Pas convaincu', '2023-05-01', 'Rejeté', 9,7),
+(11, 'Bonne démarche', '2023-05-15', 'Approuvé', 10,9),
+(12, 'Trop ambitieux', '2023-06-01', 'Rejeté', 11,3),
+(13, 'Je soutiens', '2023-06-20', 'Approuvé', 12,10),
+(14, 'Peut être amélioré', '2023-07-01', 'En attente', 13,12),
+(15, 'Bien pensé', '2023-07-15', 'Approuvé', 14,13),
+(16, 'Difficile à réaliser', '2023-08-01', 'Rejeté', 15,14),
+(17, 'Excellent projet', '2023-08-20', 'Approuvé', 16,15),
+(18, 'Trop vague', '2023-09-01', 'Rejeté', 17,16),
+(19, 'À approfondir', '2023-09-15', 'En attente', 18,17),
+(20, 'Je suis enthousiaste', '2023-10-01', 'Approuvé', 19,20);
 
 
 -----
@@ -240,15 +240,6 @@ INSERT INTO Budget (budgetGlobal, budgetTheme, themeDuBudget, limiteBudgetTheme,
 (25000.00, 10000.00, 'Social', 15000.00, 20);
 
 
-----
-
-INSERT INTO MembreCommentaire (idMembre, idCommentaire) VALUES
-(1, 1), (2, 2), (3, 3), (4, 4), (5, 5),
-(6, 6), (7, 7), (8, 8), (9, 9), (10, 10),
-(11, 11), (12, 12), (13, 13), (14, 14), (15, 15),
-(16, 16), (17, 17), (18, 18), (19, 19), (20, 20);
-
------
 
 
 INSERT INTO CommentaireReaction (idCommentaire, idReaction) VALUES
