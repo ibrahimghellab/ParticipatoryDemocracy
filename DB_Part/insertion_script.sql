@@ -117,6 +117,28 @@ INSERT INTO Groupe (nomGroupe, imageGroupe, couleurGroupe, dateCreation, descrip
 ('Gastronomie', 'gastronomie.png', 'Vert olive', '2024-03-22', 'Art culinaire'),
 ('Solidarité', 'solidarite.png', 'Marron', '2024-04-01', 'Aider les autres');
 
+INSERT INTO Role (nomRole) VALUES
+('Administrateur'),
+('Modérateur'),
+('Membre actif'),
+('Invité'),
+('Responsable de groupe'),
+('Contributeur'),
+('Observateur'),
+('Coordinateur'),
+('Consultant'),
+('Support technique'),
+('Rédacteur'),
+('Analyste'),
+('Participant'),
+('Évaluateur'),
+('Organisateur'),
+('Président'),
+('Vice-président'),
+('Secrétaire'),
+('Trésorier'),
+('Archiviste');
+
 
 
 
