@@ -4,7 +4,8 @@ CREATE TABLE Internaute(
    prenom VARCHAR(50),
    adresse VARCHAR(50),
    email VARCHAR(50) UNIQUE,
-   motDePass VARCHAR(50),
+   hash VARCHAR(100),
+   salt VARCHAR(50),
    dateCreation DATE,
    PRIMARY KEY(idInternaute)
 );
