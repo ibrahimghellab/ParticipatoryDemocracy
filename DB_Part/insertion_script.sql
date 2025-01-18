@@ -21,8 +21,6 @@ INSERT INTO Reaction (emoticone) VALUES
 ('🚀');
 
 
-
-
 INSERT INTO Internaute (nom, prenom, adresse, email, hash, salt, dateCreation) VALUES
 ('Martin', 'Jean', '10 rue des Lilas', 'jean.martin@mail.com','e1fe43c5c0cce71628978c171d6d6b13450b7a537bd25c3be7d3e9bf45afaf51','caeb00b89789d1ccbaa528277af69722', '2023-01-10'),
 ('Dupont', 'Marie', '25 avenue Victor Hugo', 'marie.dupont@mail.com', 'bc62c88f97fa4db0eeff2bc9995a92df47ab3d964e63cc2fc5e92326b93e5a97', 'cf3671e53188e8a49f968b1240250d31','2023-02-15'),
@@ -44,7 +42,6 @@ INSERT INTO Internaute (nom, prenom, adresse, email, hash, salt, dateCreation) V
 ('Renaud', 'Zoe', '6 chemin des Pins', 'zoe.renaud@mail.com', '31a328f0c21fe2fb5a0d1ed973b1c2bf1a599e997a89903381477b4bc8fa7940', '2bd4505c6912ffdb7307fe4d30d24d8c','2024-02-28'),
 ('Fabre', 'Victor', '28 avenue des Platanes', 'victor.fabre@mail.com', '7297fac2b210b36bfd479601c496e27b581322d354d3eb92f69270a84d144579', '54050cd1d0eaa3d800ffdfdbfb4f8665', '2024-03-15'),
 ('Leroux', 'Lea', '14 boulevard Haussmann', 'lea.leroux@mail.com', '8df3381d089f0c7c53e592dbbe5b0b2239fc87ebc76755bb315fc01d45b93844', '5315ca33a9088928c3b1b2513e2a23b8','2024-03-30');
-
 
 INSERT INTO Notification (message, typeNotification, dateNotification) VALUES
 ('Votre vote est comptabilisé', 'Vote', '2023-01-10'),
@@ -69,17 +66,33 @@ INSERT INTO Notification (message, typeNotification, dateNotification) VALUES
 ('Proposition en cours de vote', 'Proposition', '2023-10-01');
 
 
-
-
-
 INSERT INTO InternauteNotification (idInternaute, idNotification) VALUES
 (1, 1), (2, 2), (3, 3), (4, 4), (5, 5),
 (6, 6), (7, 7), (8, 8), (9, 9), (10, 10),
 (11, 11), (12, 12), (13, 13), (14, 14), (15, 15),
 (16, 16), (17, 17), (18, 18), (19, 19), (20, 20);
 
-
-
+INSERT INTO Vote (typeScrutin, dateDebut, status, dateFin) VALUES
+('Majoritaire', '2023-01-01', 'Clôturé', '2023-01-10'),
+('Proportionnel', '2023-02-05', 'Clôturé', '2023-02-15'),
+('Uninominal', '2023-03-01', 'Clôturé', '2023-03-10'),
+('Plurinominal', '2023-04-10', 'Clôturé', '2023-04-20'),
+('Majoritaire', '2023-05-15', 'En cours', '2023-05-25'),
+('Proportionnel', '2023-06-05', 'Clôturé', '2023-06-15'),
+('Uninominal', '2023-07-01', 'Clôturé', '2023-07-10'),
+('Plurinominal', '2023-08-15', 'Clôturé', '2023-08-25'),
+('Majoritaire', '2023-09-10', 'En cours', '2023-09-20'),
+('Proportionnel', '2023-10-01', 'Clôturé', '2023-10-10'),
+('Uninominal', '2023-11-05', 'En cours', '2023-11-15'),
+('Plurinominal', '2023-12-01', 'Clôturé', '2023-12-10'),
+('Majoritaire', '2024-01-01', 'En cours', '2024-01-10'),
+('Proportionnel', '2024-01-15', 'Clôturé', '2024-01-25'),
+('Uninominal', '2024-02-10', 'En cours', '2024-02-20'),
+('Plurinominal', '2024-02-20', 'Clôturé', '2024-02-28'),
+('Majoritaire', '2024-03-05', 'Clôturé', '2024-03-15'),
+('Proportionnel', '2024-03-20', 'En cours', '2024-03-30'),
+('Uninominal', '2024-04-01', 'Clôturé', '2024-04-10'),
+('Plurinominal', '2024-04-15', 'En cours', '2024-04-25');
 
 
 INSERT INTO Groupe (nomGroupe, imageGroupe, couleurGroupe, dateCreation, description) VALUES
@@ -128,31 +141,30 @@ INSERT INTO Role (nomRole) VALUES
 
 
 
-INSERT INTO Vote (typeScrutin, dateDebut, status, dateFin) VALUES
-('Majoritaire', '2023-01-01', 'Clôturé', '2023-01-10'),
-('Proportionnel', '2023-02-05', 'Clôturé', '2023-02-15'),
-('Uninominal', '2023-03-01', 'Clôturé', '2023-03-10'),
-('Plurinominal', '2023-04-10', 'Clôturé', '2023-04-20'),
-('Majoritaire', '2023-05-15', 'En cours', '2023-05-25'),
-('Proportionnel', '2023-06-05', 'Clôturé', '2023-06-15'),
-('Uninominal', '2023-07-01', 'Clôturé', '2023-07-10'),
-('Plurinominal', '2023-08-15', 'Clôturé', '2023-08-25'),
-('Majoritaire', '2023-09-10', 'En cours', '2023-09-20'),
-('Proportionnel', '2023-10-01', 'Clôturé', '2023-10-10'),
-('Uninominal', '2023-11-05', 'En cours', '2023-11-15'),
-('Plurinominal', '2023-12-01', 'Clôturé', '2023-12-10'),
-('Majoritaire', '2024-01-01', 'En cours', '2024-01-10'),
-('Proportionnel', '2024-01-15', 'Clôturé', '2024-01-25'),
-('Uninominal', '2024-02-10', 'En cours', '2024-02-20'),
-('Plurinominal', '2024-02-20', 'Clôturé', '2024-02-28'),
-('Majoritaire', '2024-03-05', 'Clôturé', '2024-03-15'),
-('Proportionnel', '2024-03-20', 'En cours', '2024-03-30'),
-('Uninominal', '2024-04-01', 'Clôturé', '2024-04-10'),
-('Plurinominal', '2024-04-15', 'En cours', '2024-04-25');
 
 
 
-
+INSERT INTO Role (nomRole) VALUES
+('Administrateur'),
+('Modérateur'),
+('Membre actif'),
+('Invité'),
+('Responsable de groupe'),
+('Contributeur'),
+('Observateur'),
+('Coordinateur'),
+('Consultant'),
+('Support technique'),
+('Rédacteur'),
+('Analyste'),
+('Participant'),
+('Évaluateur'),
+('Organisateur'),
+('Président'),
+('Vice-président'),
+('Secrétaire'),
+('Trésorier'),
+('Archiviste');
 
 
 
@@ -183,6 +195,7 @@ INSERT INTO Membre (dateAdhesion, status, idInternaute, idRole, idGroupe) VALUES
 
 
 
+
 INSERT INTO Proposition (titre, description, dateCreation, theme, status, voteDemande, idVote, idMembre) VALUES
 ('Améliorer la plateforme', 'Proposer de nouvelles fonctionnalités', '2023-01-15', 'Technologie', 'En cours', TRUE, 1, 1),
 ('Créer un événement sportif', 'Organiser une compétition locale', '2023-02-10', 'Sport', 'Clôturé', FALSE, 2, 2),
@@ -206,6 +219,7 @@ INSERT INTO Proposition (titre, description, dateCreation, theme, status, voteDe
 ('Créer un partenariat', 'Collaborer avec d autres groupes', '2024-04-10', 'Social', 'Clôturé', FALSE, 20, 20);
 
 
+
 INSERT INTO Commentaire (texte, dateCommentaire, status, idProposition,idMembre) VALUES
 ('Très bonne idée !', '2023-01-16', 'Approuvé', 1,1),
 ('Je suis d accord', '2023-01-17', 'Approuvé', 1,2),
@@ -227,6 +241,7 @@ INSERT INTO Commentaire (texte, dateCommentaire, status, idProposition,idMembre)
 ('Trop vague', '2023-09-01', 'Rejeté', 17,16),
 ('À approfondir', '2023-09-15', 'En attente', 18,17),
 ('Je suis enthousiaste', '2023-10-01', 'Approuvé', 19,20);
+
 
 
 
@@ -263,6 +278,7 @@ INSERT INTO CommentaireReaction (idCommentaire, idReaction) VALUES
 
 
 
+
 INSERT INTO PropositionReaction (idProposition, idReaction) VALUES
 (1, 1), (2, 2), (3, 3), (4, 4), (5, 5),
 (6, 6), (7, 7), (8, 8), (9, 9), (10, 10),
@@ -277,6 +293,7 @@ INSERT INTO MembreReaction (idMembre, idReaction) VALUES
 (16, 16), (17, 17), (18, 18), (19, 19), (20, 20);
 
 
+
 INSERT INTO MembreVote (idMembre, idVote, choix) VALUES
 (1, 1, 'Oui'), (2, 2, 'Non'), (3, 3, 'Oui'), (4, 4, 'Non'), (5, 5, 'Oui'),
 (6, 6, 'Oui'), (7, 7, 'Non'), (8, 8, 'Oui'), (9, 9, 'Non'), (10, 10, 'Oui'),
@@ -285,13 +302,10 @@ INSERT INTO MembreVote (idMembre, idVote, choix) VALUES
 
 
 
-
-
-
-
 INSERT INTO Signaler (idMembre, idCommentaire) VALUES
 (1, 1), (2, 2), (3, 3), (4, 4), (5, 5),
 (6, 6), (7, 7), (8, 8), (9, 9), (10, 10),
 (11, 11), (12, 12), (13, 13), (14, 14), (15, 15),
 (16, 16), (17, 17), (18, 18), (19, 19), (20, 20);
+
 
