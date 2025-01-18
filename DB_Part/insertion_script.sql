@@ -173,6 +173,7 @@ INSERT INTO Membre (dateAdhesion, status, idInternaute, idRole, idGroupe) VALUES
 
 
 
+
 INSERT INTO Proposition (titre, description, dateCreation, theme, status, voteDemande, idVote, idMembre) VALUES
 ('Améliorer la plateforme', 'Proposer de nouvelles fonctionnalités', '2023-01-15', 'Technologie', 'En cours', TRUE, 1, 1),
 ('Créer un événement sportif', 'Organiser une compétition locale', '2023-02-10', 'Sport', 'Clôturé', FALSE, 2, 2),
@@ -255,6 +256,7 @@ INSERT INTO CommentaireReaction (idCommentaire, idReaction) VALUES
 
 
 
+
 INSERT INTO PropositionReaction (idProposition, idReaction) VALUES
 (1, 1), (2, 2), (3, 3), (4, 4), (5, 5),
 (6, 6), (7, 7), (8, 8), (9, 9), (10, 10),
@@ -283,4 +285,5 @@ INSERT INTO Signaler (idMembre, idCommentaire) VALUES
 (6, 6), (7, 7), (8, 8), (9, 9), (10, 10),
 (11, 11), (12, 12), (13, 13), (14, 14), (15, 15),
 (16, 16), (17, 17), (18, 18), (19, 19), (20, 20);
+
 
