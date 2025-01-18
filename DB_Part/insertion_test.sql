@@ -20,8 +20,7 @@ INNER JOIN Vote V ON P.idVote = V.idVote;
 SELECT C.texte, P.titre, I.nom, I.prenom 
 FROM Commentaire C
 INNER JOIN Proposition P ON C.idProposition = P.idProposition
-INNER JOIN MembreCommentaire MC ON C.idCommentaire = MC.idCommentaire
-INNER JOIN Membre M ON MC.idMembre = M.idMembre
+INNER JOIN Membre M ON C.idMembre = M.idMembre
 INNER JOIN Internaute I ON M.idInternaute = I.idInternaute;
 
 SELECT B.themeDuBudget, SUM(B.budgetGlobal) AS totalBudget 
