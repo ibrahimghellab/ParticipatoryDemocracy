@@ -34,7 +34,7 @@ INNER JOIN Internaute I ON M.idInternaute = I.idInternaute;
 
 
 CREATE VIEW VueNotificationsReçues AS
-SELECT INN.idInternaute, I.nom, I.prenom, N.message, N.typeNotification, N.dateNotification, N.status AS StatutNotification
+SELECT INN.idInternaute, I.nom, I.prenom, N.message, N.typeNotification, N.dateNotification
 FROM InternauteNotification INN
 INNER JOIN Notification N ON INN.idNotification = N.idNotification
 INNER JOIN Internaute I ON INN.idInternaute = I.idInternaute;
