@@ -1,3 +1,28 @@
+INSERT INTO Reaction (emoticone) VALUES
+('👍'),
+('❤️'),
+('😂'),
+('😮'),
+('😢'),
+('👏'),
+('😡'),
+('🔥'),
+('🎉'),
+('💡'),
+('🙌'),
+('😎'),
+('😇'),
+('🤔'),
+('👌'),
+('✅'),
+('❌'),
+('💪'),
+('🌟'),
+('🚀');
+
+
+
+
 INSERT INTO Internaute (nom, prenom, adresse, email, hash, salt, dateCreation) VALUES
 ('Martin', 'Jean', '10 rue des Lilas', 'jean.martin@mail.com','e1fe43c5c0cce71628978c171d6d6b13450b7a537bd25c3be7d3e9bf45afaf51','caeb00b89789d1ccbaa528277af69722', '2023-01-10'),
 ('Dupont', 'Marie', '25 avenue Victor Hugo', 'marie.dupont@mail.com', 'bc62c88f97fa4db0eeff2bc9995a92df47ab3d964e63cc2fc5e92326b93e5a97', 'cf3671e53188e8a49f968b1240250d31','2023-02-15'),
@@ -21,6 +46,42 @@ INSERT INTO Internaute (nom, prenom, adresse, email, hash, salt, dateCreation) V
 ('Leroux', 'Lea', '14 boulevard Haussmann', 'lea.leroux@mail.com', '8df3381d089f0c7c53e592dbbe5b0b2239fc87ebc76755bb315fc01d45b93844', '5315ca33a9088928c3b1b2513e2a23b8','2024-03-30');
 
 
+INSERT INTO Notification (message, typeNotification, dateNotification) VALUES
+('Votre vote est comptabilisé', 'Vote', '2023-01-10'),
+('Nouveau message du groupe', 'Message', '2023-01-15'),
+('Un nouveau membre a rejoint', 'Membre', '2023-02-05'),
+('Proposition acceptée', 'Proposition', '2023-02-20'),
+('Nouvelle notification', 'Général', '2023-03-01'),
+('Rappel de réunion', 'Agenda', '2023-03-10'),
+('Un commentaire a été ajouté', 'Commentaire', '2023-03-15'),
+('Statut mis à jour', 'Statut', '2023-04-01'),
+('Vote clôturé', 'Vote', '2023-04-15'),
+('Nouvelle annonce', 'Annonce', '2023-05-01'),
+('Un membre a quitté le groupe', 'Membre', '2023-05-15'),
+('Nouveau fichier partagé', 'Fichier', '2023-06-01'),
+('Changement de responsable', 'Responsable', '2023-06-15'),
+('Statut de proposition changé', 'Proposition', '2023-07-01'),
+('Réunion reportée', 'Agenda', '2023-07-15'),
+('Proposition rejetée', 'Proposition', '2023-08-01'),
+('Ajout au groupe validé', 'Groupe', '2023-08-15'),
+('Un rôle vous a été attribué', 'Rôle', '2023-09-01'),
+('Mise à jour des règles', 'Groupe', '2023-09-15'),
+('Proposition en cours de vote', 'Proposition', '2023-10-01');
+
+
+
+
+
+INSERT INTO InternauteNotification (idInternaute, idNotification) VALUES
+(1, 1), (2, 2), (3, 3), (4, 4), (5, 5),
+(6, 6), (7, 7), (8, 8), (9, 9), (10, 10),
+(11, 11), (12, 12), (13, 13), (14, 14), (15, 15),
+(16, 16), (17, 17), (18, 18), (19, 19), (20, 20);
+
+
+
+
+
 INSERT INTO Groupe (nomGroupe, imageGroupe, couleurGroupe, dateCreation, description) VALUES
 ('Les Innovateurs', 'innovateurs.png', 'Bleu', '2023-01-01', 'Groupe d idées innovantes'),
 ('Les Créateurs', 'createurs.png', 'Rouge', '2023-02-10', 'Développer des projets artistiques'),
@@ -42,6 +103,28 @@ INSERT INTO Groupe (nomGroupe, imageGroupe, couleurGroupe, dateCreation, descrip
 ('Entrepreneurs', 'business.png', 'Doré', '2024-03-10', 'Idées et projets d entreprises'),
 ('Gastronomie', 'gastronomie.png', 'Vert olive', '2024-03-22', 'Art culinaire'),
 ('Solidarité', 'solidarite.png', 'Marron', '2024-04-01', 'Aider les autres');
+
+INSERT INTO Role (nomRole) VALUES
+('Administrateur'),
+('Modérateur'),
+('Membre actif'),
+('Invité'),
+('Responsable de groupe'),
+('Contributeur'),
+('Observateur'),
+('Coordinateur'),
+('Consultant'),
+('Support technique'),
+('Rédacteur'),
+('Analyste'),
+('Participant'),
+('Évaluateur'),
+('Organisateur'),
+('Président'),
+('Vice-président'),
+('Secrétaire'),
+('Trésorier'),
+('Archiviste');
 
 
 
@@ -69,74 +152,9 @@ INSERT INTO Vote (typeScrutin, dateDebut, status, dateFin) VALUES
 
 
 
-INSERT INTO Notification (message, typeNotification, dateNotification) VALUES
-('Votre vote est comptabilisé', 'Vote', '2023-01-10'),
-('Nouveau message du groupe', 'Message', '2023-01-15'),
-('Un nouveau membre a rejoint', 'Membre', '2023-02-05'),
-('Proposition acceptée', 'Proposition', '2023-02-20'),
-('Nouvelle notification', 'Général', '2023-03-01'),
-('Rappel de réunion', 'Agenda', '2023-03-10'),
-('Un commentaire a été ajouté', 'Commentaire', '2023-03-15'),
-('Statut mis à jour', 'Statut', '2023-04-01'),
-('Vote clôturé', 'Vote', '2023-04-15'),
-('Nouvelle annonce', 'Annonce', '2023-05-01'),
-('Un membre a quitté le groupe', 'Membre', '2023-05-15'),
-('Nouveau fichier partagé', 'Fichier', '2023-06-01'),
-('Changement de responsable', 'Responsable', '2023-06-15'),
-('Statut de proposition changé', 'Proposition', '2023-07-01'),
-('Réunion reportée', 'Agenda', '2023-07-15'),
-('Proposition rejetée', 'Proposition', '2023-08-01'),
-('Ajout au groupe validé', 'Groupe', '2023-08-15'),
-('Un rôle vous a été attribué', 'Rôle', '2023-09-01'),
-('Mise à jour des règles', 'Groupe', '2023-09-15'),
-('Proposition en cours de vote', 'Proposition', '2023-10-01');
 
 
 
-INSERT INTO Role (nomRole) VALUES
-('Administrateur'),
-('Modérateur'),
-('Membre actif'),
-('Invité'),
-('Responsable de groupe'),
-('Contributeur'),
-('Observateur'),
-('Coordinateur'),
-('Consultant'),
-('Support technique'),
-('Rédacteur'),
-('Analyste'),
-('Participant'),
-('Évaluateur'),
-('Organisateur'),
-('Président'),
-('Vice-président'),
-('Secrétaire'),
-('Trésorier'),
-('Archiviste');
-
-
-INSERT INTO Reaction (emoticone) VALUES
-('👍'),
-('❤️'),
-('😂'),
-('😮'),
-('😢'),
-('👏'),
-('😡'),
-('🔥'),
-('🎉'),
-('💡'),
-('🙌'),
-('😎'),
-('😇'),
-('🤔'),
-('👌'),
-('✅'),
-('❌'),
-('💪'),
-('🌟'),
-('🚀');
 
 
 
@@ -266,13 +284,6 @@ INSERT INTO MembreVote (idMembre, idVote, choix) VALUES
 (16, 16, 'Non'), (17, 17, 'Oui'), (18, 18, 'Non'), (19, 19, 'Oui'), (20, 20, 'Non');
 
 
-
-
-INSERT INTO InternauteNotification (idInternaute, idNotification) VALUES
-(1, 1), (2, 2), (3, 3), (4, 4), (5, 5),
-(6, 6), (7, 7), (8, 8), (9, 9), (10, 10),
-(11, 11), (12, 12), (13, 13), (14, 14), (15, 15),
-(16, 16), (17, 17), (18, 18), (19, 19), (20, 20);
 
 
 
