@@ -1,4 +1,4 @@
-INSERT INTO Internaute (idInternaute, nom, prenom, adresse, email, hash, salt, dateCreation) VALUES
+INSERT INTO Internaute (nom, prenom, adresse, email, hash, salt, dateCreation) VALUES
 ('Martin', 'Jean', '10 rue des Lilas', 'jean.martin@mail.com','e1fe43c5c0cce71628978c171d6d6b13450b7a537bd25c3be7d3e9bf45afaf51','caeb00b89789d1ccbaa528277af69722', '2023-01-10'),
 ('Dupont', 'Marie', '25 avenue Victor Hugo', 'marie.dupont@mail.com', 'bc62c88f97fa4db0eeff2bc9995a92df47ab3d964e63cc2fc5e92326b93e5a97', 'cf3671e53188e8a49f968b1240250d31','2023-02-15'),
 ('Durand', 'Paul', '5 place de la République', 'paul.durand@mail.com', '52db3b079b8f232caedd2c1be7cf535f678ef7557f5eea1d1597f757b6b423e3', '4bf9784d6a1c7f0c0c4b4b9ca2359fb3','2023-03-12'),
@@ -22,7 +22,7 @@ INSERT INTO Internaute (idInternaute, nom, prenom, adresse, email, hash, salt, d
 
 -----
 
-INSERT INTO Groupe (idGroupe, nomGroupe, imageGroupe, couleurGroupe, dateCreation, description) VALUES
+INSERT INTO Groupe (nomGroupe, imageGroupe, couleurGroupe, dateCreation, description) VALUES
 ('Les Innovateurs', 'innovateurs.png', 'Bleu', '2023-01-01', 'Groupe d idées innovantes'),
 ('Les Créateurs', 'createurs.png', 'Rouge', '2023-02-10', 'Développer des projets artistiques'),
 ('Team Sports', 'sports.png', 'Vert', '2023-03-05', 'Passionnés de sport'),
@@ -46,7 +46,7 @@ INSERT INTO Groupe (idGroupe, nomGroupe, imageGroupe, couleurGroupe, dateCreatio
 
 ----
 
-INSERT INTO Vote (idVote, typeScrutin, dateDebut, status, dateFin) VALUES
+INSERT INTO Vote (typeScrutin, dateDebut, status, dateFin) VALUES
 ('Majoritaire', '2023-01-01', 'Clôturé', '2023-01-10'),
 ('Proportionnel', '2023-02-05', 'Clôturé', '2023-02-15'),
 ('Uninominal', '2023-03-01', 'Clôturé', '2023-03-10'),
@@ -70,7 +70,7 @@ INSERT INTO Vote (idVote, typeScrutin, dateDebut, status, dateFin) VALUES
 
 ----
 
-INSERT INTO Notification (idNotification, message, typeNotification, dateNotification) VALUES
+INSERT INTO Notification (message, typeNotification, dateNotification) VALUES
 ('Votre vote est comptabilisé', 'Vote', '2023-01-10'),
 ('Nouveau message du groupe', 'Message', '2023-01-15'),
 ('Un nouveau membre a rejoint', 'Membre', '2023-02-05'),
@@ -94,7 +94,7 @@ INSERT INTO Notification (idNotification, message, typeNotification, dateNotific
 
 ----
 
-INSERT INTO Role (idRole, nomRole) VALUES
+INSERT INTO Role (nomRole) VALUES
 ('Administrateur'),
 ('Modérateur'),
 ('Membre actif'),
@@ -119,7 +119,7 @@ INSERT INTO Role (idRole, nomRole) VALUES
 
 ---
 
-INSERT INTO Reaction (idReaction, emoticone) VALUES
+INSERT INTO Reaction (emoticone) VALUES
 ('👍'),
 ('❤️'),
 ('😂'),
@@ -143,7 +143,7 @@ INSERT INTO Reaction (idReaction, emoticone) VALUES
 
 ----
 
-INSERT INTO Membre (idMembre, dateAdhesion, status, idInternaute, idRole, idGroupe) VALUES
+INSERT INTO Membre (dateAdhesion, status, idInternaute, idRole, idGroupe) VALUES
 ('2025-01-01', 'Actif', 1, 1, 1),
 ('2025-01-02', 'Actif', 2, 2, 1),
 ('2025-01-03', 'Inactif', 3, 3, 2),
@@ -168,7 +168,7 @@ INSERT INTO Membre (idMembre, dateAdhesion, status, idInternaute, idRole, idGrou
 
 ----
 
-INSERT INTO Proposition (idProposition, titre, description, dateCreation, theme, status, voteDemande, idVote, idMembre) VALUES
+INSERT INTO Proposition (titre, description, dateCreation, theme, status, voteDemande, idVote, idMembre) VALUES
 ('Améliorer la plateforme', 'Proposer de nouvelles fonctionnalités', '2023-01-15', 'Technologie', 'En cours', TRUE, 1, 1),
 ('Créer un événement sportif', 'Organiser une compétition locale', '2023-02-10', 'Sport', 'Clôturé', FALSE, 2, 2),
 ('Planter des arbres', 'Reforestation de zones urbaines', '2023-03-01', 'Écologie', 'En cours', TRUE, 3, 3),
@@ -192,7 +192,7 @@ INSERT INTO Proposition (idProposition, titre, description, dateCreation, theme,
 
 -----
 
-INSERT INTO Commentaire (idCommentaire, texte, dateCommentaire, status, idProposition,idMembre) VALUES
+INSERT INTO Commentaire (texte, dateCommentaire, status, idProposition,idMembre) VALUES
 ('Très bonne idée !', '2023-01-16', 'Approuvé', 1,1),
 ('Je suis d accord', '2023-01-17', 'Approuvé', 1,2),
 ('Cela semble compliqué', '2023-02-12', 'Rejeté', 2,2),
