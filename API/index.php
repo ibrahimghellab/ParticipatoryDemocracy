@@ -1,7 +1,7 @@
 <?php
 /*
     GET :
-        /groupe/:id ✅
+        /groupe/:id✅
         /user/:id✅
         /groupes✅
         /user/:id/groupes
