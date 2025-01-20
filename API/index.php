@@ -21,12 +21,12 @@
         
 
     PUT:
-        /groupe/:id
-        /user/:id
+        /groupe/:id✅
+        /user/:id✅
     
     DELETE:
-        /groupe/:id
-        /user/:id
+        /groupe/:id✅
+        /user/:id✅
         
 
     
@@ -56,7 +56,6 @@ try {
     } else {
         throw new Exception("Rien ne correspond");
     }
-
 } catch (Exception $e) {
     $error = array(
         "message" => $e->getMessage(),
