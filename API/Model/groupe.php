@@ -60,28 +60,24 @@ class Groupe
                 echo "Erreur : " . $e->getMessage();
             }
             
-
-
-
-
-
-
             if ($result) {
                 $response = [
+                    "code"=>http_response_code(200),
                     "message" => "Groupe  inséré."
                 ];
-                http_response_code(200);
+                
             } else {
                 $response = [
-                    "message" => "ERREUR: Le groupe n'as pas été inséré.",
-                    http_response_code(500)
+                    "code"=>http_response_code(500),
+                    "message" => "ERREUR: Le groupe n'as pas été inséré."
                 ];
             }
 
         } else {
+            
             $response = [
-                "message" => "ERREUR: Tout les champs doivent être remplis",
-                http_response_code(500)
+                "code"=>http_response_code(500),
+                "message" => "ERREUR: Tout les champs doivent être remplis"
             ];
         }
 
