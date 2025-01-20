@@ -1,53 +1,78 @@
-form{
-
-background-color: #fff;
-padding:30px;
-border-radius: 12px;
-box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-width: 150%;
-max-width: 400px;
-transition: all 0.1s ease-in-out;
-
-}
-
-form:hover{
-
-transform: scale(1.02);
-
-}
-
-label{
-font-weight: 600;
-font-size: 14px;
-color: #000000;
-padding: 10px 20px;
-}
-
-#submit-button{
-
-padding: 12px 12px;
-background-color: #4DA8DA;
-color:white;
-border:none;
-border-radius: 8px;
-font-size: 16px;
-font-weight: 300;
-transition: background-color 0.1S ease, transform 0.2s ease;
-margin-top: 10 px;
-width: 135px;         
-height: 40px;
-
-}
-
-#submit-button:hover{
-
-background-color: #3C8DBE;
-transform: translateY(-2px);
-
-}
-
-#submit-button:active{
-
-    transform: translateY(1px);
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70vh;
+  }
+  
+  form{
+  
+    background-color: #fff;
+    padding:30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 150%;
+    max-width: 400px;
+    transition: all 0.1s ease-in-out;
+    display: flex;
+    flex-direction: column;
     
-}
+    }
+    
+    form:hover{
+    
+    transform: scale(1.02);
+    
+    }
+  
+  input {
+    margin: 5px;
+  }
+  #submit-button {
+    margin-top: 15px;
+    width: 50%;
+  }
+  
+  .submit {
+    display: flex;
+    justify-content: center;
+  
+  }
+  
+  label{
+    font-weight: 600;
+    font-size: 14px;
+    color: #000000;
+    padding: 10px 20px; 
+    display: block;
+    margin-bottom: 5px;
+    }
+    
+    #submit-button{
+  
+      padding: 12px 12px;
+      background-color: #4DA8DA;
+      color:white;
+      border:none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 300;
+      transition: background-color 0.1S ease, transform 0.2s ease;
+      margin-top: 10 px;
+      width: 135px;         
+      height: 40px;
+      
+      }
+      
+      #submit-button:hover{
+      
+      background-color: #3C8DBE;
+      transform: translateY(-2px);
+      
+      }
+      
+      #submit-button:active{
+      
+          transform: translateY(1px);
+          
+      }

@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="../CSS/navbar.css">
     <link rel="stylesheet" href="../CSS/login.css">
     <link rel="stylesheet" href="../CSS/default.css">
+
     <title>Log-in</title>
 </head>
 
 <body>
     <header>
         <?php
-        include("../View/navbar.html")
+        include("./navbar_connexion.php")
             ?>
     </header>
     <main>
@@ -27,10 +28,13 @@
                 <label for="email">Email : </label>
                 <input type="text" name="email" id="email">
 
+            
+
                 <label for="">Mot de passe : </label>
                 <input type="password">
+
                 <div class="submit">
-                    <input type="submit" id="submit-button">
+                    <button type="submit" id="submit-button">Envoyer</button>
                 </div>
 
             </form>

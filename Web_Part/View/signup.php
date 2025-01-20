@@ -15,7 +15,7 @@
 <body>
     <header>
         <?php
-        include("../View/navbar.html")
+        include("./navbar_connexion.php")
             ?>
     </header>
     <main>
