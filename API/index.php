@@ -16,7 +16,7 @@
 
     POST:
         /groupe✅
-        /user presque -> code 200
+        /user✅
         /vote
         
 
