@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../CSS/navbar.css">
     <link rel="stylesheet" href="../CSS/login.css">
     <link rel="stylesheet" href="../CSS/default.css">
+    <link rel="stylesheet" href="../CSS/signup.css">
+
     <title>Sign-up</title>
 </head>
 
@@ -21,7 +23,7 @@
             <h1>Bienvenue à vous!</h1>
             <p>Veuillez saisir vos informations</p>
         </div>
-        <div>
+        <div class="form-group">
             <form action="" method="POST">
                 <label for="nom">Nom : </label>
                 <input type="text" name="nom" id="nom">
@@ -38,7 +40,7 @@
                 <label for="">Mot de passe : </label>
                 <input type="password">
                 <div class="submit">
-                    <input type="submit" id="submit-button">
+                    <button type="submit" id="submit-button">Envoyer</button>
                 </div>
             </form>
         </div>
