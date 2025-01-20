@@ -70,3 +70,18 @@ END;
 //
 
 DELIMITER ;
+
+
+DELIMITER //
+
+CREATE OR REPLACE PROCEDURE createGroupe(id INT ,nom VARCHAR(50),img VARCHAR(50),clr VARCHAR(50),descr VARCHAR(50)) 
+BEGIN
+DECLARE crt_date DATE;
+DECLARE idGrp INT;
+SET crt_date=CURRENT_DATE;
+INSERT INTO Groupe (nomGroupe,imageGroupe,couleurGroupe,dateCreation,description) VALUES (nom, img, clr,  crt_date ,descr) ;
+SET idGrp = LAST_INSERT_ID();
+INSERT INTO Membre(dateAdhesion, status, idInternaute, idRole, idGroupe) VALUES (crt_date,'Présent',id,1,idGrp) ;
+END;
+//
+DELIMITER ;

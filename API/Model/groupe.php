@@ -38,6 +38,54 @@ class Groupe
         return $resultat->fetchAll();
 
     }
+
+    public static function createGroupe($id)
+    {
+
+        $body = file_get_contents("php://input");
+        $tab = json_decode($body, true);
+        $result=false;
+        if (isset($tab["nom"]) && isset($tab["image"]) && isset($tab["couleur"]) && isset($tab["description"])) {
+            require_once(__DIR__ . "/../config/connexion.php");
+            
+            $requetePreparee=Connexion::pdo()->prepare("CALL createGroupe(".$id.",:nom,:img,:clr,:descr)");
+            $requetePreparee->bindParam(":nom",$tab["nom"],PDO::PARAM_STR);
+            $requetePreparee->bindParam(":img",$tab["image"],PDO::PARAM_STR);
+            $requetePreparee->bindParam(":clr",$tab["couleur"],PDO::PARAM_STR);
+            $requetePreparee->bindParam(":descr",$tab["description"],PDO::PARAM_STR);
+            try{
+                $requetePreparee->execute();
+                $result=true;
+            }catch(PDOException $e){
+                echo "Erreur : " . $e->getMessage();
+            }
+            
+            if ($result) {
+                $response = [
+                    "code"=>http_response_code(200),
+                    "message" => "Groupe  inséré."
+                ];
+                
+            } else {
+                $response = [
+                    "code"=>http_response_code(500),
+                    "message" => "ERREUR: Le groupe n'as pas été inséré."
+                ];
+            }
+
+        } else {
+            
+            $response = [
+                "code"=>http_response_code(500),
+                "message" => "ERREUR: Tout les champs doivent être remplis"
+            ];
+        }
+
+        return (json_encode($response, JSON_PRETTY_PRINT));
+
+    }
+
+
 }
 
 
