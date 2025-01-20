@@ -40,7 +40,7 @@
                 <label for="">Mot de passe : </label>
                 <input type="password">
                 <div class="submit">
-                    <button type="submit" id="submitbutton">Envoyer</button>
+                    <button type="submit" id="submit-button">Envoyer</button>
                 </div>
             </form>
         </div>
