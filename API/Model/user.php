@@ -38,6 +38,187 @@ class User
         return $resultat->fetchAll();
 
     }
+
+    public static function getGroupesByUser($id)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        require_once(__DIR__ . "/../Model/user.php");
+        $requeteAvecTags = "SELECT G.nomGroupe,imageGroupe,couleurGroupe,G.dateCreation,description" .
+            " FROM Groupe G" .
+            " INNER JOIN Membre M ON G.idGroupe=M.idGroupe" .
+            " INNER JOIN Internaute I ON I.idInternaute=M.idInternaute" .
+            " WHERE I.idInternaute=:id;";
+        $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+
+
+        try {
+            $requetePreparee->execute();
+            $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Groupe");
+            return $requetePreparee->fetchAll();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+    public static function createUser()
+    {
+        $body = file_get_contents("php://input");
+        $tab = json_decode($body, true);
+        $result = false;
+        if (isset($tab["nom"]) && isset($tab["prenom"]) && isset($tab["adresse"]) && isset($tab["email"]) && isset($tab["password"])) {
+            require_once(__DIR__ . "/../config/connexion.php");
+
+            $requetePreparee = Connexion::pdo()->prepare("CALL createInternaute(:nom,:prenom,:adresse,:email,:hash,:salt);");
+            $requetePreparee->bindParam(":nom", $tab["nom"], PDO::PARAM_STR);
+            $requetePreparee->bindParam(":prenom", $tab["prenom"], PDO::PARAM_STR);
+            $requetePreparee->bindParam(":adresse", $tab["adresse"], PDO::PARAM_STR);
+            $requetePreparee->bindParam(":email", $tab["email"], PDO::PARAM_STR);
+            $salt = bin2hex(random_bytes(16));
+            $hash = hash("sha256", $tab["password"] . $salt);
+            $requetePreparee->bindParam(":hash", $hash, PDO::PARAM_STR);
+            $requetePreparee->bindParam(":salt", $salt, PDO::PARAM_STR);
+
+            try {
+                $requetePreparee->execute();
+                $result = true;
+            } catch (PDOException $e) {
+                http_response_code(500);
+                return json_encode($response = [
+                    "code" => http_response_code(500),
+                    "message" => $e->getMessage()
+                ], JSON_PRETTY_PRINT);
+            }
+
+            if ($result) {
+                http_response_code(200);
+                $response = [
+                    "code" => http_response_code(200),
+                    "message" => "User inséré."
+                ];
+
+            } else {
+                http_response_code(500);
+                $response = [
+                    "code" => http_response_code(500),
+                    "message" => "ERREUR: Le user n'as pas été inséré."
+                ];
+            }
+
+
+
+        } else {
+            http_response_code(500);
+            $response = [
+                "code" => http_response_code(500),
+                "message" => "ERREUR: Tout les champs doivent être remplis"
+            ];
+        }
+
+        return (json_encode($response, JSON_PRETTY_PRINT));
+
+
+
+
+    }
+
+    public static function updateUser($id)
+    {
+        $body = file_get_contents("php://input");
+        $tab = json_decode($body, true);
+        $result = false;
+        if (isset($tab["nom"]) && isset($tab["prenom"]) && isset($tab["adresse"]) && isset($tab["email"]) && isset($tab["password"])) {
+            require_once(__DIR__ . "/../config/connexion.php");
+
+            $requetePreparee = Connexion::pdo()->prepare("UPDATE Internaute SET nom=:nom, prenom=:prenom,adresse=:adresse,email=:email,hash=:hash,salt=:salt WHERE idInternaute=:id;");
+            $requetePreparee->bindParam(":nom", $tab["nom"], PDO::PARAM_STR);
+            $requetePreparee->bindParam(":prenom", $tab["prenom"], PDO::PARAM_STR);
+            $requetePreparee->bindParam(":adresse", $tab["adresse"], PDO::PARAM_STR);
+            $requetePreparee->bindParam(":email", $tab["email"], PDO::PARAM_STR);
+            $salt = bin2hex(random_bytes(16));
+            $hash = hash("sha256", $tab["password"] . $salt);
+            $requetePreparee->bindParam(":hash", $hash, PDO::PARAM_STR);
+            $requetePreparee->bindParam(":salt", $salt, PDO::PARAM_STR);
+            $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+            try {
+                $requetePreparee->execute();
+                $result = true;
+            } catch (PDOException $e) {
+                http_response_code(500);
+                return json_encode($response = [
+                    "code" => http_response_code(500),
+                    "message" => $e->getMessage()
+                ], JSON_PRETTY_PRINT);
+            }
+
+            if ($result) {
+                http_response_code(200);
+                $response = [
+                    "code" => http_response_code(200),
+                    "message" => "User  modifié."
+                ];
+
+            } else {
+                http_response_code(500);
+                $response = [
+                    "code" => http_response_code(500),
+                    "message" => "ERREUR: Le user n'as pas été modifié."
+                ];
+            }
+
+        } else {
+            http_response_code(500);
+            $response = [
+                "code" => http_response_code(500),
+                "message" => "ERREUR: Tout les champs doivent être remplis"
+            ];
+        }
+
+        return (json_encode($response, JSON_PRETTY_PRINT));
+
+    }
+
+    public static function deleteUser($id)
+    {
+        $body = file_get_contents("php://input");
+        $tab = json_decode($body, true);
+        $result = false;
+
+        require_once(__DIR__ . "/../config/connexion.php");
+
+        $requetePreparee = Connexion::pdo()->prepare("DELETE FROM Internaute WHERE idInternaute=:id;");
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+        try {
+            $requetePreparee->execute();
+            $result = true;
+        } catch (PDOException $e) {
+            http_response_code(500);
+            return json_encode($response = [
+                "code" => http_response_code(500),
+                "message" => $e->getMessage()
+            ], JSON_PRETTY_PRINT);
+        }
+
+        if ($result) {
+            http_response_code(200);
+            $response = [
+                "code" => http_response_code(200),
+                "message" => "User  supprimé."
+            ];
+
+        } else {
+            http_response_code(500);
+            $response = [
+                "code" => http_response_code(500),
+                "message" => "ERREUR: Le user n'as pas été supprimé."
+            ];
+        }
+
+
+
+        return (json_encode($response, JSON_PRETTY_PRINT));
+
+    }
 }
 
 
