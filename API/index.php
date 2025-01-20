@@ -4,9 +4,9 @@
         /groupe/:id✅
         /user/:id✅
         /groupes✅
-        /user/:id/groupes
+        /user/:id/groupes✅
         /users✅
-        /groupe/:id/membres
+        /groupe/:id/membres✅
         /groupe/:id/membre/:id
         
         
@@ -15,8 +15,8 @@
     
 
     POST:
-        /groupe
-        /user
+        /groupe✅
+        /user presque -> code 200
         /vote
         
 
@@ -48,6 +48,9 @@ try {
         switch ($url[0]) {
             case "groupe":
                 require_once("router/routeGroupe.php");
+                break;
+            case "user":
+                require_once("router/routeUser.php");
                 break;
         }
     } else {
