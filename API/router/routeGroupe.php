@@ -14,6 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo Groupe::createGroupe(id: 5);
+} elseif ($_SERVER["REQUEST_METHOD"] == "PUT") {
+    echo Groupe::updateGroupe($url[1]);
+} elseif ($_SERVER["REQUEST_METHOD"] == "DELETE") {
+    echo Groupe::deleteGroupe($url[1]);
 }
 
 ?>
