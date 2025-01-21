@@ -62,10 +62,9 @@ DELIMITER ;
 
 
 DELIMITER //
-
-CREATE OR REPLACE PROCEDURE createInternaute(p_nom VARCHAR(50),p_prenom VARCHAR(50),p_email VARCHAR(50),p_adresse VARCHAR(50),p_hash VARCHAR(100),p_salt VARCHAR(50))
+CREATE OR REPLACE PROCEDURE createInternaute(p_nom VARCHAR(50),p_prenom VARCHAR(50),p_adresse VARCHAR(50),p_email VARCHAR(50),p_hash VARCHAR(100),p_salt VARCHAR(50))
 BEGIN
-INSERT INTO Internaute (nom,prenom,adresse,email,dateCreation,hash,salt) VALUES (p_nom,p_prenom,p_adresse,p_email,CURRENT_DATE,p_hash,p_salt) ;
+INSERT INTO Internaute(nom, prenom, adresse, email, dateCreation, hash, salt) VALUES(p_nom,p_prenom,p_adresse,p_email,CURRENT_DATE,p_hash,p_salt);
 END;
 //
 DELIMITER ;
