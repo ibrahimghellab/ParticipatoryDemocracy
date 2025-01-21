@@ -23,12 +23,12 @@
             <p>Veuillez saisir vos informations</p>
         </div>
         <div>
-            <form action="" method="POST">
+            <form action="./../Controller/UserController.php" method="POST">
 
                 <label for="email">Email : </label>
                 <input type="text" name="email" id="email">
 
-            
+
 
                 <label for="">Mot de passe : </label>
                 <input type="password">
