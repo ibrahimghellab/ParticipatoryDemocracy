@@ -67,6 +67,6 @@ class UserController
 }
 
 
-//UserController::sendPostRequest();
-UserController::getUserDataFromAPI(5);
+UserController::sendPostRequest();
+//UserController::getUserDataFromAPI(5);
 ?>
