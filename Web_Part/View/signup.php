@@ -24,21 +24,22 @@
             <p>Veuillez saisir vos informations</p>
         </div>
         <div class="form-group">
-            <form action="" method="POST">
+            <form action="./../Controller/UserController.php" method="POST">
                 <label for="nom">Nom : </label>
-                <input type="text" name="nom" id="nom">
+                <input type="text" name="nom" id="nom" required>
 
                 <label for="prenom">Prénom : </label>
-                <input type="text" name="prenom" id="prenom">
+                <input type="text" name="prenom" id="prenom" required>
 
-                <label for="email">Adresse : </label>
-                <input type="text" name="adresse" id="adresse">
+                <label for="adresse">Adresse : </label>
+                <input type="text" name="adresse" id="adresse" required>
 
                 <label for="email">Email : </label>
-                <input type="text" name="email" id="email">
+                <input type="text" name="email" id="email" required>
 
-                <label for="">Mot de passe : </label>
-                <input type="password">
+                <label for="password">Mot de passe : </label>
+                <input type="password" name="password" id="password" required>
+
                 <div class="submit">
                     <button type="submit" id="submit-button">Envoyer</button>
                 </div>
