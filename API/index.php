@@ -54,7 +54,7 @@ try {
                 break;
         }
     } else {
-        throw new Exception("Rien ne correspond");
+        require_once("documentation/index.html");
     }
 } catch (Exception $e) {
     $error = array(

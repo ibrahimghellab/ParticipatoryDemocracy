@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Documentation API pour la gestion des groupes et des utilisateurs"
+    />
+    <title>Documentation API - SAES3 Ttroles</title>
+    <link rel="stylesheet" href="./documentation/index.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Documentation de l'API</h1>
+        <p>API pour la gestion des groupes et des utilisateurs</p>
+      </div>
+    </header>
+
+    <nav>
+      <div class="container">
+        <ul>
+          <li><a href="#get-methods">GET</a></li>
+          <li><a href="#post-methods">POST</a></li>
+          <li><a href="#put-methods">PUT</a></li>
+          <li><a href="#delete-methods">DELETE</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="get-methods">
+      <div class="container">
+        <h2>GET Requests</h2>
+        <ul>
+          <li>
+            <strong>/groupe/:id</strong> - Récupère les informations d'un groupe
+          </li>
+          <li>
+            <strong>/user/:id</strong> - Récupère les informations d'un
+            utilisateur
+          </li>
+          <li><strong>/groupes</strong> - Liste de tous les groupes</li>
+          <li>
+            <strong>/user/:id/groupes</strong> - Liste des groupes d'un
+            utilisateur
+          </li>
+          <li><strong>/users</strong> - Liste de tous les utilisateurs</li>
+          <li>
+            <strong>/groupe/:id/membres</strong> - Liste des membres d'un groupe
+          </li>
+          <li>
+            <strong>/groupe/:id/membre/:id</strong> - Détails d'un membre d'un
+            groupe
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="post-methods">
+      <div class="container">
+        <h2>POST Requests</h2>
+        <ul>
+          <li><strong>/groupe</strong> - Créer un nouveau groupe</li>
+          <li><strong>/user</strong> - Créer un nouvel utilisateur</li>
+          <li><strong>/vote</strong> - Soumettre un vote</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="put-methods">
+      <div class="container">
+        <h2>PUT Requests</h2>
+        <ul>
+          <li><strong>/groupe/:id</strong> - Modifier un groupe existant</li>
+          <li><strong>/user/:id</strong> - Modifier un utilisateur existant</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="delete-methods">
+      <div class="container">
+        <h2>DELETE Requests</h2>
+        <ul>
+          <li><strong>/groupe/:id</strong> - Supprimer un groupe</li>
+          <li><strong>/user/:id</strong> - Supprimer un utilisateur</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>
+          API documentation pour le projet SAES3 Ttroles -
+          <a href="https://projets.iut-orsay.fr/saes3-ttroles/API/"
+            >Accédez à l'API</a
+          >
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
