@@ -14,7 +14,7 @@
 <body>
     <header>
         <?php
-        include("./navbar_connexion.php")
+        include(__DIR__ . "/../View/navbar_connexion.php")
             ?>
     </header>
     <main>
