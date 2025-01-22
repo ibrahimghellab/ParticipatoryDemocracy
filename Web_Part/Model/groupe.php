@@ -17,4 +17,6 @@ class User extends Modele
             $this->set($cle, $valeur);
         }
     }
+
+
 }
