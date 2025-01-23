@@ -1,78 +1,92 @@
 main {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 70vh;
-  }
-  
-  form{
-  
-    background-color: #fff;
-    padding:30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    width: 150%;
-    max-width: 400px;
-    transition: all 0.1s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    
-    }
-    
-    form:hover{
-    
-    transform: scale(1.02);
-    
-    }
-  
-  input {
-    margin: 5px;
-  }
-  #submit-button {
-    margin-top: 15px;
-    width: 50%;
-  }
-  
-  .submit {
-    display: flex;
-    justify-content: center;
-  
-  }
-  
-  label{
-    font-weight: 600;
-    font-size: 14px;
-    color: #000000;
-    padding: 10px 20px; 
-    display: block;
-    margin-bottom: 5px;
-    }
-    
-    #submit-button{
-  
-      padding: 12px 12px;
-      background-color: #4DA8DA;
-      color:white;
-      border:none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 300;
-      transition: background-color 0.1S ease, transform 0.2s ease;
-      margin-top: 10 px;
-      width: 135px;         
-      height: 40px;
-      
-      }
-      
-      #submit-button:hover{
-      
-      background-color: #3C8DBE;
-      transform: translateY(-2px);
-      
-      }
-      
-      #submit-button:active{
-      
-          transform: translateY(1px);
-          
-      }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70vh;
+}
+
+form {
+  margin-top: 60px;
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px; /* Augmenté pour un meilleur rendu */
+  transition: all 0.1s ease-in-out;
+  display: column;
+  gap: 15px; /* Espacement uniforme entre les éléments */
+}
+
+form:hover {
+  transform: scale(1.02);
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+label {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 600;
+  font-size: 14px;
+  color: #000;
+  font-size: 1rem; /* Taille standard pour du texte descriptif */
+  font-weight: 400; /* Poids normal pour un style discret */
+  color: #555; /* Couleur légèrement plus claire que le h1 */
+  line-height: 1.6; /* Amélioration de la lisibilité */
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #7190c0;
+  outline: none;
+  box-shadow: 0 0 5px rgba(113, 144, 192, 0.5);
+}
+
+#submit-button {
+  padding: 12px;
+  background-color: #7190c0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  width: 100%;
+}
+
+#submit-button:hover {
+  background-color: #b0c6e1;
+  transform: translateY(-2px);
+}
+
+#submit-button:active {
+  transform: translateY(1px);
+}
+
+.submit {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+body{
+
+  background-image: url('./background.svg'); /* Chemin vers votre image */
+  background-size: cover; /* L'image occupe tout l'écran en gardant ses proportions */
+  background-repeat: no-repeat; /* Évite la répétition de l'image */
+  background-position: center; /* Centre l'image */
+  height: 100vh; /* Assure que le fond couvre toute la hauteur de la page */
+  margin: 0;
+  padding: 0;
+
+}
