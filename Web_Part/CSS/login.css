@@ -18,9 +18,6 @@ form {
   gap: 15px; /* Espacement uniforme entre les éléments */
 }
 
-form:hover {
-  transform: scale(1.02);
-}
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 label {
