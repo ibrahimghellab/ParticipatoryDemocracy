@@ -52,7 +52,7 @@ class User extends Modele
         // Fermer la session cURL
         curl_close($ch);
 
-
+        echo $response;
         return $response;
     }
     public static function getUserDataFromAPI($userId)
@@ -79,7 +79,42 @@ class User extends Modele
         curl_close($ch);
 
         // Retourner la réponse décodée en JSON
-        echo $response;
         return json_decode($response, true);
+    }
+
+    public static function connect()
+    {
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/'; // Exemple d'URL d'API
+
+        // Initialiser cURL
+        $ch = curl_init($url);
+
+        // Encoder les données en JSON
+        $jsonData = json_encode($_POST);
+
+        // Définir les options cURL pour une requête POST
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPGET, true);          // Méthode GET
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData); // Données à envoyer
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',            // Type de contenu JSON
+            'Content-Length: ' . strlen($jsonData)       // Longueur des données
+        ));
+
+        // Exécuter la requête et récupérer la réponse
+        $response = curl_exec($ch);
+
+
+        // Vérifier s'il y a une erreur
+        if (curl_errno($ch)) {
+            echo 'Erreur cURL: ' . curl_error($ch);
+            return null;
+        }
+
+        // Fermer la session cURL
+        curl_close($ch);
+
+        echo $response;
+        return $response;
     }
 }

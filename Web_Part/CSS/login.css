@@ -18,9 +18,6 @@ form {
   gap: 15px; /* Espacement uniforme entre les éléments */
 }
 
-form:hover {
-  transform: scale(1.02);
-}
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 label {
@@ -86,4 +83,45 @@ body{
   margin: 0;
   padding: 0;
 
+}
+
+.input-field {
+  position: relative;
+}
+
+.input-field label {
+  position: absolute;
+  color: #8d8d8d;
+  pointer-events: none;
+  background-color: transparent;
+  left: 15px;
+  transform: translateY(0.6rem);
+  transition: all 0.3s ease;
+}
+
+.input-field input {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: solid 1px #8d8d8d;
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+.input-field input:focus,
+.input-field input:valid {
+  outline: none;
+  border: solid 1px #7190c0;
+}
+
+.input-field input:focus ~ label,
+.input-field input:valid ~ label {
+  transform: translateY(-51%) translateX(-10px) scale(0.8);
+  background-color: #fff;
+  padding: 0px 5px;
+  color: #7190c0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 100px;
 }

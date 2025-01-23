@@ -8,9 +8,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo json_encode(User::getUserById($url[1]), JSON_PRETTY_PRINT);
     } elseif (!empty($url[1]) && is_numeric($url[1]) && $url[2] == "groupes") {
         echo json_encode(User::getGroupesByUser($url[1]), JSON_PRETTY_PRINT);
+    } elseif(empty($url[1])) {
+        echo User::checkUser();
     } else {
-
-        throw new Exception("Test erreur");
+        throw new Exception("Test ??");
     }
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo User::createUser();
