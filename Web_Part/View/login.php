@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../CSS/login.css">
     <link rel="stylesheet" href="../CSS/default.css">
 
+
     <title>Log-in</title>
 </head>
 
@@ -26,19 +27,23 @@
             <form action="./../Controller/UserController.php" method="POST">
                 <input type="hidden" name="action" value="connect">
                 <input type="hidden" name="controleur" value="UserController">
-                <label for="email">Email : </label>
-                <input type="text" name="email" id="email">
+                <div class="input-field">
+                    <input type="text" name="email"id="email" required>
+                    <label for="email">Email : </label>
+                </div>
 
 
-
-                <label for="">Mot de passe : </label>
-                <input type="password">
+                <div class="input-field">
+                    <input type="password" required>
+                    <label for="">Mot de passe : </label>
+                </div>
 
                 <div class="submit">
                     <button type="submit" id="submit-button">Envoyer</button>
                 </div>
 
             </form>
+
         </div>
     </main>
 

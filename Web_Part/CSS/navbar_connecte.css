@@ -1,0 +1,149 @@
+/* Mise en forme de la navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+  }
+  
+  nav img {
+    width: 100px;
+    height: 100px;
+    max-width: 200px;
+    max-height: 200px;
+  }
+  
+  /* Styles pour la partie droite de la navbar */
+  .nav-right {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+  }
+  
+  li {
+    margin: 0 15px;
+  }
+  
+  /* Liens dans la navbar */
+  a {
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #7190c0;
+    border: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  a:hover {
+    background-color: #5a759e;
+    transform: scale(1.05);
+  }
+  
+  a:active {
+    transform: scale(0.95);
+  }
+  
+  /* Menu déroulant */
+  .menu {
+    position: relative;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 8px 15px;
+    color: #fff;
+    background-color: #7190c0;
+    border: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn:hover {
+    background-color: #5a759e;
+    transform: scale(1.05);
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+  }
+  
+  .liste-pages {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f1f1f1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 100px; /* Réduire la largeur de la dropdown */
+    z-index: 10;
+    border-radius: 5px;
+    box-sizing: border-box; /* Assurez-vous que les bordures et le padding sont inclus dans la largeur */
+  }
+  
+  /* Changer la disposition des éléments de la liste */
+  .liste-pages a {
+    display: block; /* Chaque lien est maintenant sur une ligne */
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Assurez-vous que les liens remplissent la largeur du conteneur */
+    box-sizing: border-box; /* Inclure le padding dans la largeur totale */
+  }
+  
+  .liste-pages a:hover {
+    background-color: #ddd;
+  }
+  
+  .menu:hover .liste-pages {
+    display: block; /* Afficher la liste des pages au survol */
+  }
+  
+  /* Optionnel : Importation de la police Roboto via Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+  
+  /* Styles généraux */
+  h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.6;
+  }
+  
+
+  
