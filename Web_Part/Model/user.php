@@ -52,7 +52,7 @@ class User extends Modele
         // Fermer la session cURL
         curl_close($ch);
 
-
+        echo $response;
         return $response;
     }
     public static function getUserDataFromAPI($userId)
@@ -79,7 +79,6 @@ class User extends Modele
         curl_close($ch);
 
         // Retourner la réponse décodée en JSON
-        echo $response;
         return json_decode($response, true);
     }
 
@@ -94,8 +93,8 @@ class User extends Modele
         $jsonData = json_encode($_POST);
 
         // Définir les options cURL pour une requête POST
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  // Retourner la réponse sous forme de chaîne
-        curl_setopt($ch, CURLOPT_GET, true);             // Méthode GET
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPGET, true);          // Méthode GET
         curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData); // Données à envoyer
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json',            // Type de contenu JSON
@@ -115,7 +114,7 @@ class User extends Modele
         // Fermer la session cURL
         curl_close($ch);
 
-
+        echo $response;
         return $response;
     }
 }

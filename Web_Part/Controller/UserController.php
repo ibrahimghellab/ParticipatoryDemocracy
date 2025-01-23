@@ -19,8 +19,9 @@ class UserController
         session_start();
         $tab = json_decode(User::connect(), true);
         if ($tab["id"]>0) {
-            $_SESSION["id"]=$tab["id"]
-            require_once(__DIR__ . "/../View/groupe.php");
+            $_SESSION["id"]=$tab["id"];
+            print_r( $_SESSION);
+            //require_once(__DIR__ . "/../View/groupe.php");
             require_once(__DIR__ . "/../View/popup-log-in-succes.html");
         } else {
             require_once(__DIR__ . "/../View/login.php");
