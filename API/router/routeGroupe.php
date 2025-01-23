@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo json_encode(Groupe::getMembresByGroupe($url[1]), JSON_PRETTY_PRINT);
     } else {
 
-        throw new Exception("Test erreur");
+        throw new Exception("TestGroupe");
     }
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo Groupe::createGroupe(id: 5);

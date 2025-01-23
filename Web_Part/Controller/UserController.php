@@ -2,7 +2,7 @@
 require_once("../Model/user.php");
 class UserController
 {
-    public static function sendPostRequest()
+    public static function createAccount()
     {
         $tab = json_decode(User::sendPostRequest(), true);
         if ($tab["message"] == "true") {
@@ -12,6 +12,19 @@ class UserController
             require_once(__DIR__ . "/../View/signup.php");
             require_once(__DIR__ . "/../View/popup-sign-up-fail.html");
 
+        }
+    }
+
+    public static function connect(){
+        session_start();
+        $tab = json_decode(User::connect(), true);
+        if ($tab["id"]>0) {
+            $_SESSION["id"]=$tab["id"]
+            require_once(__DIR__ . "/../View/groupe.php");
+            require_once(__DIR__ . "/../View/popup-log-in-succes.html");
+        } else {
+            require_once(__DIR__ . "/../View/login.php");
+            require_once(__DIR__ . "/../View/popup-log-in-fail.html");
         }
     }
     public static function getUserDataFromAPI($userId)
@@ -42,6 +55,6 @@ class UserController
 }
 
 
-UserController::sendPostRequest();
+UserController::connect();
 //UserController::getUserDataFromAPI(5);
 ?>

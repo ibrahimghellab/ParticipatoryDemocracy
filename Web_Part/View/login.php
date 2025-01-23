@@ -24,7 +24,8 @@
         </div>
         <div>
             <form action="./../Controller/UserController.php" method="POST">
-
+                <input type="hidden" name="action" value="connect">
+                <input type="hidden" name="controleur" value="UserController">
                 <label for="email">Email : </label>
                 <input type="text" name="email" id="email">
 

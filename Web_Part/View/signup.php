@@ -25,6 +25,8 @@
         </div>
         <div class="form-group">
             <form action="./../Controller/UserController.php" method="POST">
+                <input type="hidden" name="action" value="createAccount">
+                <input type="hidden" name="controleur" value="UserController">
                 <label for="nom">Nom : </label>
                 <input type="text" name="nom" id="nom" required>
 
