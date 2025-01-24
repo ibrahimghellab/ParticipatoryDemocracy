@@ -1,0 +1,46 @@
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70vh;
+  }
+  
+  .groupe{
+
+    position: absolute;
+    top: 125*px; /* Par exemple, si ta navbar fait 50px, utilise top: 50px */
+    left: 20px; /* Positionne à gauche */
+    font-size: 2rem; /* Ajuste la taille du texte comme tu veux */
+    font-weight: 600; /* Comme tu as déjà utilisé un poids élevé dans le label, tu peux garder la même logique */
+    color: #ffffff; /* La couleur du texte */
+}
+  
+  
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+  
+  label {
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 600;
+    font-size: 14px;
+    color: #000;
+    font-size: 1rem; /* Taille standard pour du texte descriptif */
+    font-weight: 400; /* Poids normal pour un style discret */
+    color: #555; /* Couleur légèrement plus claire que le h1 */
+    line-height: 1.6; /* Amélioration de la lisibilité */
+  }
+  
+ 
+ 
+  
+  
+  body{
+  
+    background-image: url('./background2.svg'); /* Chemin vers votre image */
+    background-size: cover; /* L'image occupe tout l'écran en gardant ses proportions */
+    background-repeat: no-repeat; /* Évite la répétition de l'image */
+    background-position: center; /* Centre l'image */
+    height: 100vh; /* Assure que le fond couvre toute la hauteur de la page */
+    margin: 0;
+    padding: 0;
+  }
+  
