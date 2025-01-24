@@ -223,23 +223,24 @@ class User
             $requetePreparee = Connexion::pdo()->prepare("SELECT idInternaute FROM Internaute WHERE email=:email");
             $requetePreparee->bindParam(":email", $tab["email"], PDO::PARAM_STR);
             $requetePreparee->execute();
-        }
-        if ($requetePreparee->rowCount() > 0) {
-            $resultat = $requetePreparee->fetch(PDO::FETCH_ASSOC);
-            $idInternaute = $resultat['idInternaute']; // Récupère l'ID dans une variable
-        } else {
-            // Gérer le cas où l'email n'existe pas
-            throw new Exception("L'email n'est pas dans la base");
-        }
-        $u = static::getUserById($idInternaute);
-        $salt = $u->get("salt");
-        $hash = hash("sha256", $tab["password"] . $salt);
+            if ($requetePreparee->rowCount() > 0) {
+                $resultat = $requetePreparee->fetch(PDO::FETCH_ASSOC);
+                $idInternaute = $resultat['idInternaute']; // Récupère l'ID dans une variable
+            } else {
+                // Gérer le cas où l'email n'existe pas
+                throw new Exception("L'email n'est pas dans la base");
+            }
+            $u = static::getUserById($idInternaute);
+            $salt = $u->get("salt");
+            $hash = hash("sha256", $tab["password"] . $salt);
 
-        if ($u->get("hash") == $hash) {
-            return json_encode(array(
-                "id" => $idInternaute
-            ));
+            if ($u->get("hash") == $hash) {
+                return json_encode(array(
+                    "id" => $idInternaute
+                ));
+            }
         }
+
 
 
 
