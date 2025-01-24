@@ -15,14 +15,14 @@ class UserController
         }
     }
 
-    public static function connect(){
+    public static function connect()
+    {
         session_start();
         $tab = json_decode(User::connect(), true);
-        if ($tab["id"]>0) {
-            $_SESSION["id"]=$tab["id"];
-            print_r( $_SESSION);
+        if (isset($tab["id"]) && $tab["id"] > 0) {
+            $_SESSION["id"] = $tab["id"];
             //require_once(__DIR__ . "/../View/groupe.php");
-            require_once(__DIR__ . "/../View/popup-log-in-succes.html");
+            require_once(__DIR__ . "/../View/popup-log-in-success.html");
         } else {
             require_once(__DIR__ . "/../View/login.php");
             require_once(__DIR__ . "/../View/popup-log-in-fail.html");
@@ -56,6 +56,6 @@ class UserController
 }
 
 
-UserController::connect();
+echo UserController::connect();
 //UserController::getUserDataFromAPI(5);
 ?>
