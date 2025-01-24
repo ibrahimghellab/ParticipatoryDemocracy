@@ -8,7 +8,7 @@ main {
   .groupe{
 
     position: absolute;
-    top: 125*px; /* Par exemple, si ta navbar fait 50px, utilise top: 50px */
+    top: 125px; /* Par exemple, si ta navbar fait 50px, utilise top: 50px */
     left: 20px; /* Positionne à gauche */
     font-size: 2rem; /* Ajuste la taille du texte comme tu veux */
     font-weight: 600; /* Comme tu as déjà utilisé un poids élevé dans le label, tu peux garder la même logique */
