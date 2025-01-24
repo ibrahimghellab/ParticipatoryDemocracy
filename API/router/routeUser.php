@@ -3,7 +3,6 @@ require_once(__DIR__ . "/../config/connexion.php");
 require_once(__DIR__ . "/../Model/user.php");
 
 Connexion::connect();
-echo $_SERVER["REQUEST_METHOD"];
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (!empty($url[1]) && is_numeric($url[1]) && empty($url[2])) {
         echo json_encode(User::getUserById($url[1]), JSON_PRETTY_PRINT);
@@ -16,7 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         throw new Exception("Test ??");
     }
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo User::createUser();
+    if ($url[1] == "get-id") {
+        echo User::checkUser();
+    } else {
+        echo User::createUser();
+    }
 } elseif ($_SERVER["REQUEST_METHOD"] == "PUT") {
     echo User::updateUser($url[1]);
 } elseif ($_SERVER["REQUEST_METHOD"] == "DELETE") {
