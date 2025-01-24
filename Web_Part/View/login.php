@@ -28,13 +28,13 @@
                 <input type="hidden" name="action" value="connect">
                 <input type="hidden" name="controleur" value="UserController">
                 <div class="input-field">
-                    <input type="text" name="email"id="email" required>
+                    <input type="text" name="email" id="email" required>
                     <label for="email">Email : </label>
                 </div>
 
 
                 <div class="input-field">
-                    <input type="password" required>
+                    <input type="password" name="password" id="password" required>
                     <label for="">Mot de passe : </label>
                 </div>
 
