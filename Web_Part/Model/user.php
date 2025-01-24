@@ -52,7 +52,6 @@ class User extends Modele
         // Fermer la session cURL
         curl_close($ch);
 
-        echo $response;
         return $response;
     }
     public static function getUserDataFromAPI($userId)
@@ -84,21 +83,22 @@ class User extends Modele
 
     public static function connect()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/'; // URL de l'API
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/get-id'; // URL de l'API
 
         // Initialiser cURL
         $ch = curl_init($url);
 
         // Encoder les données en JSON
+
         $jsonData = json_encode($_POST); // Adapter les données ici si nécessaire
 
         // Définir explicitement une requête GET avec un corps JSON
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Recevoir la réponse comme chaîne
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData); // Ajouter des données dans le corps
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET'); // Définir la méthode GET
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  // Retourner la réponse sous forme de chaîne
+        curl_setopt($ch, CURLOPT_POST, true);             // Méthode POST
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData); // Données à envoyer
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',           // Type de contenu JSON
-            'Content-Length: ' . strlen($jsonData)      // Longueur des données
+            'Content-Type: application/json',            // Type de contenu JSON
+            'Content-Length: ' . strlen($jsonData)       // Longueur des données
         ));
 
         // Exécuter la requête et récupérer la réponse
@@ -112,9 +112,6 @@ class User extends Modele
 
         // Fermer la session cURL
         curl_close($ch);
-
-        // Afficher ou retourner la réponse
-        echo $response;
         return $response;
 
     }
