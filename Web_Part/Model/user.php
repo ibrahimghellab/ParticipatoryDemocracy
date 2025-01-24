@@ -84,26 +84,25 @@ class User extends Modele
 
     public static function connect()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/'; // Exemple d'URL d'API
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/'; // URL de l'API
 
         // Initialiser cURL
         $ch = curl_init($url);
 
         // Encoder les données en JSON
-        $jsonData = json_encode($_POST);
+        $jsonData = json_encode($_POST); // Adapter les données ici si nécessaire
 
-        // Définir les options cURL pour une requête POST
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPGET, true);          // Méthode GET
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData); // Données à envoyer
+        // Définir explicitement une requête GET avec un corps JSON
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Recevoir la réponse comme chaîne
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData); // Ajouter des données dans le corps
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET'); // Définir la méthode GET
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',            // Type de contenu JSON
-            'Content-Length: ' . strlen($jsonData)       // Longueur des données
+            'Content-Type: application/json',           // Type de contenu JSON
+            'Content-Length: ' . strlen($jsonData)      // Longueur des données
         ));
 
         // Exécuter la requête et récupérer la réponse
         $response = curl_exec($ch);
-
 
         // Vérifier s'il y a une erreur
         if (curl_errno($ch)) {
@@ -114,7 +113,9 @@ class User extends Modele
         // Fermer la session cURL
         curl_close($ch);
 
+        // Afficher ou retourner la réponse
         echo $response;
         return $response;
+
     }
 }

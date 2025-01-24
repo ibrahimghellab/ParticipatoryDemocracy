@@ -12,11 +12,13 @@ class User
     private $hash;
     private $salt;
 
-    public function get($attribut){
+    public function get($attribut)
+    {
         return $this->$attribut;
     }
-    public function set($attribut,$valeur){
-        $this->$attribut=$valeur;
+    public function set($attribut, $valeur)
+    {
+        $this->$attribut = $valeur;
     }
 
     public static function getUserById($id)
@@ -213,12 +215,13 @@ class User
     }
 
 
-    public static function checkUser(){
+    public static function checkUser()
+    {
         $body = file_get_contents("php://input");
         $tab = json_decode($body, true);
-        if(isset($tab["email"]) && isset($tab["password"])){
+        if (isset($tab["email"]) && isset($tab["password"])) {
             $requetePreparee = Connexion::pdo()->prepare("SELECT idInternaute FROM Internaute WHERE email=:email");
-            $requetePreparee->bindParam(":email",$tab["email"],PDO::PARAM_STR);
+            $requetePreparee->bindParam(":email", $tab["email"], PDO::PARAM_STR);
             $requetePreparee->execute();
         }
         if ($requetePreparee->rowCount() > 0) {
@@ -228,20 +231,20 @@ class User
             // Gérer le cas où l'email n'existe pas
             throw new Exception("L'email n'est pas dans la base");
         }
-        $u=static::getUserById($idInternaute);
+        $u = static::getUserById($idInternaute);
         $salt = $u->get("salt");
         $hash = hash("sha256", $tab["password"] . $salt);
 
-        if($u->get("hash")==$hash){
+        if ($u->get("hash") == $hash) {
             return json_encode(array(
-                "id"=>$idInternaute
+                "id" => $idInternaute
             ));
         }
-        
-        
+
+
 
         return json_encode(array(
-            "id"=>-1
+            "id" => -1
         ));
     }
 
