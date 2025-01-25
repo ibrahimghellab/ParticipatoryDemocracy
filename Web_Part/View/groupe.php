@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/groupe.css">
-    
+
 
 
     <title>Groupe</title>
@@ -18,16 +18,22 @@
             ?>
     </header>
     <main>
-        <div class="groupe">
-            <h1>Vos groupes :</h1>
+        <div class="groupes">
+            <div>
+                <a href="lien vers creation groupe">+ Nouveau Groupe </a>
+            </div>
+
+            <?php
+            $tab = UserController::getGroupesByUserId($_SESSION["id"]);
+            for ($i = 0; $i < sizeof($tab); $i++) {
+                echo '<div class="groupe">' . $tab[$i]["nomGroupe"] . '</div>';
+            }
+            require_once(__DIR__ . "/../Controller/UserController.php");
+            print_r(UserController::getGroupesByUserId($_SESSION["id"]));
+            ?>
+
         </div>
-        <div>
-    <?php 
-    require_once(__DIR__ . "/../Controller/UserController.php");
-    print_r(UserController::getGroupesByUserId($_SESSION["id"]));
-    
-    ?>
-        </div>
+
     </main>
 
 

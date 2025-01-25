@@ -1,46 +1,131 @@
-main {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 70vh;
-  }
-  
-  .groupe{
-
-    position: absolute;
-    top: 125px; /* Par exemple, si ta navbar fait 50px, utilise top: 50px */
-    left: 20px; /* Positionne à gauche */
-    font-size: 2rem; /* Ajuste la taille du texte comme tu veux */
-    font-weight: 600; /* Comme tu as déjà utilisé un poids élevé dans le label, tu peux garder la même logique */
-    color: #ffffff; /* La couleur du texte */
+/* Reset général */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-  
-  
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-  
-  label {
-    font-family: 'Roboto', sans-serif; 
-    font-weight: 600;
-    font-size: 14px;
-    color: #000;
-    font-size: 1rem; /* Taille standard pour du texte descriptif */
-    font-weight: 400; /* Poids normal pour un style discret */
-    color: #555; /* Couleur légèrement plus claire que le h1 */
-    line-height: 1.6; /* Amélioration de la lisibilité */
-  }
-  
- 
- 
-  
-  
-  body{
-  
-    background-image: url('./background2.svg'); /* Chemin vers votre image */
-    background-size: cover; /* L'image occupe tout l'écran en gardant ses proportions */
-    background-repeat: no-repeat; /* Évite la répétition de l'image */
-    background-position: center; /* Centre l'image */
-    height: 100vh; /* Assure que le fond couvre toute la hauteur de la page */
-    margin: 0;
-    padding: 0;
-  }
-  
+
+/* Corps de la page */
+body {
+  font-family: "Roboto", sans-serif;
+  background-image: url("./background2.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Permet une disposition verticale */
+}
+
+/* Barre de navigation */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Hauteur de la barre */
+  background-color: #007bff; /* Couleur de fond */
+  color: white;
+  display: flex;
+  align-items: center; /* Alignement vertical du contenu */
+  justify-content: space-between; /* Espace entre les éléments */
+  padding: 0 20px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); /* Ombre sous la barre */
+  z-index: 1000; /* Toujours au-dessus des autres éléments */
+}
+
+header #logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+header nav ul li {
+  display: inline;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #ffdd57; /* Couleur au survol */
+}
+
+/* Conteneur principal pour les groupes */
+.groupes {
+  position: fixed;
+  top: 60px; /* Décalage pour éviter la barre de navigation */
+  left: 0;
+  width: 25%; /* Taille en largeur */
+  height: calc(100vh - 60px); /* Hauteur de la fenêtre moins la barre */
+  background-color: #f5f5f5; /* Couleur de fond */
+  padding: 10px;
+  display: flex;
+  flex-direction: column; /* Aligne les éléments en colonne */
+  gap: 10px; /* Espacement entre les éléments */
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); /* Ombre sur la droite */
+  overflow-y: auto; /* Active le défilement vertical si nécessaire */
+  scroll-behavior: smooth;
+}
+
+/* Bouton "Nouveau Groupe" */
+#new-groupe {
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+  padding: 15px;
+  font-weight: 600;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+#new-groupe:hover {
+  background-color: #0056b3;
+}
+
+/* Style pour chaque groupe */
+.groupe {
+  height: 80px; /* Taille fixe */
+  background-color: #ffffff; /* Couleur de fond */
+  display: flex;
+  align-items: center; /* Centrage vertical */
+  justify-content: center; /* Centrage horizontal */
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333333;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.groupe:hover {
+  transform: translateY(-2px); /* Animation légère de survol */
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15); /* Accentuation de l'ombre */
+}
+
+/* Contenu principal */
+#main-content {
+  margin-left: 25%; /* Décalage par rapport à la colonne de groupes */
+  margin-top: 60px; /* Décalage par rapport à la barre de navigation */
+  padding: 20px;
+  height: calc(100vh - 60px); /* Hauteur ajustée */
+  overflow-y: auto; /* Active le défilement vertical si nécessaire */
+  background-color: #ffffff; /* Fond blanc pour le contenu */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Ombre douce interne */
+}
