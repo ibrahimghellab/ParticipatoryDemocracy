@@ -81,7 +81,7 @@ input:focus {
 
 body{
 
-  background-image: url('./background.svg'); /* Chemin vers votre image */
+  background-image: url('../assets/background.svg'); /* Chemin vers votre image */
   background-size: cover; /* L'image occupe tout l'écran en gardant ses proportions */
   background-repeat: no-repeat; /* Évite la répétition de l'image */
   background-position: center; /* Centre l'image */
