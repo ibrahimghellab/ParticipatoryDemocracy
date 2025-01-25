@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         throw new Exception("TestGroupe");
     }
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo Groupe::createGroupe(id: 5);
+    echo Groupe::createGroupe($url[1]);
 } elseif ($_SERVER["REQUEST_METHOD"] == "PUT") {
     echo Groupe::updateGroupe($url[1]);
 } elseif ($_SERVER["REQUEST_METHOD"] == "DELETE") {
