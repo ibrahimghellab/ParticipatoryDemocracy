@@ -35,7 +35,7 @@ main {
   
   body{
   
-    background-image: url('./background2.svg'); /* Chemin vers votre image */
+    background-image: url('../assets/background2.svg'); /* Chemin vers votre image */
     background-size: cover; /* L'image occupe tout l'écran en gardant ses proportions */
     background-repeat: no-repeat; /* Évite la répétition de l'image */
     background-position: center; /* Centre l'image */

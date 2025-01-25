@@ -19,7 +19,6 @@
     </header>
     <main>
         <div class="groupe">
-            <h1>Vos groupes :</h1>
         </div>
         <div>
     <?php 

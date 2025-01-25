@@ -36,8 +36,7 @@ nav {
   /* Liens dans la navbar */
   a {
     display: inline-block;
-    padding: 5px 10px;
-    text-decoration: none;
+    padding: 8px 15px;
     color: #fff;
     background-color: #7190c0;
     border: none;
@@ -45,7 +44,9 @@ nav {
     font-family: Arial, sans-serif;
     font-size: 16px;
     text-align: center;
+    cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   a:hover {
