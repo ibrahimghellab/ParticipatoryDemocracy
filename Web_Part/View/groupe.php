@@ -22,7 +22,11 @@
             <h1>Vos groupes :</h1>
         </div>
         <div>
-
+    <?php 
+    require_once(__DIR__ . "/../Controller/UserController.php");
+    print_r(UserController::getGroupesByUserId($_SESSION["id"]));
+    
+    ?>
         </div>
     </main>
 

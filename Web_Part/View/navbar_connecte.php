@@ -8,7 +8,13 @@
   </div>
   <div class="nav-right">
     <ul>
-      <li><a href="./deconnexion.php">déconnexion</a></li>
+      <!-- <li>
+      <form method="POST" action="./../Controller/UserController.php">
+      <button type="submit">déconnexion</button>
+      </form> -->
+      <li><a href="./../Controller/routeur.php?controleur=UserControlleur&action=disconnect">déconnexion</a></li>
+
+    <!-- </li> -->
       <li><a href="./signup.php">créer un compte</a></li>
       <!-- Menu déroulant -->
       <li class="menu">

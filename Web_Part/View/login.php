@@ -24,7 +24,7 @@
             <p>Veuillez saisir vos informations</p>
         </div>
         <div>
-            <form action="./../Controller/UserController.php" method="POST">
+            <form action="./../Controller/routeur.php?controleur=UserControlleur&action=connect" method="POST">
                 <input type="hidden" name="action" value="connect">
                 <input type="hidden" name="controleur" value="UserController">
                 <div class="input-field">
