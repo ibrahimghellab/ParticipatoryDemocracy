@@ -20,7 +20,8 @@
     <main>
         <div class="groupes">
             <div>
-                <a href="lien vers creation groupe">+ Nouveau Groupe </a>
+                <a href="./../Controller/routeur.php?controleur=GroupeController&action=createGroupe">+ Nouveau Groupe
+                </a>
             </div>
 
             <?php

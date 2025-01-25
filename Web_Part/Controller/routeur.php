@@ -5,10 +5,8 @@
 // Liste des contrôleurs autorisés
 $tableauControleurs = [
     "UserController" => __DIR__ . "/../Controller/UserController.php",
-    // Ajouter d'autres contrôleurs ici, par exemple :
-    // "ProductController" => __DIR__ . "/../Controller/ProductController.php",
+    "GroupeController" => __DIR__ . "/../Controller/GroupeController.php"
 ];
-
 // Définir le contrôleur et l'action par défaut
 $controleur = "UserController";
 $action = "connect"; // Par défaut pour ce projet

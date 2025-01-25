@@ -23,23 +23,23 @@
             <form method="POST" action=>
 
                 <div>
-                <label for="nom">Nom du groupe : </label>
-                <input type="text" name="nom" id="nom">
-                </div>
-                
-                <div>
-                <label for="description">Description : </label>
-                <input type="text" name="description" id="description">
-                </div>
-                
-                <div>
-                <label for="fileInput">Choisissez un fichier :</label>
-                <input type="file" id="fileInput" name="fileInput">
+                    <label for="nom">Nom du groupe : </label>
+                    <input type="text" name="nom" id="nom" required>
                 </div>
 
                 <div>
-                <label for="color">Choisissez une couleur :</label>
-                <input type="color" id="color" name="color" value="#000000">
+                    <label for="description">Description : </label>
+                    <input type="text" name="description" id="description" required>
+                </div>
+
+                <div>
+                    <label for="fileInput">Choisissez un fichier :</label>
+                    <input type="file" id="fileInput" name="fileInput" required>
+                </div>
+
+                <div>
+                    <label for="couleur">Choisissez une couleur :</label>
+                    <input type="color" id="couleur" name="couleur" value="#000000" required>
                 </div>
 
                 <div class="submit">
@@ -48,7 +48,7 @@
 
             </form>
         </div>
-       
+
     </main>
 
 

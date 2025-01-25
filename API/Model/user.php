@@ -83,7 +83,6 @@ class User
     {
         $body = file_get_contents("php://input");
         $tab = json_decode($body, true);
-        $result = false;
         if (isset($tab["nom"]) && isset($tab["prenom"]) && isset($tab["adresse"]) && isset($tab["email"]) && isset($tab["password"])) {
             require_once(__DIR__ . "/../config/connexion.php");
 
@@ -99,7 +98,6 @@ class User
 
             try {
                 $requetePreparee->execute();
-                $result = true;
             } catch (PDOException $e) {
                 header("HTTP/1.1 500 Internal Server Error");
                 return json_encode(array("message" => "false"));
@@ -240,10 +238,6 @@ class User
                 ));
             }
         }
-
-
-
-
         return json_encode(array(
             "id" => -1
         ));
