@@ -26,5 +26,22 @@ class Commentaire
 
         return json_encode(array("message" => "true"));
     }
+
+    public static function getReactionByCommentaire($id)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        require_once(__DIR__ . "/../Model/reaction.php");
+        $requeteAvecTags = "SELECT emoticone,COUNT(*) AS nb FROM Reaction R INNER JOIN CommentaireReaction CR ON R.idReaction=CR.idReaction INNER JOIN Commentaire C ON CR.idCommentaire=C.idCommentaire WHERE C.idCommentaire=:id GROUP BY emoticone;";
+        $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+
+        try {
+            $requetePreparee->execute();
+            $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Reaction");
+            return $requetePreparee->fetchAll();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
 ?>
