@@ -1,0 +1,75 @@
+body {
+    background-image: url('../assets/background3.svg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    height: 100vh;
+    padding: 20px;
+    padding-top: 60px; /* Add padding to move the div higher */
+}
+
+form {
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 600px; /* Increased max-width for better space usage */
+    transition: all 0.1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Increased gap for better spacing */
+    border-radius: 12px; /* Rounded corners */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* Bold text */
+    font-size: 1.5rem; /* Adjusted size for better visibility */
+    color: #555; /* Slightly lighter color */
+    line-height: 1.6; /* Improved readability */
+    text-align: center; /* Center align the text */
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 15px; /* Increased padding for better touch targets */
+    font-size: 16px; /* Slightly larger font size */
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd; /* Thinner border */
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    border-color: #7190c0; /* Border color on focus */
+    outline: none;
+}
+
+.submit {
+    text-align: center;
+}
+
+button {
+    background-color: #7190c0;
+    color: #fff;
+    padding: 15px 30px; /* Increased padding for better touch targets */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #5a78a0;
+}
