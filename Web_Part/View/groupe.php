@@ -25,11 +25,11 @@
             </div>
 
             <?php
+            require_once(__DIR__ . "/../Controller/UserController.php");
             $tab = UserController::getGroupesByUserId($_SESSION["id"]);
             for ($i = 0; $i < sizeof($tab); $i++) {
                 echo '<div class="groupe" style="display:grid;grid-template-columns:3fr 1fr;gap:10px;padding-left:20px">' . $tab[$i]["nomGroupe"] . '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $tab[$i]["couleurGroupe"] . '"></div></div>';
             }
-            require_once(__DIR__ . "/../Controller/UserController.php");
             print_r(UserController::getGroupesByUserId($_SESSION["id"]));
             ?>
 
