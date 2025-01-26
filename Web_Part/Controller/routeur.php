@@ -12,8 +12,8 @@ $controleur = "UserController";
 $action = "connect"; // Par défaut pour ce projet
 
 // Vérifier si un contrôleur est spécifié et valide
-if (isset($_GET["controleur"]) && array_key_exists($_GET["controleur"], $tableauControleurs)) {
-    $controleur = $_GET["controleur"];
+if (isset($_POST["controleur"]) && array_key_exists($_POST["controleur"], $tableauControleurs)) {
+    $controleur = $_POST["controleur"];
 }
 
 // Inclure dynamiquement le fichier du contrôleur
@@ -26,8 +26,8 @@ if (isset($tableauControleurs[$controleur])) {
 }
 
 // Vérifier si une action est spécifiée et existe dans le contrôleur
-if (isset($_GET["action"]) && method_exists($controleur, $_GET["action"])) {
-    $action = $_GET["action"];
+if (isset($_POST["action"]) && method_exists($controleur, $_POST["action"])) {
+    $action = $_POST["action"];
 }
 
 // Appeler dynamiquement la méthode du contrôleur
