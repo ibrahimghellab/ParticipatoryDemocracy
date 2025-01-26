@@ -15,29 +15,32 @@
 <body>
     <header>
         <?php
-        include(__DIR__ . "/../View/navbar_connecte.php")
-            ?>
+              session_start(); // Start the session
+              include(__DIR__ . "/../View/navbar_connecte.php");
+              include(__DIR__ . "/../Model/user.php");
+              
+        ?>
     </header>
     <main>
         <div>
         <h2>Vos informations personnelles :</h2>
 
-            <form method="POST">
+            <form method="POST" >
 
                 <div>
-                    <input type="text" name="nom" id="nom" >
+                    <input type="text" name="nom" id="nom" value="<?php echo User::getUserDataFromAPI($_SESSION["id"])["nom"] ?>">
                 </div>
 
                 <div>
-                    <input type="text" name="prenom" id="prenom" >
+                    <input type="text" name="prenom" id="prenom"  value="<?php echo User::getUserDataFromAPI($_SESSION["id"])["prenom"] ?>" >
                 </div>
 
                 <div>
-                    <input type="email" id="mail" name="mail" >
+                    <input type="email" id="mail" name="mail"  value="<?php echo User::getUserDataFromAPI($_SESSION["id"])["email"] ?>">
                 </div>
 
                 <div>
-                    <input type="text" id="adresse" name="adresse">
+                    <input type="text" id="adresse" name="adresse"  value="<?php echo User::getUserDataFromAPI($_SESSION["id"])["adresse"] ?>">
                 </div>
 
                 <div class="submit">
