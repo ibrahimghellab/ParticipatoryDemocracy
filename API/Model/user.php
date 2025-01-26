@@ -142,33 +142,11 @@ class User
         $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
         try {
             $requetePreparee->execute();
-            $result = true;
         } catch (PDOException $e) {
-            http_response_code(500);
-            return json_encode($response = [
-                "code" => http_response_code(500),
-                "message" => $e->getMessage()
-            ], JSON_PRETTY_PRINT);
+            header("HTTP/1.1 500 Internal Server Error");
+            return json_encode(array("message" => "false"));
         }
-
-        if ($result) {
-            http_response_code(200);
-            $response = [
-                "code" => http_response_code(200),
-                "message" => "User  supprimé."
-            ];
-
-        } else {
-            http_response_code(500);
-            $response = [
-                "code" => http_response_code(500),
-                "message" => "ERREUR: Le user n'as pas été supprimé."
-            ];
-        }
-
-
-
-        return (json_encode($response, JSON_PRETTY_PRINT));
+        return json_encode(array("message" => "true"));
 
     }
 

@@ -43,5 +43,40 @@ class Commentaire
             echo $e->getMessage();
         }
     }
+
+    public static function getCommentaireById($id)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        require_once(__DIR__ . "/../Model/membre.php");
+        $requeteAvecTags = "SELECT * FROM Commentaire WHERE idCommentaire=:id;";
+        $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+
+        try {
+            $requetePreparee->execute();
+            $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Membre");
+            return $requetePreparee->fetch();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public static function getSignalementsByCommentaire($id)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        require_once(__DIR__ . "/../Model/signalement.php");
+        $requeteAvecTags = "SELECT * FROM Signalement S INNER JOIN signaler CS ON S.idSignalement=CS.idSignalement INNER JOIN Commentaire C ON CS.idCommentaire=C.idCommentaire WHERE C.idCommentaire=:id;";
+        $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+
+        try {
+            $requetePreparee->execute();
+            $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Signalement");
+            return $requetePreparee->fetchAll();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
 }
 ?>
