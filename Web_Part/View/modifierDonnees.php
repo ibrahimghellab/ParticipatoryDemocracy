@@ -57,6 +57,15 @@
                 </div>
 
             </form>
+            <form method="POST" action="./../Controller/routeur.php">
+                <input type="hidden" name="controleur" value="UserController">
+                <input type="hidden" name="action" value="deleteUser">
+
+                <div class="submit">
+                    <button type="submit" id="submit-button">Supprimer mon compte</button>
+                </div>
+
+            </form>
         </div>
 
     </main>
