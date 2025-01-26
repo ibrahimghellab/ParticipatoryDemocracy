@@ -20,8 +20,16 @@
     <main>
         <div class="groupes">
             <div>
-                <a href="./../Controller/routeur.php?controleur=GroupeController&action=createGroupe">+ Nouveau Groupe
-                </a>
+                <form method="POST" action="./../Controller/routeur.php">
+                    <input type="hidden" name="controleur" value="GroupeController">
+                    <input type="hidden" name="action" value="createGroupe">
+
+                    <div class="submit">
+                        <button type="submit" id="submit-button">+ Nouveau Groupe</button>
+                    </div>
+
+                </form>
+
             </div>
 
             <?php
