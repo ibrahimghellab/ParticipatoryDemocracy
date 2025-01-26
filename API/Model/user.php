@@ -132,10 +132,6 @@ class User
 
     public static function deleteUser($id)
     {
-        $body = file_get_contents("php://input");
-        $tab = json_decode($body, true);
-        $result = false;
-
         require_once(__DIR__ . "/../config/connexion.php");
 
         $requetePreparee = Connexion::pdo()->prepare("DELETE FROM Internaute WHERE idInternaute=:id;");
