@@ -3,15 +3,6 @@
 class User
 {
 
-    private $idInternaute;
-    private $nom;
-    private $prenom;
-    private $adresse;
-    private $email;
-    private $dateCreation;
-    private $hash;
-    private $salt;
-
     public function get($attribut)
     {
         return $this->$attribut;
@@ -24,19 +15,12 @@ class User
     public static function getUserById($id)
     {
         require_once(__DIR__ . "/../config/connexion.php");
-        $requeteAvecTags = "SELECT * FROM Internaute WHERE idInternaute=:id;";
+        $requeteAvecTags = "SELECT * FROM Internaute WHERE idInternaute= :id ;";
         $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
-
-
-        $valeurs = array();
-        if (strlen($id) > 0) {
-            $valeurs["id"] = $id;
-        } else {
-            $valeurs["id"] = NULL;
-        }
-
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
         try {
-            $requetePreparee->execute($valeurs);
+            $requetePreparee->execute();
+
             $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "User");
             return $requetePreparee->fetch();
 
