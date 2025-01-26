@@ -126,23 +126,22 @@ class UserController
     //     return json_encode(array("message" => "true"));
     // }
 
-        public static function updateUser($id)
-        {
-   
-                $tab = json_decode(User::updateUser(), true);
-                if ($tab["message"] == "true") {
-                    require_once(__DIR__ . "/../View/modifierDonnees.php");
-                    require_once(__DIR__ . "/../View/popup-sign-up-succes.html");
-                } else {
-                    require_once(__DIR__ . "/../View/modifierDonnees.php");
-                    require_once(__DIR__ . "/../View/popup-sign-up-fail.html");
-        
-                }
-
-
-
+    public static function updateUser()
+    {
+        $tab = json_decode(User::updateUser(), true);
+        if ($tab["message"] == "true") {
+            require_once(__DIR__ . "/../View/groupe.php");
+            require_once(__DIR__ . "/../View/popup-sign-up-succes.html");
+        } else {
+            require_once(__DIR__ . "/../View/modifierDonnees.php");
+            require_once(__DIR__ . "/../View/popup-sign-up-fail.html");
 
         }
+
+
+
+
+    }
 
 }
 ?>
