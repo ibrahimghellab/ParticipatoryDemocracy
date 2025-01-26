@@ -115,4 +115,38 @@ class User extends Modele
         return $response;
 
     }
+
+    public static function updateUser()
+    {
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/'. $_SESSION["id"]; // Exemple d'URL d'API
+
+        // Initialiser cURL
+        $ch = curl_init($url);
+
+        // Encoder les données en JSON
+        $jsonData = json_encode($_POST);
+        // Définir les options cURL pour une requête POST
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT"); // Méthode PUT
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData); // Envoyer les données
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json', // Type de contenu JSON
+        'Content-Length: ' . strlen($jsonData) // Longueur des données
+        ]);
+
+        // Exécuter la requête et récupérer la réponse
+        $response = curl_exec($ch);
+
+
+        // Vérifier s'il y a une erreur
+        if (curl_errno($ch)) {
+            echo 'Erreur cURL: ' . curl_error($ch);
+            return null;
+        }
+
+        // Fermer la session cURL
+        curl_close($ch);
+
+        return $response;
+    }
 }

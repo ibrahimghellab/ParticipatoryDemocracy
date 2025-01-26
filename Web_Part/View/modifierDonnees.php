@@ -25,8 +25,9 @@
         <div>
         <h2>Vos informations personnelles :</h2>
 
-            <form method="POST" >
-
+            <form method="POST" action="./../Controller/routeur.php" >
+                <input type="hidden" name="controleur" value="UserController">
+                <input type="hidden" name="action" value="updateUser">
                 <div>
                     <input type="text" name="nom" id="nom" value="<?php echo User::getUserDataFromAPI($_SESSION["id"])["nom"] ?>">
                 </div>
@@ -41,6 +42,10 @@
 
                 <div>
                     <input type="text" id="adresse" name="adresse"  value="<?php echo User::getUserDataFromAPI($_SESSION["id"])["adresse"] ?>">
+                </div>
+
+                <div>
+                    <input type="password" id="password" name="password"  value="********">
                 </div>
 
                 <div class="submit">
