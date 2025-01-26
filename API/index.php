@@ -38,6 +38,7 @@
 require_once("config/connexion.php");
 require_once("Model/groupe.php");
 require_once("Model/user.php");
+require_once("Model/commentaire.php");
 
 Connexion::connect();
 $error = array();
@@ -52,6 +53,14 @@ try {
             case "user":
                 require_once("router/routeUser.php");
                 break;
+            case "commentaire":
+                require_once("router/routeCommentaire.php");
+                break;
+            case "proposition":
+                require_once("router/routeProposition.php");
+                break;
+            default:
+                throw new Exception("Rien ne correspond");
         }
     } else {
         require_once("documentation/index.html");
