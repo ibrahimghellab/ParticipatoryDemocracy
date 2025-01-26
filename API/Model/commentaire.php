@@ -64,14 +64,14 @@ class Commentaire
     public static function getSignalementsByCommentaire($id)
     {
         require_once(__DIR__ . "/../config/connexion.php");
-        require_once(__DIR__ . "/../Model/signalement.php");
-        $requeteAvecTags = "SELECT * FROM Signalement S INNER JOIN signaler CS ON S.idSignalement=CS.idSignalement INNER JOIN Commentaire C ON CS.idCommentaire=C.idCommentaire WHERE C.idCommentaire=:id;";
+        require_once(__DIR__ . "/../Model/signaler.php");
+        $requeteAvecTags = "SELECT * FROM Signaler S INNER JOIN Commentaire C ON S.idCommentaire=C.idCommentaire WHERE C.idCommentaire=:id;";
         $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
         $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
 
         try {
             $requetePreparee->execute();
-            $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Signalement");
+            $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Signaler");
             return $requetePreparee->fetchAll();
         } catch (PDOException $e) {
             echo $e->getMessage();

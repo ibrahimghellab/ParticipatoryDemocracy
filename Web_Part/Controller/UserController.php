@@ -141,19 +141,18 @@ class UserController
     }
 
     public static function deleteUser()
-        {
-   
-            $tab = json_decode(User::deleteUser(), true);
-            var_dump($tab);
-            if ($tab["message"] == "true") {
-                require_once(__DIR__ . "/../View/signup.php");
-                require_once(__DIR__ . "/../View/popup-sign-up-succes.html");
-            } else {
-                require_once(__DIR__ . "/../View/groupe.php");
-                require_once(__DIR__ . "/../View/popup-sign-up-fail.html");
-    
-            }
+    {
+
+        $tab = json_decode(User::deleteUser(), true);
+        if ($tab["message"] == "true") {
+            require_once(__DIR__ . "/../View/signup.php");
+            require_once(__DIR__ . "/../View/popup-sign-up-succes.html");
+        } else {
+            require_once(__DIR__ . "/../View/groupe.php");
+            require_once(__DIR__ . "/../View/popup-sign-up-fail.html");
+
         }
+    }
 
 }
 ?>

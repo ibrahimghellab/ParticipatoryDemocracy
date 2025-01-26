@@ -155,8 +155,7 @@ class User extends Modele
     public static function deleteUser()
     {
         session_start();
-        $url = 'https://projets.iut-orsay.fr/API/user/' . $_SESSION["id"]; // Exemple d'URL d'API
-
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/' . $_SESSION["id"]; // Exemple d'URL d'API
         // Initialiser cURL
         $ch = curl_init($url);
 
