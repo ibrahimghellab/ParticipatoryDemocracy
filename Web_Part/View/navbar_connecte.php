@@ -23,7 +23,7 @@
           <div class="liste-pages">
             <a href="./../View/modifierDonnees.php">Link 1</a>
             <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+            <a href="./../Controller/routeur.php?controleur=UserControlleur&action=deleteUser">Supprimer compte</a>
           </div>
         </div>
       </li>

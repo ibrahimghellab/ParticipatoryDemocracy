@@ -150,4 +150,33 @@ class User extends Modele
 
         return $response;
     }
+
+
+    public static function deleteUser()
+    {
+        $url = 'https://projets.iut-orsay.fr/API/user/' . $_SESSION["id"]; // Exemple d'URL d'API
+
+        // Initialiser cURL
+        $ch = curl_init($url);
+
+        // Définir les options cURL pour une requête DELETE
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE"); // Méthode DELETE
+
+        // Exécuter la requête et récupérer la réponse
+        $response = curl_exec($ch);
+
+        // Vérifier s'il y a une erreur
+        if (curl_errno($ch)) {
+            echo 'Erreur cURL: ' . curl_error($ch);
+            return null;
+        }
+
+        // Fermer la session cURL
+        curl_close($ch);
+
+        return $response;
+    }
+
+
 }
