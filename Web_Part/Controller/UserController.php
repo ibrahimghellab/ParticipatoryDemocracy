@@ -144,6 +144,7 @@ class UserController
         {
    
             $tab = json_decode(User::deleteUser(), true);
+
             if ($tab["message"] == "true") {
                 require_once(__DIR__ . "/../View/signup.php");
                 require_once(__DIR__ . "/../View/popup-sign-up-succes.html");
