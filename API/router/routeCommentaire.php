@@ -7,6 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     if (is_numeric($url[1]) && $url[2] == "reactions") {
         echo json_encode(Commentaire::getReactionByCommentaire($url[1]), JSON_PRETTY_PRINT);
+
+    } elseif (is_numeric($url[1]) && empty($url[2])) {
+        echo json_encode(Commentaire::getCommentaireById($url[1]), JSON_PRETTY_PRINT);
     } else {
 
         throw new Exception("TestGroupe");
