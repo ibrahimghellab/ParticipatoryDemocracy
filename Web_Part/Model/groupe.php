@@ -85,9 +85,9 @@ class Groupe extends Modele
         return $response;
     }
 
-    public static function getPropositionsByGroupe($id)
+    public static function getPropositionsByGroupe()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/groupe/' . $id . '/propositions';
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/groupe/' . $_POST["id"] . '/propositions';
 
         // Initialiser cURL
         $ch = curl_init($url);
