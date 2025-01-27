@@ -16,7 +16,11 @@ class GroupeController
         require_once(__DIR__ . "/../View/proposition.php");
     }
 
-
+    public static function deleteGroupe()
+    {
+        Groupe::deleteGroupe();
+        require_once(__DIR__ . "/../View/groupe.php");
+    }
 
 }
 ?>
