@@ -27,12 +27,13 @@ nav img {
 /* Partie droite de la navbar */
 .nav-right {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
 ul {
   display: flex;
-  align-items: center;
+  justify-content: space-around;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -40,7 +41,6 @@ ul {
 
 li {
   margin: 0 15px;
-  position: relative; /* Nécessaire pour le menu déroulant */
 }
 
 /* Liens dans la navbar */
@@ -57,7 +57,6 @@ a {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-decoration: none;
 }
 
 a:hover {
@@ -78,7 +77,7 @@ a:active {
 .liste-pages {
   display: none;
   position: absolute;
-  top: calc(100% + 5px); /* Juste en dessous du bouton avec un espace */
+  top: calc(100% + 5px); /* Juste en dessous du bouton avec un petit espace */
   right: 0; /* Aligner le menu à droite */
   background-color: #f1f1f1;
   list-style-type: none;
@@ -106,8 +105,9 @@ a:active {
   background-color: #ddd;
 }
 
-/* Afficher le menu au survol */
-.menu:hover .liste-pages {
+/* Afficher le menu lorsque la souris est sur le conteneur parent */
+.menu:hover .liste-pages,
+.dropdown:hover .liste-pages {
   display: block;
 }
 
