@@ -31,8 +31,7 @@ class Proposition
         if (isset($tab["titre"]) && isset($tab["description"]) && isset($tab["theme"]) && isset($tab["status"]) && isset($tab["idMembre"])) {
             require_once(__DIR__ . "/../config/connexion.php");
 
-            $sql = "INSERT INTO Proposition(titre, description, dateCreation, theme, status, voteDemande,idVote,idMembre) VALUES (:titre, :description, CURRENT_DATE(), :theme:, :status,0, null,:idMembre);";
-
+            $sql = "INSERT INTO Proposition(titre, description, dateCreation, theme, status, voteDemande,idVote,idMembre) VALUES (:titre, :description, CURRENT_DATE(), :theme, :status,0, null,:idMembre);";
             $requetePreparee = Connexion::pdo()->prepare($sql);
             $requetePreparee->bindParam(":titre", $tab["titre"], PDO::PARAM_STR);
             $requetePreparee->bindParam(":description", $tab["description"], PDO::PARAM_STR);
