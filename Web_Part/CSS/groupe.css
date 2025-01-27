@@ -86,3 +86,12 @@ body {
   background-color: #ffffff; /* Fond blanc pour le contenu */
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Ombre douce interne */
 }
+
+
+/* .trash-icon {
+  transition: transform 0.2s;
+}
+
+.trash-icon:hover {
+  transform: scale(1.5);
+} */
