@@ -11,6 +11,13 @@ $tableauControleurs = [
 $controleur = "UserController";
 $action = "connect"; // Par défaut pour ce projet
 
+
+if($_POST["controleur"] == "GroupeControlleur" && $_POST["action"] == "deleteGroupe" && isset($_POST["id"])){
+    GroupeController::deleteGroupe();
+    require_once(__DIR__ . "/../View/groupe.php");
+    exit;
+  
+}
 // Vérifier si un contrôleur est spécifié et valide
 if (isset($_POST["controleur"]) && array_key_exists($_POST["controleur"], $tableauControleurs)) {
     $controleur = $_POST["controleur"];
