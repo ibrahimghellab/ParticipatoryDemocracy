@@ -217,6 +217,14 @@ class Groupe
         $requeteAvecTags = "SELECT P.idProposition FROM Membre M INNER JOIN Proposition P ON P.idMembre = M.idMembre WHERE M.idGroupe = :idGroupe;";
         $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
         $requetePreparee->bindParam(":idGroupe", $id, PDO::PARAM_INT);
+        try {
+            $requetePreparee->execute();
+            $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Proposition");
+            return $requetePreparee->fetchAll();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 
 }

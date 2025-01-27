@@ -31,19 +31,28 @@
                 </form>
 
             </div>
+            <form method="POST" action="./../View/proposition.php">';
+                <input type="hidden" name="controleur" value="UserController">';
+                <input type="hidden" name="action" value="afficherProposition">';
+                <?php
+                require_once(__DIR__ . "/../Controller/UserController.php");
+                $tab = UserController::getGroupesByUserId($_SESSION["id"]);
+                print_r($tab);
+                for ($i = 0; $i < count($tab); $i++) {
+                    echo '<div class="submit">';
+                    echo '<input type="hidden" name="id" value="' . $tab[$i]["idGroupe"] . '">';
+                    echo '<button type="submit" id="submit-button2">' . $tab[$i]["nomGroupe"] . '<div
+                        style="border-radius:50%;width:20px;height:20px;background-color:"' . $tab[$i]["couleurGroupe"]
+                        . "'></div>
+                </button>";
 
-            <?php
-            require_once(__DIR__ . "/../Controller/UserController.php");
-            $tab = UserController::getGroupesByUserId($_SESSION["id"]);
-            for ($i = 0; $i < count($tab); $i++) {
-                echo '<div class="groupe" style="display:grid;grid-template-columns:3fr 1fr;gap:10px;padding-left:20px">' . $tab[$i]["nomGroupe"] . '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $tab[$i]["couleurGroupe"] . '"></div></div>';
-            }
-            ?>
-
+                } ?>
+            </form>
         </div>
         <div>
 
         </div>
+
 
     </main>
 

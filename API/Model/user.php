@@ -45,7 +45,7 @@ class User
     {
         require_once(__DIR__ . "/../config/connexion.php");
         require_once(__DIR__ . "/../Model/user.php");
-        $requeteAvecTags = "SELECT G.nomGroupe,imageGroupe,couleurGroupe,G.dateCreation,description" .
+        $requeteAvecTags = "SELECT G.idGroupe,G.nomGroupe,imageGroupe,couleurGroupe,G.dateCreation,description" .
             " FROM Groupe G" .
             " INNER JOIN Membre M ON G.idGroupe=M.idGroupe" .
             " INNER JOIN Internaute I ON I.idInternaute=M.idInternaute" .
