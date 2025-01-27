@@ -10,9 +10,9 @@ class GroupeController
     }
 
 
-    public static function getPropositionsByGroupe($id)
+    public static function getPropositionsByGroupe()
     {
-        $tab = Groupe::getPropositionsByGroupe($id);
+        $tab = Groupe::getPropositionsByGroupe();
         require_once(__DIR__ . "/../View/proposition.php");
     }
 
