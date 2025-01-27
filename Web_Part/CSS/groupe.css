@@ -62,7 +62,7 @@ body {
   background-color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: 1rem;
   font-weight: 500;
   color: #333333;
@@ -85,4 +85,5 @@ body {
 
 .trash-icon:hover {
   transform: scale(1.5); /* Agrandissement au survol */
+  background-color: red;
 }
