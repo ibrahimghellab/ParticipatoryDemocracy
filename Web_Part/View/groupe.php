@@ -39,7 +39,16 @@
             }
             $tab = UserController::getGroupesByUserId($_SESSION["id"]);
             for ($i = 0; $i < count($tab); $i++) {
-                echo '<div class="groupe" style="display:grid;grid-template-columns:3fr 1fr;gap:10px;padding-left:20px">' . $tab[$i]["nomGroupe"] . '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $tab[$i]["couleurGroupe"] . '"></div></div>';
+                echo '<form method="POST" action="./../Controller/routeur.php">';
+                echo '<input type="hidden" name="id" value="' . $tab[$i]["idGroupe"] . '">';
+                echo '<input type="hidden" name="controleur" value="GroupeController">';
+                echo '<input type="hidden" name="action" value="getPropositionsByGroupe">';
+                echo '<button type="submit"><div class="groupe" style="display:grid;grid-template-columns:3fr 1fr;gap:10px;padding-left:20px">' . $tab[$i]["nomGroupe"] . '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $tab[$i]["couleurGroupe"] . '"></div></div></button>';
+                echo '</form>';
+
+
+
+
                 echo '<form method="POST" action="./../Controller/routeur.php">';
                 echo '<input type="hidden" name="id" value="' . $tab[$i]["idGroupe"] . '">';
                 echo '<input type="hidden" name="controleur" value="GroupeController">';
