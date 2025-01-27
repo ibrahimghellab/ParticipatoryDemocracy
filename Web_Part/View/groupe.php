@@ -39,13 +39,15 @@
             }
             $tab = UserController::getGroupesByUserId($_SESSION["id"]);
             for ($i = 0; $i < count($tab); $i++) {
-                echo '<div class="groupe" style="display:grid;grid-template-columns:3fr 1fr;gap:10px;padding-left:20px">' . $tab[$i]["nomGroupe"] . '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $tab[$i]["couleurGroupe"] . '"></div></div>';
-                echo '<form method="POST" action="./../Controller/routeur.php">';
+                echo '<div class="groupe" style="display:flex;align-items:center;justify-content:space-between;padding-left:20px">';
+                echo '<div style="display:flex;align-items:center;">' . $tab[$i]["nomGroupe"] . '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $tab[$i]["couleurGroupe"] . ';margin-left:10px;"></div></div>';
+                echo '<form method="POST" action="./../Controller/routeur.php" style="margin:10;">';
                 echo '<input type="hidden" name="id" value="' . $tab[$i]["idGroupe"] . '">';
                 echo '<input type="hidden" name="controleur" value="GroupeController">';
                 echo '<input type="hidden" name="action" value="deleteGroupe">';
-                echo '<button type="submit" id="delete-button">Supprimer Groupe</button>';
+                echo '<button type="submit" id="delete-button" style="background:none;border:none;"><img src="./../assets/poubelle.svg" alt="Supprimer Groupe" class="trash-icon" style="width:20px;height:20px;margin-right:10px;"></button>';
                 echo '</form>';
+                echo '</div>';
             }
             ?>
 
