@@ -86,4 +86,6 @@ body {
 .trash-icon:hover {
   transform: scale(1.5); /* Agrandissement au survol */
   background-color: red;
+  border-radius: 50%; /* Forme ronde */
+
 }
