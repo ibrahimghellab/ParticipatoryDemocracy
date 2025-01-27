@@ -10,7 +10,11 @@ class GroupeController
     }
 
 
-
+    public static function deleteGroupe()
+    {
+        Groupe::deleteGroupe();
+        require_once(__DIR__ . "/../View/groupe.php");
+    }
 
 }
 ?>
