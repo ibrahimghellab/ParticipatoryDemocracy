@@ -18,8 +18,7 @@
       <!-- Menu déroulant -->
       <li class="menu">
         <div class="dropdown">
-          <button class="btn">Dropdown</button>
-          <div class="liste-pages">
+            <button class="btn menu-btn"><img src="./../assets/menu.svg" alt="menu" class="menu-icon"></button>          <div class="liste-pages">
             <a href="./../View/modifierDonnees.php">Mon profil</a>
             <a href="./../Controller/routeur.php?controleur=UserControlleur&action=disconnect">déconnexion</a>
 
