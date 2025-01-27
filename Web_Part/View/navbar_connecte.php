@@ -21,9 +21,9 @@
         <div class="dropdown">
           <button class="btn">Dropdown</button>
           <div class="liste-pages">
-            <a href="./../View/modifierDonnees.php">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="./../Controller/routeur.php">Supprimer compte</a>
+            <a href="./../View/modifierDonnees.php">Modifier compte</a>
+            <a href="">2</a>
+            <a href="">3</a>
           </div>
         </div>
       </li>
