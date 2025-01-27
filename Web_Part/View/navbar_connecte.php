@@ -14,8 +14,7 @@
       </form> -->
       <li><a href="./../View/groupe.php">Mes groupes</a></li>
 
-      <!-- </li> -->
-      <li><a href="./signup.php">créer un compte</a></li>
+
       <!-- Menu déroulant -->
       <li class="menu">
         <div class="dropdown">
