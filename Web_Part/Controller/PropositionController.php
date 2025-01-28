@@ -5,11 +5,18 @@ class PropositionController
 {
     public static function createProposition()
     {
-        $tab = json_decode(Proposition::createProposition(), true);
-        if ($tab["message"] == "true") {
-            echo "reussi";
+        // Assuming Proposition::createProposition() returns an array
+        $result = Proposition::createProposition();
+        
+        // No need to decode if it's already an array
+        if (is_array($result)) {
+            if ($result["message"] == "true") {
+                echo "reussi";
+            } else {
+                echo "echec";
+            }
         } else {
-            echo "echec";
+            echo "Erreur : Le résultat n'est pas un tableau.";
         }
     }
 
