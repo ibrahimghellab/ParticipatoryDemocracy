@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     include(__DIR__ . "/../View/navbar_connecte.php");
     ?>
 </header>
+
 <body>
     <div class="container">
         <div class="groupes">
@@ -31,7 +33,7 @@
             $tab = UserController::getGroupesByUserId($_SESSION["id"]);
             for ($i = 0; $i < count($tab); $i++) {
                 echo '<div class="groupe">';
-                echo '<form method="POST" action="./../View/groupe.php" style="flex-grow: 1; display: flex; align-items: center;">';
+                echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
                 echo '<input type="hidden" name="id" value="' . $tab[$i]["idGroupe"] . '">';
                 echo '<input type="hidden" name="controleur" value="GroupeController">';
                 echo '<input type="hidden" name="action" value="getPropositionsByGroupe">';
@@ -90,4 +92,5 @@
         </div>
     </div>
 </body>
+
 </html>

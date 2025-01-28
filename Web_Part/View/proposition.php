@@ -22,7 +22,7 @@
         $tab = Groupe::getPropositionsByGroupe();
         for ($i = 0; $i < count($tab); $i++) {
 
-
+            print_r($tab);
             echo "<div class='proposition'>";
             echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
             echo '<input type="hidden" name="idProposition" value="' . $tab[$i]["idProposition"] . '">';
