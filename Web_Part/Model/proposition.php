@@ -38,7 +38,7 @@ class Proposition extends Modele
             'description' => $_POST["description"],
             'theme' => $_POST['theme'],
             'status' => $_POST['status'],
-            'idMembre' => $_POST['idMembre']
+            'idMembre' => 48 //faux
         ];
 
         // Convertir les données en format JSON
