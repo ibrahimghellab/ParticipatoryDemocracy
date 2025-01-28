@@ -162,5 +162,26 @@ class Proposition
         }
     }
 
+    public static function getVoteByProposition($id)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        require_once(__DIR__ . "/../Model/vote.php");
+
+        $requeteAvecTags = "SELECT * FROM Vote WHERE idVote=:id;";
+        $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
+
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+
+        try {
+            $requetePreparee->execute();
+            $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Vote");
+            return $requetePreparee->fetchAll();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
+    }
+
 }
 ?>
