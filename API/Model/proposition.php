@@ -167,7 +167,7 @@ class Proposition
         require_once(__DIR__ . "/../config/connexion.php");
         require_once(__DIR__ . "/../Model/vote.php");
 
-        $requeteAvecTags = "SELECT * FROM Vote WHERE idVote=:id;";
+        $requeteAvecTags = "SELECT * FROM Vote V INNER JOIN Proposition P ON V.idVote=P.idVote WHERE idProposition=:id;";
         $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
 
         $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
