@@ -20,7 +20,6 @@ body {
 
 /* Conteneur principal pour les groupes */
 .groupes {
-  position: fixed;
   top: 100px; /* Décalage pour éviter la barre de navigation */
   left: 0;
   width: 25%; /* Taille en largeur */
