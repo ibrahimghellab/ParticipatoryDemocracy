@@ -214,7 +214,7 @@ class Groupe
     {
         require_once(__DIR__ . "/../config/connexion.php");
         require_once(__DIR__ . "/../Model/proposition.php");
-        $requeteAvecTags = "SELECT P.idProposition FROM Membre M INNER JOIN Proposition P ON P.idMembre = M.idMembre WHERE M.idGroupe = :idGroupe;";
+        $requeteAvecTags = "SELECT * FROM Membre M INNER JOIN Proposition P ON P.idMembre = M.idMembre WHERE M.idGroupe = :idGroupe;";
         $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
         $requetePreparee->bindParam(":idGroupe", $id, PDO::PARAM_INT);
         try {
