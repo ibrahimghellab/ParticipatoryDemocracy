@@ -31,7 +31,7 @@
             $tab = UserController::getGroupesByUserId($_SESSION["id"]);
             for ($i = 0; $i < count($tab); $i++) {
                 echo '<div class="groupe">';
-                echo '<form method="POST" action="./../View/groupe.php" style="flex-grow: 1; display: flex; align-items: center;">';
+                echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
                 echo '<input type="hidden" name="id" value="' . $tab[$i]["idGroupe"] . '">';
                 echo '<input type="hidden" name="controleur" value="GroupeController">';
                 echo '<input type="hidden" name="action" value="getPropositionsByGroupe">';
@@ -50,44 +50,6 @@
             ?>
         </div>
 
-        <div class="group-details">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Numéro du groupe</th>
-                        <th>Nom du groupe</th>
-                        <th>Couleur du groupe</th>
-                        <th>Nom de l'image</th>
-                        <th>Date de création</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    if (isset($_POST['id']) && isset($_POST['controleur']) && $_POST['controleur'] == 'GroupeController' && $_POST['action'] == 'getPropositionsByGroupe') {
-                        $groupId = $_POST['id'];
-                        $groupDetails = null;
-                        foreach ($tab as $group) {
-                            if ($group['idGroupe'] == $groupId) {
-                                $groupDetails = $group;
-                                break;
-                            }
-                        }
-                        if ($groupDetails) {
-                            echo '<tr>';
-                            echo '<td>' . $groupDetails['idGroupe'] . '</td>';
-                            echo '<td>' . $groupDetails['nomGroupe'] . '</td>';
-                            echo '<td><div style="width:20px;height:20px;background-color:' . $groupDetails['couleurGroupe'] . ';"></div></td>';
-                            echo '<td>' . $groupDetails['imageGroupe'] . '</td>';
-                            echo '<td>' . $groupDetails['dateCreation'] . '</td>';
-                            echo '<td>' . $groupDetails['description'] . '</td>';
-                            echo '</tr>';
-                        }
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
     </div>
 </body>
 </html>
