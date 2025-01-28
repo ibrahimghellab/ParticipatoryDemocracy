@@ -12,6 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo json_encode(Proposition::getCommentaireByProposition($url[1]), JSON_PRETTY_PRINT);
     } elseif (!empty($url[1]) && is_numeric($url[1]) && $url[2] == "votes") {
         echo json_encode(Proposition::getVoteByProposition($url[1]), JSON_PRETTY_PRINT);
+    } elseif (!empty($url[1]) && is_numeric($url[1]) && $url[2] == "infos") {
+        echo json_encode(Proposition::getInfoByProposition($url[1]), JSON_PRETTY_PRINT);
     } else {
         throw new Exception("Test ??");
     }

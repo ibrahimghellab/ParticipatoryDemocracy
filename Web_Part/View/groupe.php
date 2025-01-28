@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     include(__DIR__ . "/../View/navbar_connecte.php");
     ?>
 </header>
+
 <body>
     <div class="container">
         <div class="groupes">
@@ -52,4 +54,5 @@
 
     </div>
 </body>
+
 </html>

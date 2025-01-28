@@ -12,6 +12,7 @@
     ?>
 </header>
 <body>
+<<<<<<< HEAD
     <div class="container">
         <div class="groupes">
             <?php
@@ -35,6 +36,44 @@
             }
             ?>
         </div>
+=======
+    <?php require_once(__DIR__ . "/../View/groupe.php"); ?>
+    <main>
+
+        <?php
+
+        require_once(__DIR__ . "/../Controller/GroupeController.php");
+        require_once(__DIR__ . "/../Model/groupe.php");
+        $tab = Groupe::getPropositionsByGroupe();
+        for ($i = 0; $i < count($tab); $i++) {
+
+            print_r($tab);
+            echo "<div class='proposition'>";
+            echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
+            echo '<input type="hidden" name="idProposition" value="' . $tab[$i]["idProposition"] . '">';
+            echo '<input type="hidden" name="titre" value="' . $tab[$i]["titre"] . '">';
+            echo '<input type="hidden" name="description" value="' . $tab[$i]["description"] . '">';
+            echo '<input type="hidden" name="dateCreation" value="' . $tab[$i]["dateCreation"] . '">';
+            echo '<input type="hidden" name="theme" value="' . $tab[$i]["theme"] . '">';
+
+
+
+            echo '<input type="hidden" name="controleur" value="PropositionController">';
+            echo '<input type="hidden" name="action" value="getAllByProposition">';
+            echo '<button type="submit" style="background:none;border:none;flex-grow: 1; text-align: left; padding: 0;">';
+            echo '<div style="display:flex;align-items:center;width:100%;">' . $tab[$i]["titre"] . " " . $tab[$i]["description"] . " " . $tab[$i]["theme"] . " " . $tab[$i]["idVote"] . '</div>';
+            echo '</button>';
+            echo '</form>';
+            echo '</div>';
+            print_r($tab);
+        }
+        ?>
+
+
+    </main>
+
+
+>>>>>>> edc734f7d6da942944e960a4bc26c2bfd94d55f9
 
         <div class="group-details">
             <table>
