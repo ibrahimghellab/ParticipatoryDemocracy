@@ -17,8 +17,8 @@
     <main>
         <div>
             <form method="POST" action="./../Controller/routeur.php">
-                <input type="hidden" name="controleur" value="DemandeController">
-                <input type="hidden" name="action" value="createDemande">
+                <input type="hidden" name="controleur" value="PropositionController">
+                <input type="hidden" name="action" value="createProposition">
 
                 <div>
                     <label for="titre">Titre : </label>
@@ -30,7 +30,7 @@
                     <input type="text" name="description" id="description" required>
                 </div>
 
-        
+
 
                 <div>
                     <label for="theme">Thème : </label>
