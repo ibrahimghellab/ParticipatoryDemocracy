@@ -30,10 +30,7 @@
                     <input type="text" name="description" id="description" required>
                 </div>
 
-                <div>
-                    <label for="dateCreation">Date de création : </label>
-                    <input type="date" name="dateCreation" id="dateCreation" required>
-                </div>
+        
 
                 <div>
                     <label for="theme">Thème : </label>
@@ -45,10 +42,7 @@
                     <input type="text" name="status" id="status" required>
                 </div>
 
-                <!-- <div>
-                    <label for="voteDemande">Vote de demande : </label>
-                    <input type="number" name="voteDemande" id="voteDemande" min="0" max="1" required>
-                </div> -->
+    
 
                 <div class="submit">
                     <button type="submit" id="submit-button">Créer</button>
