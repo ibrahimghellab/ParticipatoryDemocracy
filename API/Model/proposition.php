@@ -182,6 +182,19 @@ class Proposition
         }
 
     }
-
+    public static function getInfoByProposition($id)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        $requeteAvecTags = "SELECT * FROM Proposition WHERE idProposition=:id;";
+        $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+        try {
+            $requetePreparee->execute();
+            $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Proposition");
+            return $requetePreparee->fetch();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
 ?>
