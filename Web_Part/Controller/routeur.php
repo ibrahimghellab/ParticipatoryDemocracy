@@ -5,12 +5,19 @@
 // Liste des contrôleurs autorisés
 $tableauControleurs = [
     "UserController" => __DIR__ . "/../Controller/UserController.php",
-    "GroupeController" => __DIR__ . "/../Controller/GroupeController.php"
+    "GroupeController" => __DIR__ . "/../Controller/GroupeController.php",
+    "PropositionController" => __DIR__ . "/../Controller/PropositionController.php",
 ];
 // Définir le contrôleur et l'action par défaut
 $controleur = "UserController";
 $action = "connect"; // Par défaut pour ce projet
 
+if ($_POST["controleur"] == "PropositionController" && $_POST["action"] == "getAllByProposition" && isset($_POST["idProposition"])) {
+    echo "ici";
+    PropositionController::getAllByProposition();
+    exit;
+
+}
 
 if ($_POST["controleur"] == "GroupeControlleur" && $_POST["action"] == "deleteGroupe" && isset($_POST["id"])) {
     GroupeController::deleteGroupe();
