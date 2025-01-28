@@ -19,13 +19,13 @@ if ($_POST["controleur"] == "PropositionController" && $_POST["action"] == "getA
 
 }
 
-if ($_POST["controleur"] == "GroupeControlleur" && $_POST["action"] == "deleteGroupe" && isset($_POST["id"])) {
+if ($_POST["controleur"] == "GroupeController" && $_POST["action"] == "deleteGroupe" && isset($_POST["id"])) {
     GroupeController::deleteGroupe();
     require_once(__DIR__ . "/../View/groupe.php");
     exit;
 
 }
-if ($_POST["controleur"] == "GroupeControlleur" && $_POST["action"] == "getPropositionsByGroupe" && isset($_POST["id"])) {
+if ($_POST["controleur"] == "GroupeController" && $_POST["action"] == "getPropositionsByGroupe" && isset($_POST["id"])) {
     GroupeController::getPropositionsByGroupe();
     require_once(__DIR__ . "/../View/proposition.php");
     exit;
