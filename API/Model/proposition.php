@@ -124,5 +124,43 @@ class Proposition
 
     }
 
+    public static function getReactionByProposition($id)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        require_once(__DIR__ . "/../Model/reaction.php");
+        $requeteAvecTags = "SELECT emoticone,COUNT(*) FROM Reaction R INNER JOIN PropositionReaction PR ON R.idReaction=PR.idReaction WHERE idProposition=:id GROUP BY emoticone;";
+        $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
+
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+
+        try {
+            $requetePreparee->execute();
+            $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Reaction");
+            return $requetePreparee->fetchAll();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public static function getCommentaireByProposition($id)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        require_once(__DIR__ . "/../Model/commentaire.php");
+        $requeteAvecTags = "SELECT * FROM Commentaire WHERE idProposition=:id;";
+        $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
+
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+
+        try {
+            $requetePreparee->execute();
+            $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Commentaire");
+            return $requetePreparee->fetchAll();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
 }
 ?>
