@@ -26,6 +26,13 @@
             echo "<div class='proposition'>";
             echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
             echo '<input type="hidden" name="idProposition" value="' . $tab[$i]["idProposition"] . '">';
+            echo '<input type="hidden" name="titre" value="' . $tab[$i]["titre"] . '">';
+            echo '<input type="hidden" name="description" value="' . $tab[$i]["description"] . '">';
+            echo '<input type="hidden" name="dateCreation" value="' . $tab[$i]["dateCreation"] . '">';
+            echo '<input type="hidden" name="theme" value="' . $tab[$i]["theme"] . '">';
+
+
+
             echo '<input type="hidden" name="controleur" value="PropositionController">';
             echo '<input type="hidden" name="action" value="getAllByProposition">';
             echo '<button type="submit" style="background:none;border:none;flex-grow: 1; text-align: left; padding: 0;">';
