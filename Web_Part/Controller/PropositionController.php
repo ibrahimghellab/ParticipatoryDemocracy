@@ -15,9 +15,10 @@ class PropositionController
 
     public static function getAllByProposition()
     {
-        $vote = json_decode(Proposition::getVoteByProposition(), true);
-        $reaction = json_decode(Proposition::getReactionByProposition(), true);
-        $commentaire = json_decode(Proposition::getCommentaireByProposition(), true);
+        print_r($_POST);
+        $vote = Proposition::getVoteByProposition();
+        $reaction = Proposition::getReactionByProposition();
+        $commentaire = Proposition::getCommentaireByProposition();
 
         print_r($vote);
         print_r($reaction);
