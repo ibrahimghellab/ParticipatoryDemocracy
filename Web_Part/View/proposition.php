@@ -12,17 +12,29 @@
 </head>
 
 <body>
-
+    <?php require_once(__DIR__ . "/../View/groupe.php"); ?>
     <main>
 
         <?php
-        require_once(__DIR__ . "/../View/groupe.php");
+
         require_once(__DIR__ . "/../Controller/GroupeController.php");
         require_once(__DIR__ . "/../Model/groupe.php");
-        echo "test";
         $tab = Groupe::getPropositionsByGroupe();
-        print_r($tab);
+        for ($i = 0; $i < count($tab); $i++) {
 
+
+            echo "<div class='proposition'>";
+            echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
+            echo '<input type="hidden" name="id" value="' . $tab[$i]["idProposition"] . '">';
+            echo '<input type="hidden" name="controleur" value="GroupeController">';
+            echo '<input type="hidden" name="action" value="getAllByProposition">';
+            echo '<button type="submit" style="background:none;border:none;flex-grow: 1; text-align: left; padding: 0;">';
+            echo '<div style="display:flex;align-items:center;width:100%;">' . $tab[$i]["titre"] . " " . $tab[$i]["description"] . " " . $tab[$i]["theme"] . " " . $tab[$i]["idVote"] . '</div>';
+            echo '</button>';
+            echo '</form>';
+            echo '</div>';
+            print_r($tab);
+        }
         ?>
 
 
