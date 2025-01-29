@@ -39,6 +39,7 @@
 
         <div class="reactions">
             <?php
+            echo "reaction : ";
             require_once(__DIR__ . "/../Controller/PropositionController.php");
             $tab = PropositionController::getReactionByProposition();
             print_r($tab);
@@ -46,6 +47,7 @@
         </div>
         <div class="votes">
             <?php
+            echo "vote :";
             require_once(__DIR__ . "/../Controller/PropositionController.php");
             $tab = PropositionController::getVoteByProposition();
             print_r($tab);
@@ -54,6 +56,7 @@
         </div>
         <div class="commentaires">
             <?php
+            echo "commentaire : ";
             require_once(__DIR__ . "/../Controller/PropositionController.php");
             $tab = PropositionController::getCommentaireByProposition();
             print_r($tab);
