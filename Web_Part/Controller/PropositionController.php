@@ -28,16 +28,28 @@ class PropositionController
 
     public static function getAllByProposition()
     {
-        print_r($_POST);
         $infos = Proposition::getInfoByProposition();
         $vote = Proposition::getVoteByProposition();
         $reaction = Proposition::getReactionByProposition();
         $commentaire = Proposition::getCommentaireByProposition();
         require_once(__DIR__ . "/../View/inside_proposition.php");
-        print_r($infos);
-        print_r($vote);
-        print_r($reaction);
-        print_r($commentaire);
+      
     }
+
+    // public static function createCommentaire()
+    // {
+    //     $idM = $_POST['id'];
+    //     $idP = $_POST['idProposition'];
+    //     $result = Proposition::createCommentaire($idM, $idP);
+    //     if (is_array($result)) {
+    //         if ($result["message"] == "true") {
+    //             echo "reussi";
+    //         } else {
+    //             echo "echec";
+    //         }
+    //     } else {
+    //         echo "Erreur : Le résultat n'est pas un tableau.";
+    //     }
+    // }
 }
 ?>
