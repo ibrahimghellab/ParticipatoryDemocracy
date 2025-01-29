@@ -44,25 +44,28 @@
                     //         }
                     //     }
                     //     if ($groupDetails) {
-                            echo '<tr>';
-                            echo '<td>' . $_POST['id'] . '</td>';
-                            echo '<td>' . $_POST['nomGroupe'] . '</td>';
-                            echo '<td><div style="width:20px;height:20px;background-color:' . $_POST['couleurGroupe'] . ';"></div></td>';
-                            echo '<td>' . $_POST['imageGroupe'] . '</td>';
-                            echo '<td>' . $_POST['dateCreation'] . '</td>';
-                            echo '<td>' . $_POST['description'] . '</td>';
-                            echo '</tr>';
+                    echo '<tr>';
+                    echo '<td>' . $_POST['id'] . '</td>';
+                    echo '<td>' . $_POST['nomGroupe'] . '</td>';
+                    echo '<td><div style="width:20px;height:20px;background-color:' . $_POST['couleurGroupe'] . ';"></div></td>';
+                    echo '<td>' . $_POST['imageGroupe'] . '</td>';
+                    echo '<td>' . $_POST['dateCreation'] . '</td>';
+                    echo '<td>' . $_POST['description'] . '</td>';
+                    echo '</tr>';
                     //     }
                     // }
                     ?>
                 </tbody>
             </table>
-           <?php require_once(__DIR__ . "/../Controller/GroupeController.php");
+            <?php require_once(__DIR__ . "/../Controller/GroupeController.php");
+
             require_once(__DIR__ . "/../Model/groupe.php");
             $tab = Groupe::getPropositionsByGroupe();
+            print_r($tab);
             for ($i = 0; $i < count($tab); $i++) {
                 echo "<div class='proposition'>";
                 echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
+                echo '<input type="hidden" name="idMembre" value="' . $tab[$i]["idMembre"] . '">';
                 echo '<input type="hidden" name="idProposition" value="' . $tab[$i]["idProposition"] . '">';
                 echo '<input type="hidden" name="titre" value="' . $tab[$i]["titre"] . '">';
                 echo '<input type="hidden" name="description" value="' . $tab[$i]["description"] . '">';
@@ -71,7 +74,7 @@
                 echo '<input type="hidden" name="controleur" value="PropositionController">';
                 echo '<input type="hidden" name="action" value="getAllByProposition">';
                 echo '<button type="submit" class="proposition-button">';
-                echo  $i.".".$tab[$i]["titre"] ;
+                echo $i . "." . $tab[$i]["titre"];
                 echo '</button>';
                 echo '</form>';
                 echo '</div>';
