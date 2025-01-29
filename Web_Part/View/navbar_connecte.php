@@ -18,7 +18,7 @@
             <!-- Menu déroulant -->
             <li class="menu">
                 <div class="dropdown">
-                    <button class="btn menu-btn"><img src="./../assets/menu.svg" alt="menu" class="menu-icon"></button>
+                    <button class="btn menu-btn">menu</button>
                     <div class="liste-pages">
                         <a href="./../View/modifierDonnees.php">Mon profil</a>
                         <a href="./../View/login.php">déconnexion</a>
