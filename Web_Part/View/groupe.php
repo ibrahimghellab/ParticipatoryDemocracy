@@ -7,13 +7,12 @@
     <title>Groupes</title>
     <link rel="stylesheet" href="./../CSS/groupe.css">
 </head>
-<header>
-    <?php
-    include(__DIR__ . "/../View/navbar_connecte.php");
-    ?>
-</header>
+
 
 <body>
+
+
+<main>
     <div class="container">
         <div class="groupes">
             <form method="POST" action="./../Controller/routeur.php">
@@ -35,6 +34,12 @@
                 echo '<div class="groupe">';
                 echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
                 echo '<input type="hidden" name="id" value="' . $tab[$i]["idGroupe"] . '">';
+                echo '<input type="hidden" name="nomGroupe" value="'.$tab[$i]["nomGroupe"].'">';
+                echo '<input type="hidden" name="couleurGroupe" value="'.$tab[$i]["couleurGroupe"].'">';
+                echo '<input type="hidden" name="imageGroupe" value="'.$tab[$i]["imageGroupe"].'">';
+                echo '<input type="hidden" name="dateCreation" value="'.$tab[$i]["dateCreation"].'">';
+                echo '<input type="hidden" name="description" value="'.$tab[$i]["description"].'">';
+
                 echo '<input type="hidden" name="controleur" value="GroupeController">';
                 echo '<input type="hidden" name="action" value="getPropositionsByGroupe">';
                 echo '<button type="submit" id="submit2">';
@@ -53,6 +58,7 @@
         </div>
 
     </div>
+</main>
 </body>
 
 </html>
