@@ -12,8 +12,8 @@
 
 <body>
     <?php require_once(__DIR__ . "/../View/navbar_connecte.php"); ?>
-        <!-- Tableau à droite -->
-         <div class="main">
+    <!-- Tableau à droite -->
+    <div class="main">
         <div id="tableau">
             <table>
                 <thead>
@@ -27,26 +27,34 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><?= $_POST["idProposition"]; ?></td>
-                        <td><?= $_POST["titre"]; ?></td>
-                        <td><?= $_POST["description"]; ?></td>
-                        <td><?= $_POST["dateCreation"]; ?></td>
-                        <td><?= $_POST["theme"]; ?></td>
+                        <td><?php echo $_POST["idProposition"]; ?></td>
+                        <td><?php echo $_POST["titre"]; ?></td>
+                        <td><?php echo $_POST["description"]; ?></td>
+                        <td><?php echo $_POST["dateCreation"]; ?></td>
+                        <td><?php echo $_POST["theme"]; ?></td>
                     </tr>
                 </tbody>
             </table>
-            </div>
-            <!-- Champ de commentaire -->
-            <div class="comment-section">
+        </div>
+        <?php print_r($_POST) ?>
+        <!-- Champ de commentaire -->
+        <div class="comment-section">
             <form method="POST" action="./../Controller/routeur.php">
-            <input type="hidden" name="controleur" value="PropositionController">
-            <input type="hidden" name="action" value="createCommentaire">
-            <input type="text" id="commentaire" class="comment-input" placeholder="Écrire un commentaire...">
-            <button type="submit" class="comment-submit-button">Envoyer</button>
+                <input type="hidden" name="controleur" value="CommentaireController">
+                <input type="hidden" name="action" value="createCommentaire">
+                <input type="hidden" name="idProposition" value="<?php echo $_POST["idProposition"]; ?>">
+                <input type="hidden" name="idMembre" value="<?php echo $_POST["idMembre"]; ?>">
+                <input type="hidden" name="titre" value="<?php echo $_POST["titre"]; ?>">
+                <input type="hidden" name="description" value="<?php echo $_POST["description"]; ?>">
+                <input type="hidden" name="dateCreation" value="<?php echo $_POST["dateCreation"]; ?>">
+                <input type="hidden" name="theme" value="<?php echo $_POST["theme"]; ?>">
+                <input type="text" id="commentaire" name="texte" class="comment-input"
+                    placeholder="Écrire un commentaire...">
+                <button type="submit" class="comment-submit-button">Envoyer</button>
             </form>
-            </div>
-</div>
-       
+        </div>
+    </div>
+
     </main>
 </body>
 
