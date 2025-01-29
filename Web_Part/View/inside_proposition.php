@@ -36,7 +36,29 @@
                 </tbody>
             </table>
         </div>
-        <?php print_r($_POST) ?>
+
+        <div class="reactions">
+            <?php
+            require_once(__DIR__ . "/../Controller/PropositionController.php");
+            $tab = PropositionController::getReactionByProposition();
+            print_r($tab);
+            ?>
+        </div>
+        <div class="votes">
+            <?php
+            require_once(__DIR__ . "/../Controller/PropositionController.php");
+            $tab = PropositionController::getVoteByProposition();
+            print_r($tab);
+            ?>
+
+        </div>
+        <div class="commentaires">
+            <?php
+            require_once(__DIR__ . "/../Controller/PropositionController.php");
+            $tab = PropositionController::getCommentaireByProposition();
+            print_r($tab);
+            ?>
+        </div>
         <!-- Champ de commentaire -->
         <div class="comment-section">
             <form method="POST" action="./../Controller/routeur.php">
