@@ -72,7 +72,7 @@
                 echo '<input type="hidden" name="dateCreation" value="' . $tab[$i]["dateCreation"] . '">';
                 echo '<input type="hidden" name="theme" value="' . $tab[$i]["theme"] . '">';
                 echo '<input type="hidden" name="controleur" value="PropositionController">';
-                echo '<input type="hidden" name="action" value="getAllByProposition">';
+                echo '<input type="hidden" name="action" value="afficherProposition">';
                 echo '<button type="submit" class="proposition-button">';
                 echo $i . "." . $tab[$i]["titre"];
                 echo '</button>';
