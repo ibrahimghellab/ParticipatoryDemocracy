@@ -7,6 +7,7 @@ $tableauControleurs = [
     "UserController" => __DIR__ . "/../Controller/UserController.php",
     "GroupeController" => __DIR__ . "/../Controller/GroupeController.php",
     "PropositionController" => __DIR__ . "/../Controller/PropositionController.php",
+    "CommentaireController" => __DIR__ . "/../Controller/CommentaireController.php"
 ];
 // Définir le contrôleur et l'action par défaut
 $controleur = "UserController";
