@@ -7,7 +7,7 @@ class PropositionController
     {
         // Assuming Proposition::createProposition() returns an array
         $result = Proposition::createProposition();
-        
+
         // No need to decode if it's already an array
         if (is_array($result)) {
             if ($result["message"] == "true") {
@@ -20,21 +20,37 @@ class PropositionController
         }
     }
 
+    public static function afficherProposition()
+    {
+        require_once(__DIR__ . "/../View/inside_proposition.php");
+    }
+
     public static function getInfoByProposition()
     {
         $tab = json_decode(Proposition::getInfoByProposition(), true);
         return $tab;
     }
 
-    public static function getAllByProposition()
+
+    public static function getVoteByProposition()
     {
-        $infos = Proposition::getInfoByProposition();
-        $vote = Proposition::getVoteByProposition();
-        $reaction = Proposition::getReactionByProposition();
-        $commentaire = Proposition::getCommentaireByProposition();
-        require_once(__DIR__ . "/../View/inside_proposition.php");
-      
+        $tab = Proposition::getVoteByProposition();
+        return $tab;
     }
+
+    public static function getReactionByProposition()
+    {
+        $tab = Proposition::getReactionByProposition();
+        return $tab;
+    }
+
+    public static function getCommentaireByProposition()
+    {
+        $tab = Proposition::getCommentaireByProposition();
+        return $tab;
+    }
+
+
 
     // public static function createCommentaire()
     // {
