@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/insideProposition.css">
-    <title><?php echo $_POST["titre"];
-
-    ?></title>
+    <title><?php echo $_POST["titre"]; ?></title>
 </head>
 
 <body>
@@ -54,14 +52,23 @@
             ?>
 
         </div>
-        <div class="commentaires">
-            <?php
-            echo "commentaire : ";
-            require_once(__DIR__ . "/../Controller/PropositionController.php");
-            $tab = PropositionController::getCommentaireByProposition();
-            print_r($tab);
-            ?>
+        <div class="commentaires-container">
+            <div class="commentaires">
+                <?php
+                require_once(__DIR__ . "/../Controller/PropositionController.php");
+                $tab = PropositionController::getCommentaireByProposition();
+
+                // Affichage des commentaires
+                for ($i = 0; $i < count($tab); $i++) {
+                    $commentaire = $tab[$i]["texte"];
+                    $id = $tab[$i]["idMembre"];
+
+                    echo "<div class='commentaire-item'>" . $commentaire ." .".$id. "</div>";
+                }
+                ?>
+            </div>
         </div>
+
         <!-- Champ de commentaire -->
         <div class="comment-section">
             <form method="POST" action="./../Controller/routeur.php">
@@ -73,14 +80,11 @@
                 <input type="hidden" name="description" value="<?php echo $_POST["description"]; ?>">
                 <input type="hidden" name="dateCreation" value="<?php echo $_POST["dateCreation"]; ?>">
                 <input type="hidden" name="theme" value="<?php echo $_POST["theme"]; ?>">
-                <input type="text" id="commentaire" name="texte" class="comment-input"
-                    placeholder="Écrire un commentaire...">
+                <input type="text" id="commentaire" name="texte" class="comment-input" placeholder="Écrire un commentaire...">
                 <button type="submit" class="comment-submit-button">Envoyer</button>
             </form>
         </div>
     </div>
-
-    </main>
 </body>
 
 </html>
