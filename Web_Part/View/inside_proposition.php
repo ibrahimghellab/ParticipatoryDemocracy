@@ -73,7 +73,7 @@
                 require_once(__DIR__ . "/../Controller/UserController.php");
 
                 $tab = PropositionController::getCommentaireByProposition();
-
+                print_r($tab);
                 // Affichage des commentaires
                 for ($i = 0; $i < count($tab); $i++) {
                     $commentaire = $tab[$i]["texte"];
