@@ -121,3 +121,52 @@ table tr:hover {
     border-radius: 5px;
     cursor: pointer;
 }
+.votes {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;  /* Utilisation de flexbox pour aligner les éléments horizontalement */
+    align-items: center;  /* Aligne les éléments verticalement au centre */
+    justify-content: flex-start;  /* Les éléments sont alignés à gauche */
+    flex-wrap: nowrap;  /* Empêche les éléments de passer à la ligne suivante */
+    width: 100%; /* Garantit que l'élément occupe toute la largeur disponible */
+}
+
+/* Conteneur pour les options de vote */
+.vote-options {
+    display: flex;  /* Utilisation de flexbox pour aligner les boutons radio horizontalement */
+    align-items: center;  /* Centrer les éléments verticalement */
+    margin-right: 15px;  /* Un petit espace à droite des boutons radio */
+}
+
+/* Style des labels des options de vote */
+.vote-options label {
+    font-size: 16px;
+    color: #333;
+    margin-right: 15px;  /* Espacement entre les labels */
+}
+
+/* Style des boutons radio */
+.vote-options input[type="radio"] {
+    margin-right: 5px;  /* Espacement à droite des boutons radio */
+}
+
+/* Style du bouton de soumission de vote */
+.vote-submit-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-block;  /* Cela garantit que le bouton se trouve sur la même ligne */
+    margin-left: 20px;  /* Un peu d'espace entre les options de vote et le bouton */
+}
+
+/* Changement de couleur au survol du bouton */
+.vote-submit-button:hover {
+    background-color: #0056b3;
+}
