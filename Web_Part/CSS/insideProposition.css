@@ -1,3 +1,4 @@
+/* Base Reset */
 * {
     margin: 0;
     padding: 0;
@@ -22,6 +23,7 @@ body {
     flex-direction: column;
     justify-content: space-between; /* Assure que l'espace est distribué entre les éléments */
     height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    overflow: hidden; /* Évite que le contenu déborde */
 }
 
 /* Style du tableau */
@@ -60,16 +62,44 @@ table tr:hover {
     background-color: #f1f1f1; /* Couleur au survol */
 }
 
-/* Style de la section commentaire */
-.comment-section {
+/* Conteneur pour les commentaires */
+.commentaires-container {
     width: 100%;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px 0;
-    text-align: center;
+    max-height: calc(100vh - 120px); /* Réduit la hauteur pour faire de la place pour la barre de commentaire */
+    overflow-y: auto; /* Permet de faire défiler les commentaires si nécessaire */
+    padding: 10px;
+    margin-bottom: 85px;
 }
 
-.comment-section h3 {
-    margin-bottom: 10px;
+/* Section des commentaires */
+.commentaires {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Ajoute un espacement de 20px entre chaque commentaire */
+}
+
+/* Style des commentaires */
+.commentaire-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+    font-size: 14px;
+    margin-left: auto; /* Pousse le commentaire vers la droite */
+    margin-right: 0; /* Enlève toute marge à droite */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère autour de chaque commentaire */
+}
+
+/* Champ de commentaire fixe en bas */
+.comment-section {
+    position: fixed; /* Fixe la barre en bas de la page */
+    bottom: 0; /* Positionne la barre au bas de la page */
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère au-dessus de la barre */
+    padding: 15px 0;
+    text-align: center;
+    z-index: 10; /* Assure que la barre soit au-dessus des autres éléments */
 }
 
 .comment-input {
@@ -79,4 +109,15 @@ table tr:hover {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.comment-submit-button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
 }
