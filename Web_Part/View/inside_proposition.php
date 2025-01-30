@@ -43,19 +43,35 @@
             print_r($tab);
             ?>
         </div>
-        <div class="votes">
-            <?php
-            echo "vote :";
-            require_once(__DIR__ . "/../Controller/PropositionController.php");
-            $tab = PropositionController::getVoteByProposition();
-            print_r($tab);
-            ?>
 
+        <!-- Section Vote -->
+        <div class="votes">
+            <form method="POST" action="./../Controller/routeur.php">
+                <input type="hidden" name="controleur" value="VoteController">
+                <input type="hidden" name="action" value="submitVote">
+                <input type="hidden" name="idProposition" value="<?php echo $_POST["idProposition"]; ?>">
+                
+                <div class="vote-options">
+                    <label for="voteOui">
+                        <input type="radio" id="voteOui" name="vote" value="oui">
+                        Oui
+                    </label>
+                    <label for="voteNon">
+                        <input type="radio" id="voteNon" name="vote" value="non">
+                        Non
+                    </label>
+                </div>
+                
+                <button type="submit" class="vote-submit-button">Voter</button>
+            </form>
         </div>
+
         <div class="commentaires-container">
             <div class="commentaires">
                 <?php
                 require_once(__DIR__ . "/../Controller/PropositionController.php");
+                require_once(__DIR__ . "/../Controller/UserController.php");
+
                 $tab = PropositionController::getCommentaireByProposition();
 
                 // Affichage des commentaires
