@@ -67,32 +67,32 @@
                 echo '<button type="submit" class="proposition-button">';
                 echo '<div style="display:flex;align-items:center;width:100%;pointer-events:none;">' . $tab[$i]["titre"] . '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $tab[$i]["theme"] . ';margin-left:10px;"></div></div>';
                 echo '</button>';
-                echo '<span class="date-creation" style="margin-left: 750px;">' . $tab[$i]["dateCreation"] . '</span>';
+                echo '<span class="date-creation" style="margin-left: 600px;">' . $tab[$i]["dateCreation"] . '</span>';
                 echo '</form>';
                 echo '</div>';
             }
             ?>
 
-        </div>
+    
         <div>
             <?php
             require_once(__DIR__ . "/../Model/user.php");
-            $tab = Groupe::getMembresByGroupe();
-            print_r($tab);
-            for ($i = 0; $i < count($tab); $i++) {
+            $users = Groupe::getMembresByGroupe();
+            for ($i = 0; $i < count($users); $i++) {
                 echo "<div class='user'>";
                 echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
                 echo '<input type="hidden" name="controleur" value="UserController">';
                 echo '<input type="hidden" name="action" value="deleteUser">';
+                echo $users[$i]["nom"] . " " . $users[$i]["prenom"];
                 echo '<button type="submit" class="delete-user">';
-                echo 'delte';
+                echo 'delete';
                 echo '</button>';
                 echo '</form>';
                 echo '</div>';
             }
             ?>
 
-
+    </div>
         </div>
     </main>
 </body>
