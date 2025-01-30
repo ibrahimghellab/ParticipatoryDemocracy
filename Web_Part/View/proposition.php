@@ -82,7 +82,7 @@
                     echo "<div class='user'>";
                     echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
                     echo '<input type="hidden" name="controleur" value="UserController">';
-                    echo '<input type="hidden" name="action" value="deleteUser">';
+                    echo '<input type="hidden" name="action" value="deleteMembre">';
                     echo $users[$i]["nom"] . " " . $users[$i]["prenom"];
                     if ($users[$i]["idInternaute"] != $_SESSION["id"]) {
                         echo '<button type="submit" class="delete-user">';
