@@ -34,16 +34,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    // if (isset($_POST['id']) && isset($_POST['controleur']) && $_POST['controleur'] == 'GroupeController' && $_POST['action'] == 'getPropositionsByGroupe') {
-                    //     $groupId = $_POST['id'];
-                    //     $groupDetails = null;
-                    //     foreach ($tab as $group) {
-                    //         if ($group['idGroupe'] == $groupId) {
-                    //             $groupDetails = $group;
-                    //             break;
-                    //         }
-                    //     }
-                    //     if ($groupDetails) {
+                   
                     echo '<tr>';
                     echo '<td>' . $_POST['id'] . '</td>';
                     echo '<td>' . $_POST['nomGroupe'] . '</td>';
@@ -52,8 +43,7 @@
                     echo '<td>' . $_POST['dateCreation'] . '</td>';
                     echo '<td>' . $_POST['description'] . '</td>';
                     echo '</tr>';
-                    //     }
-                    // }
+              
                     ?>
                 </tbody>
             </table>
@@ -76,6 +66,7 @@
                 echo '<button type="submit" class="proposition-button">';
                 echo $i . "." . $tab[$i]["titre"];
                 echo '</button>';
+                echo '<span class="date-creation" style="margin-left: 750px;">' . $tab[$i]["dateCreation"] . '</span>';
                 echo '</form>';
                 echo '</div>';
             }
