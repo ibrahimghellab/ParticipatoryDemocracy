@@ -1,145 +1,101 @@
-ul {
-  display: flex;
-  justify-content: space-around;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  align-items: center;
-}
-
-li {
-  margin: 0 15px;
-}
-
-.nav-right {
-  display: flex;
-  justify-content: space-between;
-}
-
+/* Style global pour la barre de navigation */
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 
-a {
+/* Logo de la barre de navigation */
+nav img {
+  height: 50px; /* Ajuste la taille du logo */
+}
+
+/* Style pour la section droite de la nav */
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Liste des éléments du menu */
+nav ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style pour chaque élément du menu */
+nav ul li {
+  margin: 0 15px;
+  display: flex;
+  align-items: center;  /* Aligne verticalement les éléments */
+}
+
+/* Liens du menu */
+nav ul li a {
+  color: white;
   text-decoration: none;
-}
-img {
-  width: 100px;
-  height: 100px;
-  max-width: 200px;
-  max-height: 200px;
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-block;  /* Assure l'alignement correct */
 }
 
-
-a {
-  display: inline-block;
-  padding: 5px 10px; /* Ajustez les dimensions selon vos besoins */
-  text-decoration: none;
-  color: #fff; /* Couleur du texte */
-  background-color: #7190c0; /* Couleur de fond */
-  border: none;
-  border-radius: 5px; /* Ajoute des coins arrondis */
-  font-family: Arial, sans-serif; /* Police pour un rendu soigné */
-  font-size: 16px; /* Taille du texte */
-  text-align: center;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+/* Changement de couleur au survol des liens */
+nav ul li a:hover {
+  color: #f0a500;
 }
 
-a:hover {
-  background-color: #5a759e; /* Couleur plus foncée pour le survol */
-  transform: scale(1.05); /* Effet d'agrandissement */
+/* Style pour le menu déroulant */
+.menu {
+  position: relative;
+  display: flex;
+  align-items: center;  /* Aligne le bouton et les éléments de menu */
 }
 
-a:active {
-  transform: scale(0.95); /* Effet de clic */
-}
-
-h1 {
-  font-family: 'Roboto', sans-serif; /* Police moderne et élégante */
-  font-size: 2.5rem; /* Taille adaptée pour attirer l'attention */
-  font-weight: 700; /* Gras pour le rendre impactant */
-  color: #333; /* Couleur discrète */
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-p {
-  font-family: 'Roboto', sans-serif; /* Cohérence avec le h1 */
-  font-size: 1rem; /* Taille standard pour du texte descriptif */
-  font-weight: 400; /* Poids normal pour un style discret */
-  color: #555; /* Couleur légèrement plus claire que le h1 */
-  margin-bottom: 20px;
-  text-align: center;
-  line-height: 1.6; /* Amélioration de la lisibilité */
-}
-
-/* Optionnel : Importation de la police Roboto via Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-/* Conteneur du menu dropdown */
 .dropdown {
-  position: relative; /* Permet le positionnement absolu des sous-éléments */
+  position: relative;
 }
 
-/* Menu déroulant */
+.menu-btn {
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  background: none; /* Enlève le fond du bouton */
+  color: white;  /* Garde le texte visible */
+  display: inline-block;  /* Assure l'alignement avec les autres éléments */
+}
+
+/* Changement de couleur du bouton au survol */
+.menu-btn:hover {
+  background-color: #555; /* Ajoute un léger fond au survol pour l'interaction */
+}
+
+/* Liste des éléments du menu déroulant */
 .liste-pages {
   display: none;
   position: absolute;
-  top: calc(100% + 5px); /* Juste en dessous du bouton avec un petit espace */
-  right: 0; /* Aligner le menu à droite */
-  background-color: #f1f1f1;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  width: max-content; /* Ajuste automatiquement à la largeur du contenu */
-  z-index: 10;
-  border-radius: 5px;
-  overflow: hidden; /* Empêche tout débordement */
-  box-sizing: border-box; /* Inclut le padding et les bordures */
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  min-width: 180px;
+  z-index: 1;
 }
 
-/* Liens dans le menu déroulant */
 .liste-pages a {
-  display: block;
   padding: 10px 15px;
   text-decoration: none;
-  color: #333;
-  transition: background-color 0.9s ease;
-  white-space: nowrap; /* Empêche le texte de passer à la ligne */
-}
-
-.liste-pages a:hover {
-  background-color: #ddd;
-}
-
-/* Afficher le menu lorsque la souris est sur le conteneur parent */
-.menu:hover .liste-pages,
-.dropdown:hover .liste-pages {
   display: block;
 }
 
-/* Bouton avec l'icône de menu */
-.menu-btn {
-  display: inline-block;
-  padding: 0;
-  border: none;
-  background: none;
-  cursor: pointer;
+/* Changement de couleur au survol des éléments du menu déroulant */
+.liste-pages a:hover {
+  background-color: #444;
+  color: #f0a500;
 }
 
-.menu-icon {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.2s ease;
-}
-
-.menu-btn:hover .menu-icon {
-  transform: scale(1.1);
-}
-
-.menu-btn:active .menu-icon {
-  transform: scale(0.9);
+/* Affichage du menu déroulant au survol */
+.menu:hover .liste-pages {
+  display: block;
 }
