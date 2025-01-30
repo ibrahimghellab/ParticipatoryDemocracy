@@ -34,7 +34,7 @@
                 </thead>
                 <tbody>
                     <?php
-                   
+
                     echo '<tr>';
                     echo '<td>' . $_POST['id'] . '</td>';
                     echo '<td>' . $_POST['nomGroupe'] . '</td>';
@@ -43,7 +43,7 @@
                     echo '<td>' . $_POST['dateCreation'] . '</td>';
                     echo '<td>' . $_POST['description'] . '</td>';
                     echo '</tr>';
-              
+
                     ?>
                 </tbody>
             </table>
@@ -56,6 +56,7 @@
                 echo "<div class='proposition'>";
                 echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
                 echo '<input type="hidden" name="idMembre" value="' . $tab[$i]["idMembre"] . '">';
+                echo '<input type="hidden" name="idGroupe" value="' . $tab[$i]["idGroupe"] . '">';
                 echo '<input type="hidden" name="idProposition" value="' . $tab[$i]["idProposition"] . '">';
                 echo '<input type="hidden" name="titre" value="' . $tab[$i]["titre"] . '">';
                 echo '<input type="hidden" name="description" value="' . $tab[$i]["description"] . '">';
@@ -64,35 +65,33 @@
                 echo '<input type="hidden" name="controleur" value="PropositionController">';
                 echo '<input type="hidden" name="action" value="afficherProposition">';
                 echo '<button type="submit" class="proposition-button">';
-                echo $i . "." . $tab[$i]["titre"];
+                echo '<div style="display:flex;align-items:center;width:100%;pointer-events:none;">' . $tab[$i]["titre"] . '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $tab[$i]["theme"] . ';margin-left:10px;"></div></div>';
                 echo '</button>';
                 echo '<span class="date-creation" style="margin-left: 750px;">' . $tab[$i]["dateCreation"] . '</span>';
                 echo '</form>';
                 echo '</div>';
             }
             ?>
-           
+
         </div>
         <div>
             <?php
-                require_once(__DIR__ . "/../Model/user.php");
-                $user = User::getUserDataFromAPI($_SESSION["id"]);
-                echo $user["nom"];
+            require_once(__DIR__ . "/../Model/user.php");
+            $tab = Groupe::getMembresByGroupe();
+            print_r($tab);
+            for ($i = 0; $i < count($tab); $i++) {
+                echo "<div class='user'>";
+                echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
+                echo '<input type="hidden" name="controleur" value="UserController">';
+                echo '<input type="hidden" name="action" value="deleteUser">';
+                echo '<button type="submit" class="delete-user">';
+                echo 'delte';
+                echo '</button>';
+                echo '</form>';
+                echo '</div>';
+            }
+            ?>
 
-                print_r($user);
-                for ($i = 0; $i < count($user); $i++) {
-                    echo "<div class='user'>";
-                    echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
-                    echo '<input type="hidden" name="controleur" value="UserController">';
-                    echo '<input type="hidden" name="action" value="deleteUser">';
-                    echo '<button type="submit" class="delete-user">';
-                    echo 'delte';
-                    echo '</button>';
-                    echo '</form>';
-                    echo '</div>';
-                }
-                ?>
-            
 
         </div>
     </main>
