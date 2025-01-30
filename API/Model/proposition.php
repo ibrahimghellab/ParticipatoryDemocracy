@@ -197,6 +197,21 @@ class Proposition
         }
     }
 
-    
+    public static function addReaction($idP, $idR)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        $requetePreparee = Connexion::pdo()->prepare("INSERT INTO PropositionReaction(idProposition,idReaction) VALUES (:idP,:idR);");
+        $requetePreparee->bindParam(":idP", $idP, PDO::PARAM_INT);
+        $requetePreparee->bindParam(":idR", $idR, PDO::PARAM_INT);
+        try {
+            $requetePreparee->execute();
+        } catch (PDOException $e) {
+            header("HTTP/1.1 500 Internal Server Error");
+            return json_encode(array("message" => "false"));
+        }
+        return json_encode(array("message" => "true"));
+    }
+
+
 }
 ?>

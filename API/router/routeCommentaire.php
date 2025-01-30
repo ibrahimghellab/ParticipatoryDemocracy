@@ -17,6 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         throw new Exception("TestGroupe");
     }
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!empty($url[1]) && is_numeric($url[1]) && !empty($url[2]) && is_numeric($url[2])) {
+        echo Commentaire::createCommentaire($url[1], $url[2]);
+    } elseif (!empty($url[1]) && is_numeric($url[1]) && $url[2] == "reaction" && !empty($url[3]) && is_numeric($url[3])) {
+        echo Commentaire::addReaction($url[1], $url[3]);
+    }
     echo Commentaire::createCommentaire($url[1], $url[2]);
 } elseif ($_SERVER["REQUEST_METHOD"] == "PUT") {
     echo Groupe::updateGroupe($url[1]);

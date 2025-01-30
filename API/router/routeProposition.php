@@ -18,7 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         throw new Exception("Test ??");
     }
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo Proposition::createProposition();
+    if (empty($url[1])) {
+        echo Proposition::createProposition();
+    } elseif (!empty($url[1]) && is_numeric($url[1]) && $url[2] == "reaction" && !empty($url[3]) && is_numeric($url[3])) {
+        echo Proposition::addReaction($url[1], $url[3]);
+    }
 } elseif ($_SERVER["REQUEST_METHOD"] == "PUT") {
     echo Proposition::updateProposition($url[1]);
 } elseif ($_SERVER["REQUEST_METHOD"] == "DELETE") {

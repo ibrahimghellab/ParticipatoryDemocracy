@@ -78,5 +78,21 @@ class Commentaire
         }
     }
 
+    public static function addReaction($idC, $idR)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        $requetePreparee = Connexion::pdo()->prepare("INSERT INTO CommentaireReaction(idCommentaire,idReaction) VALUES (:idC,:idR);");
+        $requetePreparee->bindParam(":idC", $idC, PDO::PARAM_INT);
+        $requetePreparee->bindParam(":idR", $idR, PDO::PARAM_INT);
+        try {
+            $requetePreparee->execute();
+        } catch (PDOException $e) {
+            header("HTTP/1.1 500 Internal Server Error");
+            return json_encode(array("message" => "false"));
+        }
+        return json_encode(array("message" => "true"));
+
+    }
+
 }
 ?>
