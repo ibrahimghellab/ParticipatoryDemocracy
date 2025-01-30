@@ -59,6 +59,9 @@ try {
             case "proposition":
                 require_once("router/routeProposition.php");
                 break;
+            case "membre":
+                require_once("router/routeMembre.php");
+                break;
             default:
                 throw new Exception("Rien ne correspond");
         }
