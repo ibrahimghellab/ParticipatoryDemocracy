@@ -11,6 +11,7 @@ class CommentaireController
             require_once(__DIR__ . "/../View/inside_proposition.php");
         } else {
             // Afficher un message d'erreur
+            echo "Erreur";
             require_once(__DIR__ . "/../View/inside_proposition.php");
         }
 
