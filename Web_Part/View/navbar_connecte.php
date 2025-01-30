@@ -8,12 +8,7 @@
     </div>
     <div class="nav-right">
         <ul>
-            <!-- <li>
-      <form method="POST" action="./../Controller/UserController.php">
-      <button type="submit">déconnexion</button>
-      </form> -->
             <li><a href="./../View/groupe.php">Mes groupes</a></li>
-
 
             <!-- Menu déroulant -->
             <li class="menu">
@@ -21,8 +16,7 @@
                     <button class="btn menu-btn">menu</button>
                     <div class="liste-pages">
                         <a href="./../View/modifierDonnees.php">Mon profil</a>
-                        <a href="./../View/login.php">déconnexion</a>
-
+                        <a href="./../View/login.php">Déconnexion</a>
                     </div>
                 </div>
             </li>
