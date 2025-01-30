@@ -22,5 +22,11 @@ class GroupeController
         require_once(__DIR__ . "/../View/groupe.php");
     }
 
+    public static function getMembresByGroupe()
+    {
+        $tab = Groupe::getMembresByGroupe();
+        return $tab;
+    }
+
 }
 ?>
