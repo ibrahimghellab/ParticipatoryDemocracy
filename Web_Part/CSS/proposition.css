@@ -6,9 +6,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    width: auto; /* La largeur s'adapte au contenu */
-    min-width: 120px; /* Taille minimale */
-    display: block; /* S'assurer que chaque bouton est sur une ligne */
+    display: block; /* Assurer que chaque bouton est sur une ligne */
     margin-bottom: 10px; /* Espacement entre les boutons */
     margin-top: 10px;
 }
@@ -28,6 +26,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
+    box-sizing: border-box; /* Assurer que la largeur inclut les paddings et marges */
 }
 
 /* Nom et prénom */
@@ -56,4 +55,19 @@
 /* Aligner le bouton à droite */
 .user form button {
     margin-left: auto;
+}
+
+.colonne {
+    display: flex;
+    flex-direction: column; /* Empêche l'affichage côte à côte */
+    gap: 20px; /* Espacement entre les divs */
+}
+
+.proposition, .user {
+    width: 100%; /* Chaque div prend toute la largeur disponible */
+    box-sizing: border-box; /* Inclure padding et bordure dans la largeur totale */
+}
+
+.proposition-button {
+    width: 100%; /* Assure que les boutons prennent toute la largeur disponible */
 }
