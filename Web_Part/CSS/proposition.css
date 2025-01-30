@@ -17,3 +17,43 @@
     background-color: #0056b3;
     transform: scale(1.05); /* Agrandissement au survol */
 }
+
+.user {
+    display: flex;
+    justify-content: space-between; /* Nom à gauche, bouton à droite */
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Nom et prénom */
+.user form {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* Bouton delete */
+.delete-user {
+    background-color: #dc3545; /* Rouge */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.delete-user:hover {
+    background-color: #c82333; /* Rouge plus foncé au survol */
+}
+
+/* Aligner le bouton à droite */
+.user form button {
+    margin-left: auto;
+}
