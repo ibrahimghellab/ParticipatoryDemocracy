@@ -71,6 +71,29 @@
                 echo '</div>';
             }
             ?>
+           
+        </div>
+        <div>
+            <?php
+                require_once(__DIR__ . "/../Model/user.php");
+                $user = User::getUserDataFromAPI($_SESSION["id"]);
+                echo $user["nom"];
+
+                print_r($user);
+                for ($i = 0; $i < count($user); $i++) {
+                    echo "<div class='user'>";
+                    echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
+                    echo '<input type="hidden" name="controleur" value="UserController">';
+                    echo '<input type="hidden" name="action" value="deleteUser">';
+                    echo '<button type="submit" class="delete-user">';
+                    echo 'delte';
+                    echo '</button>';
+                    echo '</form>';
+                    echo '</div>';
+                }
+                ?>
+            
+
         </div>
     </main>
 </body>
