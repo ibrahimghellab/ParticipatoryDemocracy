@@ -68,6 +68,8 @@ class UserController
         return json_decode($response, true);
     }
 
+
+
     public static function getGroupesByUserId($userId)
     {
         $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/' . $userId . '/groupes';
