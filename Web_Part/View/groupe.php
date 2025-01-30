@@ -24,6 +24,7 @@
                     <button type="submit" id="new-groupe">+ Nouveau Groupe</button>
                 </div>
             </form>
+          
 
             <?php
             require_once(__DIR__ . "/../Controller/UserController.php");
