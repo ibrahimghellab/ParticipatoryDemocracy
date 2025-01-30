@@ -44,10 +44,11 @@ class Groupe
     {
         require_once(__DIR__ . "/../config/connexion.php");
         require_once(__DIR__ . "/../Model/membre.php");
-        $requeteAvecTags = "SELECT I.nom, I.prenom, M.dateAdhesion, M.status" .
+        $requeteAvecTags = "SELECT I.nom, I.prenom, R.nomRole,M.dateAdhesion, M.status" .
             " FROM Groupe G" .
             " INNER JOIN Membre M ON G.idGroupe=M.idGroupe" .
             " INNER JOIN Internaute I ON I.idInternaute=M.idInternaute" .
+            " INNER JOIN Role R ON R.idRole=M.idRole" .
             " WHERE G.idGroupe=:id;";
         $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
         $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
