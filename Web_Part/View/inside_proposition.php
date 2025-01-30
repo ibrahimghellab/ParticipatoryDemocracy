@@ -50,7 +50,7 @@
                 <input type="hidden" name="controleur" value="VoteController">
                 <input type="hidden" name="action" value="submitVote">
                 <input type="hidden" name="idProposition" value="<?php echo $_POST["idProposition"]; ?>">
-                
+
                 <div class="vote-options">
                     <label for="voteOui">
                         <input type="radio" id="voteOui" name="vote" value="oui">
@@ -61,7 +61,7 @@
                         Non
                     </label>
                 </div>
-                
+
                 <button type="submit" class="vote-submit-button">Voter</button>
             </form>
         </div>
@@ -79,7 +79,7 @@
                     $commentaire = $tab[$i]["texte"];
                     $id = $tab[$i]["idMembre"];
 
-                    echo "<div class='commentaire-item'>" . $commentaire ." .".$id. "</div>";
+                    echo "<div class='commentaire-item'>" . $commentaire . " ." . $id . "</div>";
                 }
                 ?>
             </div>
@@ -91,12 +91,14 @@
                 <input type="hidden" name="controleur" value="CommentaireController">
                 <input type="hidden" name="action" value="createCommentaire">
                 <input type="hidden" name="idProposition" value="<?php echo $_POST["idProposition"]; ?>">
+                <input type="hidden" name="idGroupe" value="<?php echo $_POST["idGroupe"]; ?>">
                 <input type="hidden" name="idMembre" value="<?php echo $_POST["idMembre"]; ?>">
                 <input type="hidden" name="titre" value="<?php echo $_POST["titre"]; ?>">
                 <input type="hidden" name="description" value="<?php echo $_POST["description"]; ?>">
                 <input type="hidden" name="dateCreation" value="<?php echo $_POST["dateCreation"]; ?>">
                 <input type="hidden" name="theme" value="<?php echo $_POST["theme"]; ?>">
-                <input type="text" id="commentaire" name="texte" class="comment-input" placeholder="Écrire un commentaire...">
+                <input type="text" id="commentaire" name="texte" class="comment-input"
+                    placeholder="Écrire un commentaire...">
                 <button type="submit" class="comment-submit-button">Envoyer</button>
             </form>
         </div>
