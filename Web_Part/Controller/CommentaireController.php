@@ -7,10 +7,12 @@ class CommentaireController
     {
         $tab = Commentaire::createCommentaire();
         if ($tab["message"] == "true") {
-            echo "reussi";
+
+            require_once(__DIR__ . "/../View/inside_proposition.php");
         } else {
-            echo "echec";
+            // Afficher un message d'erreur
+            require_once(__DIR__ . "/../View/inside_proposition.php");
         }
-        require_once(__DIR__ . "/../View/inside_proposition.php");
+
     }
 }
