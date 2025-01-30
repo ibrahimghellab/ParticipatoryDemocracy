@@ -22,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     } elseif (!empty($url[1]) && is_numeric($url[1]) && $url[2] == "reaction" && !empty($url[3]) && is_numeric($url[3])) {
         echo Commentaire::addReaction($url[1], $url[3]);
     }
-    echo Commentaire::createCommentaire($url[1], $url[2]);
 } elseif ($_SERVER["REQUEST_METHOD"] == "PUT") {
     echo Groupe::updateGroupe($url[1]);
 } elseif ($_SERVER["REQUEST_METHOD"] == "DELETE") {
