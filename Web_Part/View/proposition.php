@@ -49,7 +49,16 @@
             </table>
 
             <div class="colonne">
-                <?php require_once(__DIR__ . "/../Controller/GroupeController.php");
+            <?php require_once(__DIR__ . "/../Controller/PropositionController.php");
+
+                echo '<form method="POST" action="./../Controller/routeur.php">';
+                echo  '<input type="hidden" name="controleur" value="PropositionController">';
+                echo '<input type="hidden" name="action" value="afficherFormulaire">';
+                echo  '<div class="submit">';
+                echo      '<button type="submit" id="new-groupe">+ Nouvelle Proposition</button>';
+                echo  '</div>';
+                require_once(__DIR__ . "/../Controller/GroupeController.php");
+                
                 echo '<h2>Proposition</h2>';
 
                 require_once(__DIR__ . "/../Model/groupe.php");
@@ -64,7 +73,7 @@
                 for ($i = 0; $i < count($tab); $i++) {
                     echo "<div class='proposition'>";
                     echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
-                    echo '<input type="hidden" name="idMembre" value="' . $idMembre . '">';
+                    echo '<input type="hidden" name="idMembre" value="' . $tab[$i]["idMembre"] . '">';
                     echo '<input type="hidden" name="idGroupe" value="' . $tab[$i]["idGroupe"] . '">';
                     echo '<input type="hidden" name="idProposition" value="' . $tab[$i]["idProposition"] . '">';
                     echo '<input type="hidden" name="titre" value="' . $tab[$i]["titre"] . '">';
