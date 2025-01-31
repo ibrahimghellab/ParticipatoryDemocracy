@@ -68,3 +68,13 @@ INSERT INTO Internaute(nom, prenom, adresse, email, dateCreation, hash, salt) VA
 END;
 //
 DELIMITER ;
+
+DELIMITER //
+CREATE OR REPLACE PROCEDURE createVote(p_idProposition INT,p_typeScrutin VARCHAR(50),p_dateFin DATE)
+BEGIN
+INSERT INTO Vote(typeScrutin, dateDebut, status, dateFin) VALUES(p_typeScrutin,CURRENT_DATE(),'En cours',p_dateFin);
+
+UPDATE Proposition SET idVote=LAST_INSERT_ID() WHERE idProposition=p_idProposition;
+END;
+//
+DELIMITER ;
