@@ -46,4 +46,18 @@ class Membre extends Modele
 
     }
 
+    public static function deleteMembre()
+    {
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/membre/' . $_POST['idMembre'];
+        // Initialiser cURL
+        $ch = curl_init($url);
+
+        // Définir les options cURL pour une requête DELETE
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+
+        // Exécuter la requête et récupérer la réponse
+        $response = curl_exec($ch);
+    }
+
 }
