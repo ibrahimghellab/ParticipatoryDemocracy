@@ -175,7 +175,7 @@ class Proposition
         try {
             $requetePreparee->execute();
             $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Vote");
-            return $requetePreparee->fetchAll();
+            return $requetePreparee->fetch();
 
         } catch (PDOException $e) {
             echo $e->getMessage();
