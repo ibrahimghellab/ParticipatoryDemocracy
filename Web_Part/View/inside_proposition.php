@@ -46,6 +46,9 @@
 
         <!-- Section Vote -->
         <div class="votes">
+            <?php
+            require_once(__DIR__ . "/../Controller/PropositionController.php");
+            print_r(PropositionController::getVoteByProposition()) ?>
             <form method="POST" action="./../Controller/routeur.php">
                 <input type="hidden" name="controleur" value="VoteController">
                 <input type="hidden" name="action" value="submitVote">
@@ -66,6 +69,8 @@
             </form>
         </div>
 
+
+
         <div class="commentaires-container">
             <div class="commentaires">
                 <?php
@@ -73,7 +78,6 @@
                 require_once(__DIR__ . "/../Controller/UserController.php");
 
                 $tab = PropositionController::getCommentaireByProposition();
-                print_r($tab);
                 // Affichage des commentaires
                 for ($i = 0; $i < count($tab); $i++) {
                     $commentaire = $tab[$i]["texte"];
