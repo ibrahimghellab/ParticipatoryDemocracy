@@ -10,14 +10,10 @@
         /groupe/:id/membre/:id
         
         
-        
-        
-    
-
     POST:
         /groupe✅
         /user✅
-        /vote
+        /vote✅
         
 
     PUT:
@@ -61,6 +57,9 @@ try {
                 break;
             case "membre":
                 require_once("router/routeMembre.php");
+                break;
+            case "vote":
+                require_once("router/routeVote.php");
                 break;
             default:
                 throw new Exception("Rien ne correspond");
