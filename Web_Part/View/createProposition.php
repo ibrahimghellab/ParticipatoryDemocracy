@@ -37,10 +37,7 @@
                     <input type="text" name="theme" id="theme" required>
                 </div>
 
-                <div>
-                    <label for="status">Statut : </label>
-                    <input type="text" name="status" id="status" required>
-                </div>
+                
 
     
 
