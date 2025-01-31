@@ -54,10 +54,11 @@
 
                 require_once(__DIR__ . "/../Model/groupe.php");
                 $tab = Groupe::getPropositionsByGroupe();
+                print_r($tab);
                 $users = Groupe::getMembresByGroupe();
                 $idMembre = null;
                 for ($i = 0; $i < count($users); $i++) {
-                    if ($users[$i]["idInternaute"] != $_SESSION["id"]) {
+                    if ($users[$i]["idInternaute"] == $_SESSION["id"]) {
                         $idMembre = $users[$i]["idMembre"];
                     }
                 }
