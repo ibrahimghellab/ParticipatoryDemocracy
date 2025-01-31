@@ -6,7 +6,13 @@ Connexion::connect();
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo Membre::createMembre();
+    if (!empty($url[1]) && is_numeric($url[1]) && !empty($url[2]) && $url[2] == "vote" && !empty($url[3]) && is_numeric($url[3])) {
+        echo Membre::vote($url[1], $url[3]);
+    } else {
+        echo Membre::createMembre();
+    }
+
+
 } elseif ($_SERVER["REQUEST_METHOD"] == "PUT") {
 
 } elseif ($_SERVER["REQUEST_METHOD"] == "DELETE") {

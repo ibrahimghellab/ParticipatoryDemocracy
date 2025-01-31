@@ -42,5 +42,34 @@ class Membre
         }
         return json_encode(array("message" => "true"));
     }
+
+    public static function vote($idM, $idV)
+    {
+
+        $body = file_get_contents("php://input");
+        $tab = json_decode($body, true);
+        if (isset($tab["choix"])) {
+            require_once(__DIR__ . "/../config/connexion.php");
+
+            $requetePreparee = Connexion::pdo()->prepare("INSERT INTO MembreVote(idMembre,idVote,choix) VALUES(:idMembre,:idVote ,:choix);");
+            $requetePreparee->bindParam(":idMembre", $idM, PDO::PARAM_INT);
+            $requetePreparee->bindParam(":idVote", $idV, PDO::PARAM_INT);
+            $requetePreparee->bindParam(":choix", $tab["choix"], PDO::PARAM_STR);
+
+
+            try {
+                $requetePreparee->execute();
+            } catch (PDOException $e) {
+                header("HTTP/1.1 500 Internal Server Error");
+                return json_encode(array("message" => "false"));
+            }
+        } else {
+            header("HTTP/1.1 500 Internal Server Error");
+            echo "ici";
+            return json_encode(array("message" => "false"));
+        }
+
+        return json_encode(array("message" => "true"));
+    }
 }
 ?>
