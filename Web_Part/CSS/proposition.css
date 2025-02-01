@@ -71,3 +71,22 @@
 .proposition-button {
     width: 100%; /* Assure que les boutons prennent toute la largeur disponible */
 }
+
+#tableau {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
+    height: 100%;
+  
+  }
+  
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100vh;
+    padding: 20px;
+  }
