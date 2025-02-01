@@ -86,7 +86,7 @@
                     echo '<button type="submit" class="proposition-button">';
                     echo '<div style="display:flex;align-items:center;width:100%;pointer-events:none;">' . $tab[$i]["titre"] . '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $tab[$i]["theme"] . ';margin-left:10px;"></div></div>';
                     echo '</button>';
-                    echo '<span class="date-creation" style="margin-left: 600px;">' . $tab[$i]["dateCreation"] . '</span>';
+                    echo '<span class="date-creation" style="margin-left: auto;">' . $tab[$i]["dateCreation"] . '</span>';
                     echo '</form>';
                     echo '</div>';
                 }
