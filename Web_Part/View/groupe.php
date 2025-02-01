@@ -44,6 +44,7 @@
                     echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
                     echo '<input type="hidden" name="id" value="' . $tab[$i]["idGroupe"] . '">';
                     echo '<input type="hidden" name="nomGroupe" value="' . $tab[$i]["nomGroupe"] . '">';
+                
                     echo '<input type="hidden" name="couleurGroupe" value="' . $tab[$i]["couleurGroupe"] . '">';
                     echo '<input type="hidden" name="imageGroupe" value="' . $tab[$i]["imageGroupe"] . '">';
                     echo '<input type="hidden" name="dateCreation" value="' . $tab[$i]["dateCreation"] . '">';
@@ -52,7 +53,8 @@
                     echo '<input type="hidden" name="controleur" value="GroupeController">';
                     echo '<input type="hidden" name="action" value="getPropositionsByGroupe">';
                     echo '<button type="submit" id="submit2">';
-                    echo '<div style="display:flex;align-items:center;width:100%;pointer-events:none;">' . $tab[$i]["nomGroupe"] . '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $tab[$i]["couleurGroupe"] . ';margin-left:10px;"></div></div>';
+                    echo '<div style="display:flex;align-items:center;width:100%;pointer-events:none;">' . $tab[$i]["nomGroupe"] . '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $tab[$i]["couleurGroupe"] .';margin-left:10px;"><img src="'. $tab[$i]["imageGroupe"]. '"></div></div>';
+                    
                     echo '</button>';
                     echo '</form>';
                     echo '<form method="POST" action="./../Controller/routeur.php" style="margin:0;">';
@@ -62,6 +64,8 @@
                     echo '<button type="submit" id="delete-button" style="background:none;border:none;"><img src="./../assets/poubelle.svg" alt="Supprimer Groupe" class="trash-icon" style="width:20px;height:20px;margin-right:10px;"></button>';
                     echo '</form>';
                     echo '</div>';
+                    
+                    
                 }
                 ?>
             </div>
