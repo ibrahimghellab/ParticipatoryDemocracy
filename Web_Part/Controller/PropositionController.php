@@ -7,23 +7,24 @@ class PropositionController
     {
         $result = Proposition::createProposition();
 
-            if ($result["message"] == "true") {
-                echo "reussi";
-                require_once(__DIR__ . "/../View/createProposition.php");
+        if ($result["message"] == "true") {
+            echo "reussi";
+            require_once(__DIR__ . "/../View/createProposition.php");
 
-            } else {
-                require_once(__DIR__ . "/../View/login.php");
+        } else {
+            require_once(__DIR__ . "/../View/login.php");
 
-                echo "echec";
-            }
+            echo "echec";
+        }
 
 
     }
 
-    public static function afficherFormulaire(){
+    public static function afficherFormulaire()
+    {
         require_once(__DIR__ . "/../View/createProposition.php");
     }
-   
+
     public static function afficherProposition()
     {
         require_once(__DIR__ . "/../View/inside_proposition.php");
@@ -35,6 +36,12 @@ class PropositionController
         return $tab;
     }
 
+    public static function getStatVote()
+    {
+        $tab = Proposition::getStatVote();
+        ;
+        return $tab;
+    }
 
     public static function getVoteByProposition()
     {
