@@ -90,7 +90,7 @@
         echo ' </form>';
         echo ' </div>';
 
-
+        print_r(PropositionController::getStatVote());
         ?>
 
         <div class="commentaires-container">
