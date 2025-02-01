@@ -8,7 +8,8 @@ $tableauControleurs = [
     "GroupeController" => __DIR__ . "/../Controller/GroupeController.php",
     "PropositionController" => __DIR__ . "/../Controller/PropositionController.php",
     "CommentaireController" => __DIR__ . "/../Controller/CommentaireController.php",
-    "VoteController" => __DIR__ . "/../Controller/VoteController.php"
+    "VoteController" => __DIR__ . "/../Controller/VoteController.php",
+    "MembreController" => __DIR__ . "/../Controller/MembreController.php"
 ];
 // Définir le contrôleur et l'action par défaut
 $controleur = "UserController";

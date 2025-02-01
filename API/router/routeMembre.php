@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 
 } elseif ($_SERVER["REQUEST_METHOD"] == "PUT") {
-
+    echo Membre::updateVote($url[1], $url[3]);
 } elseif ($_SERVER["REQUEST_METHOD"] == "DELETE") {
     echo Membre::deleteMembre($url[1]);
 }

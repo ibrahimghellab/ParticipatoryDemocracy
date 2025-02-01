@@ -73,7 +73,7 @@
                 for ($i = 0; $i < count($tab); $i++) {
                     echo "<div class='proposition'>";
                     echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
-                    echo '<input type="hidden" name="idMembre" value="' . $tab[$i]["idMembre"] . '">';
+                    echo '<input type="hidden" name="idMembre" value="' . $idMembre . '">';
                     echo '<input type="hidden" name="idGroupe" value="' . $tab[$i]["idGroupe"] . '">';
                     echo '<input type="hidden" name="idProposition" value="' . $tab[$i]["idProposition"] . '">';
                     echo '<input type="hidden" name="titre" value="' . $tab[$i]["titre"] . '">';
@@ -103,6 +103,10 @@
                         echo '<input type="hidden" name="controleur" value="MembreController">';
                         echo '<input type="hidden" name="action" value="deleteMembre">';
                         echo '<input type="hidden" name="idMembre" value="' . $users[$i]["idMembre"] . '">';
+<<<<<<< HEAD
+=======
+
+>>>>>>> bc66ab83df19b6a6b7157812fd683f71b3d541a5
                         echo $users[$i]["nom"] . " " . $users[$i]["prenom"];
                         if ($users[$i]["idInternaute"] != $_SESSION["id"]) {
                             echo '<button type="submit" class="delete-user">';

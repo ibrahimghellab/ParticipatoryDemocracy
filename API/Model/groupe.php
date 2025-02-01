@@ -177,8 +177,9 @@ class Groupe
 
         require_once(__DIR__ . "/../config/connexion.php");
 
-        $requetePreparee = Connexion::pdo()->prepare("DELETE FROM Groupe WHERE idGroupe=:id;");
-        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+        $requetePreparee = Connexion::pdo()->prepare("DELETE FROM Membre WHERE idGroupe=:idG1 ; DELETE FROM Groupe WHERE idGroupe=:idG2;");
+        $requetePreparee->bindParam(":idG1", $id, PDO::PARAM_INT);
+        $requetePreparee->bindParam(":idG2", $id, PDO::PARAM_INT);
         try {
             $requetePreparee->execute();
             $result = true;

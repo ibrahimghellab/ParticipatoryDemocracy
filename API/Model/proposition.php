@@ -183,6 +183,22 @@ class Proposition
         }
 
     }
+
+    public static function getStatVote($id)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        $requeteAvecTags = "SELECT choix,COUNT(*) FROM Proposition P INNER JOIN Vote V ON P.idVote=V.idVote INNER JOIN MembreVote MV ON V.idVote=MV.idVote WHERE idProposition=:id GROUP BY choix;";
+        $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+        try {
+            $requetePreparee->execute();
+            $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Proposition");
+            return $requetePreparee->fetchAll();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     public static function getInfoByProposition($id)
     {
         require_once(__DIR__ . "/../config/connexion.php");

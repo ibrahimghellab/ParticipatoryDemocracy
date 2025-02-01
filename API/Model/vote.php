@@ -26,9 +26,6 @@ class Vote
 
         return json_encode(array("message" => "true"));
     }
-
-
-
 }
 
 ?>

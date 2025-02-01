@@ -51,18 +51,46 @@
     <div class="votes">
         <?php
         require_once(__DIR__ . "/../Controller/PropositionController.php");
-        print_r(PropositionController::getVoteByProposition());
+        $tab = PropositionController::getVoteByProposition();
+
         echo '<form method="POST" action="./../Controller/routeur.php">';
         echo ' <input type="hidden" name="controleur" value="VoteController">';
         echo '<input type="hidden" name="action" value="afficherFormulaire">';
         echo '<input type="hidden" name="idProposition" value=" echo $_POST["idProposition"]; ">';
 
 
+        if (empty($tab)) {
+            echo '<button type="submit" class="vote-submit-button">Déclencher vote</button>';
 
-        echo '<button type="submit" class="vote-submit-button">Déclencher vote</button>';
+        } else {
+            print_r($tab);
+        }
         echo ' </form>';
         echo '</div>';
 
+        print_r($_POST);
+
+        echo '<div class="voter">';
+        echo ' <form method="POST" action="./../Controller/routeur.php">';
+        echo '  <input type="hidden" name="controleur" value="MembreController">';
+        echo '    <input type="hidden" name="action" value="vote">';
+        echo '    <input type="hidden" name="idProposition" value="' . $_POST["idProposition"] . '">';
+        echo ' <input type="hidden" name="idMembre" value="' . $_POST["idMembre"] . '">';
+        echo ' <input type="hidden" name="idGroupe" value="' . $_POST["idGroupe"] . '">';
+        echo ' <input type="hidden" name="idVote" value="' . $tab["idVote"] . '">';
+        echo '<input type="hidden" name="titre" value="' . $_POST["titre"] . '">';
+        echo '<input type="hidden" name="description" value="' . $_POST["description"] . '">';
+        echo '<input type="hidden" name="dateCreation" value="' . $_POST["dateCreation"] . '">';
+        echo '<input type="hidden" name="theme" value="' . $_POST["theme"] . '">';
+        echo '<label for="oui">Oui</label>';
+        echo ' <input type="radio" name="choix" value="Oui" id="oui">';
+        echo '<label for="non">Non</label>';
+        echo ' <input type="radio" name="choix" value="Non" id="non">';
+        echo ' <button type="submit" class="vote-submit-button">Voter</button>';
+        echo ' </form>';
+        echo ' </div>';
+
+        print_r(PropositionController::getStatVote());
         ?>
 
         <div class="commentaires-container">
