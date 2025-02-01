@@ -37,8 +37,6 @@
                     <input type="text" name="theme" id="theme" required>
                 </div>
 
-                
-
     
 
                 <div class="submit">
