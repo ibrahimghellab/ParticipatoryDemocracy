@@ -9,7 +9,7 @@
     <title>Propositions</title>
 </head>
 
-<body>
+<body class="page-proposition">
     <?php require_once(__DIR__ . "/../View/navbar_connecte.php"); ?>
     <main class="main-container">
         <!-- Liste des groupes à gauche -->
@@ -54,12 +54,12 @@
                 echo '<input type="hidden" name="controleur" value="PropositionController">';
                 echo '<input type="hidden" name="action" value="afficherFormulaire">';
                 echo '<div class="submit">';
-                echo '<button type="submit" id="new-groupe">+ Nouvelle Proposition</button>';
+                echo '<button type="submit" id="new-proposition">+ Nouvelle Proposition</button>';
                 echo '</div>';
                 echo '</form>';
                 require_once(__DIR__ . "/../Controller/GroupeController.php");
 
-                echo '<h2>Proposition</h2>';
+                echo '<h2>Propositions</h2>';
 
                 require_once(__DIR__ . "/../Model/groupe.php");
                 $tab = Groupe::getPropositionsByGroupe();
