@@ -3,10 +3,10 @@ CREATE TABLE Internaute(
    nom VARCHAR(50),
    prenom VARCHAR(50),
    adresse VARCHAR(50),
-   email VARCHAR(50) UNIQUE,
+   email VARCHAR(50),
+   dateCreation DATE,
    hash VARCHAR(100),
    salt VARCHAR(50),
-   dateCreation DATE,
    PRIMARY KEY(idInternaute)
 );
 
@@ -37,6 +37,14 @@ CREATE TABLE Notification(
    PRIMARY KEY(idNotification)
 );
 
+CREATE TABLE Theme(
+   idTheme INT AUTO_INCREMENT,
+   nomTheme VARCHAR(50),
+   budgetTheme DECIMAL(15,2),
+   limiteBudgetTheme DECIMAL(15,2),
+   PRIMARY KEY(idTheme)
+);
+
 CREATE TABLE Role(
    idRole INT AUTO_INCREMENT,
    nomRole VARCHAR(50) NOT NULL,
@@ -57,9 +65,9 @@ CREATE TABLE Membre(
    idRole INT NOT NULL,
    idGroupe INT NOT NULL,
    PRIMARY KEY(idMembre),
-   FOREIGN KEY (idInternaute) REFERENCES Internaute(idInternaute) ON DELETE CASCADE,
-   FOREIGN KEY (idRole) REFERENCES Role(idRole) ON DELETE CASCADE,
-   FOREIGN KEY (idGroupe) REFERENCES Groupe(idGroupe) ON DELETE CASCADE
+   FOREIGN KEY(idInternaute) REFERENCES Internaute(idInternaute),
+   FOREIGN KEY(idRole) REFERENCES Role(idRole),
+   FOREIGN KEY(idGroupe) REFERENCES Groupe(idGroupe)
 );
 
 CREATE TABLE Proposition(
@@ -70,12 +78,15 @@ CREATE TABLE Proposition(
    theme VARCHAR(50),
    status VARCHAR(50),
    voteDemande BOOLEAN,
+   budgetGlobal DECIMAL(15,2),
+   idTheme INT NOT NULL,
    idVote INT NOT NULL,
    idMembre INT NOT NULL,
    PRIMARY KEY(idProposition),
    UNIQUE(idVote),
-   FOREIGN KEY (idVote) REFERENCES Vote(idVote) ON DELETE CASCADE,
-   FOREIGN KEY (idMembre) REFERENCES Membre(idMembre) ON DELETE CASCADE
+   FOREIGN KEY(idTheme) REFERENCES Theme(idTheme),
+   FOREIGN KEY(idVote) REFERENCES Vote(idVote),
+   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre)
 );
 
 CREATE TABLE Commentaire(
@@ -86,52 +97,32 @@ CREATE TABLE Commentaire(
    idProposition INT NOT NULL,
    idMembre INT NOT NULL,
    PRIMARY KEY(idCommentaire),
-   FOREIGN KEY (idProposition) REFERENCES Proposition(idProposition) ON DELETE CASCADE,
-   FOREIGN KEY (idMembre) REFERENCES Membre(idMembre) ON DELETE CASCADE
-);
-
-CREATE TABLE Budget(
-   idBudget INT AUTO_INCREMENT,
-   budgetGlobal DECIMAL(15,2),
-   budgetTheme DECIMAL(15,2),
-   themeDuBudget VARCHAR(50),
-   limiteBudgetTheme DECIMAL(15,2),
-   idProposition INT NOT NULL,
-   PRIMARY KEY(idBudget),
-   UNIQUE(idProposition),
-   FOREIGN KEY(idProposition) REFERENCES Proposition(idProposition) ON DELETE CASCADE
-);
-
-CREATE TABLE Signaler(
-   idMembre INT,
-   idCommentaire INT,
-   PRIMARY KEY(idMembre, idCommentaire),
-   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre) ON DELETE CASCADE,
-   FOREIGN KEY(idCommentaire) REFERENCES Commentaire(idCommentaire) ON DELETE CASCADE
+   FOREIGN KEY(idProposition) REFERENCES Proposition(idProposition),
+   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre)
 );
 
 CREATE TABLE CommentaireReaction(
    idCommentaire INT,
    idReaction INT,
    PRIMARY KEY(idCommentaire, idReaction),
-   FOREIGN KEY(idCommentaire) REFERENCES Commentaire(idCommentaire) ON DELETE CASCADE,
-   FOREIGN KEY(idReaction) REFERENCES Reaction(idReaction) ON DELETE CASCADE
+   FOREIGN KEY(idCommentaire) REFERENCES Commentaire(idCommentaire),
+   FOREIGN KEY(idReaction) REFERENCES Reaction(idReaction)
 );
 
 CREATE TABLE PropositionReaction(
    idProposition INT,
    idReaction INT,
    PRIMARY KEY(idProposition, idReaction),
-   FOREIGN KEY(idProposition) REFERENCES Proposition(idProposition) ON DELETE CASCADE,
-   FOREIGN KEY(idReaction) REFERENCES Reaction(idReaction) ON DELETE CASCADE
+   FOREIGN KEY(idProposition) REFERENCES Proposition(idProposition),
+   FOREIGN KEY(idReaction) REFERENCES Reaction(idReaction)
 );
 
 CREATE TABLE MembreReaction(
    idMembre INT,
    idReaction INT,
    PRIMARY KEY(idMembre, idReaction),
-   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre) ON DELETE CASCADE,
-   FOREIGN KEY(idReaction) REFERENCES Reaction(idReaction) ON DELETE CASCADE
+   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre),
+   FOREIGN KEY(idReaction) REFERENCES Reaction(idReaction)
 );
 
 CREATE TABLE MembreVote(
@@ -139,15 +130,30 @@ CREATE TABLE MembreVote(
    idVote INT,
    choix VARCHAR(50),
    PRIMARY KEY(idMembre, idVote),
-   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre) ON DELETE CASCADE,
-   FOREIGN KEY(idVote) REFERENCES Vote(idVote) ON DELETE CASCADE
+   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre),
+   FOREIGN KEY(idVote) REFERENCES Vote(idVote)
 );
 
 CREATE TABLE InternauteNotification(
    idInternaute INT,
    idNotification INT,
    PRIMARY KEY(idInternaute, idNotification),
-   FOREIGN KEY(idInternaute) REFERENCES Internaute(idInternaute) ON DELETE CASCADE,
-   FOREIGN KEY(idNotification) REFERENCES Notification(idNotification) ON DELETE CASCADE
+   FOREIGN KEY(idInternaute) REFERENCES Internaute(idInternaute),
+   FOREIGN KEY(idNotification) REFERENCES Notification(idNotification)
 );
 
+CREATE TABLE Signaler(
+   idMembre INT,
+   idCommentaire INT,
+   PRIMARY KEY(idMembre, idCommentaire),
+   FOREIGN KEY(idMembre) REFERENCES Membre(idMembre),
+   FOREIGN KEY(idCommentaire) REFERENCES Commentaire(idCommentaire)
+);
+
+CREATE TABLE ThemeGroupe(
+   idGroupe INT,
+   idTheme INT,
+   PRIMARY KEY(idGroupe, idTheme),
+   FOREIGN KEY(idGroupe) REFERENCES Groupe(idGroupe),
+   FOREIGN KEY(idTheme) REFERENCES Theme(idTheme)
+);
