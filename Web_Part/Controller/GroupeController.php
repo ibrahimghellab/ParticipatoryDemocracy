@@ -2,6 +2,10 @@
 require_once("../Model/groupe.php");
 class GroupeController
 {
+    public static function afficherFormulaire()
+    {
+        require_once(__DIR__ . "/../View/createGroupe.php");
+    }
 
     public static function createGroupe()
     {
