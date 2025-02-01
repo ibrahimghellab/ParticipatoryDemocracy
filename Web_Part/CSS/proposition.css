@@ -69,8 +69,18 @@
 }
 
 .proposition-button {
-    width: 100%; /* Assure que les boutons prennent toute la largeur disponible */
-}
+    padding: 10px;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #007bff; /* Bleu par défaut */
+    border-radius: 5px; /* Coins arrondis */
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation */
+    cursor: pointer;
+    border: none;}
 
 #tableau {
     width: 100%;
@@ -89,4 +99,38 @@
     align-items: flex-start;
     height: 100vh;
     padding: 20px;
+  }
+
+  #new-proposition {
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #007bff; /* Bleu par défaut */
+    border-radius: 5px; /* Coins arrondis */
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation */
+    cursor: pointer;
+    border: none;
+  }
+  
+  #new-proposition:hover {
+    background-color: #0056b3; /* Bleu plus foncé */
+    transform: scale(1.05); /* Agrandissement au survol */
+  }
+
+  .groupes {
+    width: 75%;
+    background-color: #f5f5f5;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    height: 100%;
   }
