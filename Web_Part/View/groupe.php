@@ -19,9 +19,7 @@
 </head>
 
 
-<body>
-
-
+<body class="page-groupe">
     <main>
         <div class="container">
             <div class="groupes">
