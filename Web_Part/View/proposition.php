@@ -49,16 +49,17 @@
             </table>
 
             <div class="colonne">
-            <?php require_once(__DIR__ . "/../Controller/PropositionController.php");
+                <?php require_once(__DIR__ . "/../Controller/PropositionController.php");
 
                 echo '<form method="POST" action="./../Controller/routeur.php">';
-                echo  '<input type="hidden" name="controleur" value="PropositionController">';
+                echo '<input type="hidden" name="controleur" value="PropositionController">';
                 echo '<input type="hidden" name="action" value="afficherFormulaire">';
-                echo  '<div class="submit">';
-                echo      '<button type="submit" id="new-groupe">+ Nouvelle Proposition</button>';
-                echo  '</div>';
+                echo '<div class="submit">';
+                echo '<button type="submit" id="new-groupe">+ Nouvelle Proposition</button>';
+                echo '</div>';
+                echo '</form>';
                 require_once(__DIR__ . "/../Controller/GroupeController.php");
-                
+
                 echo '<h2>Proposition</h2>';
 
                 require_once(__DIR__ . "/../Model/groupe.php");

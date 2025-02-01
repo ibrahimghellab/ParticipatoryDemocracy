@@ -44,69 +44,63 @@
             ?>
         </div>
 
-        <!-- Section Vote -->
-        <div class="votes">
-            <?php
-            require_once(__DIR__ . "/../Controller/PropositionController.php");
-            print_r(PropositionController::getVoteByProposition());
-            echo '<form method="POST" action="./../Controller/routeur.php">';
-            echo ' <input type="hidden" name="controleur" value="VoteController">';
-            echo '<input type="hidden" name="action" value="submitVote">';
-            echo '<input type="hidden" name="idProposition" value=" echo $_POST["idProposition"]; ">';
 
-            echo '<div class="vote-options">';
-            echo '<label for="voteOui">';
-            echo ' <input type="radio" id="voteOui" name="vote" value="oui">';
-            echo ' Oui';
-            echo ' </label>';
-            echo ' <label for="voteNon">';
-            echo '  <input type="radio" id="voteNon" name="vote" value="non">';
-            echo '  Non';
-            echo '</label>';
-            echo '</div>';
 
-            echo '<button type="submit" class="vote-submit-button">Voter</button>';
-            echo ' </form>';
-            echo '</div>';
+    </div>
+    <!-- Section Vote -->
+    <div class="votes">
+        <?php
+        require_once(__DIR__ . "/../Controller/PropositionController.php");
+        print_r(PropositionController::getVoteByProposition());
+        echo '<form method="POST" action="./../Controller/routeur.php">';
+        echo ' <input type="hidden" name="controleur" value="VoteController">';
+        echo '<input type="hidden" name="action" value="afficherFormulaire">';
+        echo '<input type="hidden" name="idProposition" value=" echo $_POST["idProposition"]; ">';
 
-            ?>
 
-            <div class="commentaires-container">
-                <div class="commentaires">
-                    <?php
-                    require_once(__DIR__ . "/../Controller/PropositionController.php");
-                    require_once(__DIR__ . "/../Controller/UserController.php");
 
-                    $tab = PropositionController::getCommentaireByProposition();
-                    // Affichage des commentaires
-                    for ($i = 0; $i < count($tab); $i++) {
-                        $commentaire = $tab[$i]["texte"];
-                        $id = $tab[$i]["idMembre"];
+        echo '<button type="submit" class="vote-submit-button">Déclencher vote</button>';
+        echo ' </form>';
+        echo '</div>';
 
-                        echo "<div class='commentaire-item'>" . $commentaire . " ." . $id . "</div>";
-                    }
-                    ?>
-                </div>
-            </div>
+        ?>
 
-            <!-- Champ de commentaire -->
-            <div class="comment-section">
-                <form method="POST" action="./../Controller/routeur.php">
-                    <input type="hidden" name="controleur" value="CommentaireController">
-                    <input type="hidden" name="action" value="createCommentaire">
-                    <input type="hidden" name="idProposition" value="<?php echo $_POST["idProposition"]; ?>">
-                    <input type="hidden" name="idGroupe" value="<?php echo $_POST["idGroupe"]; ?>">
-                    <input type="hidden" name="idMembre" value="<?php echo $_POST["idMembre"]; ?>">
-                    <input type="hidden" name="titre" value="<?php echo $_POST["titre"]; ?>">
-                    <input type="hidden" name="description" value="<?php echo $_POST["description"]; ?>">
-                    <input type="hidden" name="dateCreation" value="<?php echo $_POST["dateCreation"]; ?>">
-                    <input type="hidden" name="theme" value="<?php echo $_POST["theme"]; ?>">
-                    <input type="text" id="commentaire" name="texte" class="comment-input"
-                        placeholder="Écrire un commentaire...">
-                    <button type="submit" class="comment-submit-button">Envoyer</button>
-                </form>
+        <div class="commentaires-container">
+            <div class="commentaires">
+                <?php
+                require_once(__DIR__ . "/../Controller/PropositionController.php");
+                require_once(__DIR__ . "/../Controller/UserController.php");
+
+                $tab = PropositionController::getCommentaireByProposition();
+                // Affichage des commentaires
+                for ($i = 0; $i < count($tab); $i++) {
+                    $commentaire = $tab[$i]["texte"];
+                    $id = $tab[$i]["idMembre"];
+
+                    echo "<div class='commentaire-item'>" . $commentaire . " ." . $id . "</div>";
+                }
+                ?>
             </div>
         </div>
+
+        <!-- Champ de commentaire -->
+        <div class="comment-section">
+            <form method="POST" action="./../Controller/routeur.php">
+                <input type="hidden" name="controleur" value="CommentaireController">
+                <input type="hidden" name="action" value="createCommentaire">
+                <input type="hidden" name="idProposition" value="<?php echo $_POST["idProposition"]; ?>">
+                <input type="hidden" name="idGroupe" value="<?php echo $_POST["idGroupe"]; ?>">
+                <input type="hidden" name="idMembre" value="<?php echo $_POST["idMembre"]; ?>">
+                <input type="hidden" name="titre" value="<?php echo $_POST["titre"]; ?>">
+                <input type="hidden" name="description" value="<?php echo $_POST["description"]; ?>">
+                <input type="hidden" name="dateCreation" value="<?php echo $_POST["dateCreation"]; ?>">
+                <input type="hidden" name="theme" value="<?php echo $_POST["theme"]; ?>">
+                <input type="text" id="commentaire" name="texte" class="comment-input"
+                    placeholder="Écrire un commentaire...">
+                <button type="submit" class="comment-submit-button">Envoyer</button>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>
