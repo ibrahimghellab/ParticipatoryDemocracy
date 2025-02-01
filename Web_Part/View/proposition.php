@@ -74,7 +74,7 @@
                 for ($i = 0; $i < count($tab); $i++) {
                     echo "<div class='proposition'>";
                     echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
-                    echo '<input type="hidden" name="idMembre" value="' . $tab[$i]["idMembre"] . '">';
+                    echo '<input type="hidden" name="idMembre" value="' . $idMembre . '">';
                     echo '<input type="hidden" name="idGroupe" value="' . $tab[$i]["idGroupe"] . '">';
                     echo '<input type="hidden" name="idProposition" value="' . $tab[$i]["idProposition"] . '">';
                     echo '<input type="hidden" name="titre" value="' . $tab[$i]["titre"] . '">';
@@ -101,8 +101,10 @@
                     for ($i = 0; $i < count($users); $i++) {
                         echo "<div class='user'>";
                         echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
-                        echo '<input type="hidden" name="controleur" value="UserController">';
+                        echo '<input type="hidden" name="controleur" value="MembreController">';
                         echo '<input type="hidden" name="action" value="deleteMembre">';
+                        echo '<input type="hidden" name="idMembre" value="' . $users[$i]["idMembre"] . '">';
+
                         echo $users[$i]["nom"] . " " . $users[$i]["prenom"];
                         if ($users[$i]["idInternaute"] != $_SESSION["id"]) {
                             echo '<button type="submit" class="delete-user">';
