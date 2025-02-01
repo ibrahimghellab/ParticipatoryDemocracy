@@ -33,13 +33,12 @@
                 </thead>
                 <tbody>
                     <?php
-
+                    print_r($_POST);
                     echo '<tr>';
                     echo '<td>' . $_POST['id'] . '</td>';
                     echo '<td>' . $_POST['nomGroupe'] . '</td>';
                     echo '<td><div style="width:20px;height:20px;background-color:' . $_POST['couleurGroupe'] . ';"></div></td>';
-                    echo '<td>' . $_POST['imageGroupe'] . '</td>';
-                    echo '<td>' . $_POST['dateCreation'] . '</td>';
+                    echo '<td><img src="' . $_POST['imageGroupe'] . '" alt="Image du groupe" style="width:50px;height:50px;"></td>';                    echo '<td>' . $_POST['dateCreation'] . '</td>';
                     echo '<td>' . $_POST['description'] . '</td>';
                     echo '</tr>';
 
@@ -86,7 +85,7 @@
                     echo '<button type="submit" class="proposition-button">';
                     echo '<div style="display:flex;align-items:center;width:100%;pointer-events:none;">' . $tab[$i]["titre"] . '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $tab[$i]["theme"] . ';margin-left:10px;"></div></div>';
                     echo '</button>';
-                    echo '<span class="date-creation" style="margin-left: auto;">' . $tab[$i]["dateCreation"] . '</span>';
+                    echo '<span class="date-creation" style="margin-left: 600px;">' . $tab[$i]["dateCreation"] . '</span>';
                     echo '</form>';
                     echo '</div>';
                 }
@@ -101,8 +100,9 @@
                     for ($i = 0; $i < count($users); $i++) {
                         echo "<div class='user'>";
                         echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
-                        echo '<input type="hidden" name="controleur" value="UserController">';
+                        echo '<input type="hidden" name="controleur" value="MembreController">';
                         echo '<input type="hidden" name="action" value="deleteMembre">';
+                        echo '<input type="hidden" name="idMembre" value="' . $users[$i]["idMembre"] . '">';
                         echo $users[$i]["nom"] . " " . $users[$i]["prenom"];
                         if ($users[$i]["idInternaute"] != $_SESSION["id"]) {
                             echo '<button type="submit" class="delete-user">';
