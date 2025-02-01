@@ -103,10 +103,6 @@
                         echo '<input type="hidden" name="controleur" value="MembreController">';
                         echo '<input type="hidden" name="action" value="deleteMembre">';
                         echo '<input type="hidden" name="idMembre" value="' . $users[$i]["idMembre"] . '">';
-<<<<<<< HEAD
-=======
-
->>>>>>> bc66ab83df19b6a6b7157812fd683f71b3d541a5
                         echo $users[$i]["nom"] . " " . $users[$i]["prenom"];
                         if ($users[$i]["idInternaute"] != $_SESSION["id"]) {
                             echo '<button type="submit" class="delete-user">';
