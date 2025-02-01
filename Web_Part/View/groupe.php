@@ -5,7 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groupes</title>
-    <link rel="stylesheet" href="./../CSS/groupe.css">
+
+<?php
+
+    if(basename(__FILE__) === "groupe.php") {
+      require_once(__DIR__ . "/../View/navbar_connecte.php");
+       echo '<link rel="stylesheet" href="./../CSS/groupe.css">';
+    }        
+
+    
+    ?>
 
 </head>
 
