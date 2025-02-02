@@ -178,4 +178,29 @@ class Groupe extends Modele
 
         return json_decode($response, true);
     }
+
+    public static function getThemesByGroupe()
+    {
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/groupe/' . $_POST["id"] . '/themes';
+
+        // Initialiser cURL
+        $ch = curl_init($url);
+
+        // Définir les options cURL pour une requête GET
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Exécuter la requête et récupérer la réponse
+        $response = curl_exec($ch);
+
+        // Vérifier s'il y a une erreur
+        if (curl_errno($ch)) {
+            echo 'Erreur cURL: ' . curl_error($ch);
+            return null;
+        }
+
+        // Fermer la session cURL
+        curl_close($ch);
+
+        return json_decode($response, true);
+    }
 }
