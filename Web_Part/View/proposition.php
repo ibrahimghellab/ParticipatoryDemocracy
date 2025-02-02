@@ -23,23 +23,23 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Numéro du groupe</th>
                         <th>Nom du groupe</th>
                         <th>Couleur du groupe</th>
                         <th>Nom de l'image</th>
                         <th>Date de création</th>
                         <th>Description</th>
+                        <th>Theme du Groupe</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    print_r($_POST);
                     echo '<tr>';
-                    echo '<td>' . $_POST['id'] . '</td>';
                     echo '<td>' . $_POST['nomGroupe'] . '</td>';
                     echo '<td><div style="width:20px;height:20px;background-color:' . $_POST['couleurGroupe'] . ';"></div></td>';
                     echo '<td><img src="' . $_POST['imageGroupe'] . '" alt="Image du groupe" style="width:50px;height:50px;"></td>';                    echo '<td>' . $_POST['dateCreation'] . '</td>';
                     echo '<td>' . $_POST['description'] . '</td>';
+                    echo '<td>' . $_POST['theme'] . '</td>';
                     echo '</tr>';
 
                     ?>
