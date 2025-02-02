@@ -29,7 +29,7 @@ class Vote extends Modele
             'idProposition' => $_POST['idProposition'],
             'typeScrutin' => $_POST['typeScrutin'],
             'dateFin' => $_POST['dateFin'],
-            'choixVote' => $_POST['choixVote']
+            'choixVote' => $_POST['choixVote'],
         ];
 
         $jsonData = json_encode($jsonData);
@@ -46,7 +46,10 @@ class Vote extends Modele
 
         // Exécuter la requête et récupérer la réponse
         $response = curl_exec($ch);
+        return $response;
     }
+
+
 
 }
 ?>
