@@ -71,11 +71,13 @@ END;
 DELIMITER ;
 
 DELIMITER //
-CREATE OR REPLACE PROCEDURE createVote(p_idProposition INT,p_typeScrutin VARCHAR(50),p_dateFin DATE)
+CREATE OR REPLACE FUNCTION createVote(p_idProposition INT,p_typeScrutin VARCHAR(50),p_dateFin DATE) RETURNS INT
 BEGIN
+DECLARE idVote INT;
 INSERT INTO Vote(typeScrutin, dateDebut, status, dateFin) VALUES(p_typeScrutin,CURRENT_DATE(),'En cours',p_dateFin);
-
+SET idVote = LAST_INSERT_ID();
 UPDATE Proposition SET idVote=LAST_INSERT_ID() WHERE idProposition=p_idProposition;
+RETURN idVote;
 END;
 //
 DELIMITER ;
