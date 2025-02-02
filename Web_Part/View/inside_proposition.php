@@ -83,10 +83,11 @@
             echo '<input type="hidden" name="description" value="' . $_POST["description"] . '">';
             echo '<input type="hidden" name="dateCreation" value="' . $_POST["dateCreation"] . '">';
             echo '<input type="hidden" name="theme" value="' . $_POST["theme"] . '">';
-            echo '<label for="oui">Oui</label>';
-            echo ' <input type="radio" name="choix" value="Oui" id="oui">';
-            echo '<label for="non">Non</label>';
-            echo ' <input type="radio" name="choix" value="Non" id="non">';
+            foreach (PropositionController::getChoixVoteByProposition() as $choix) {
+                echo '<label for="' . $choix["possibiliteChoixVote"] . '">' . $choix["possibiliteChoixVote"] . '</label>';
+                echo ' <input type="radio" name="choix" value="' . $choix["possibiliteChoixVote"] . '" id="' . $choix["possibiliteChoixVote"] . '">';
+            }
+
             echo ' <button type="submit" class="vote-submit-button">Voter</button>';
             echo ' </form>';
             echo ' </div>';
@@ -94,8 +95,6 @@
 
 
         print_r($_POST);
-
-
 
         print_r(PropositionController::getStatVote());
         ?>
