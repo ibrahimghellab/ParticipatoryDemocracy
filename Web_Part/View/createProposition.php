@@ -16,13 +16,21 @@
     </header>
     <main>
         <div>
-        <?php   require_once(__DIR__ . "/../Controller/GroupeController.php");
-        $tab = GroupeController::getThemesByGroupe(); ?>
+            <?php require_once(__DIR__ . "/../Controller/GroupeController.php");
+            $tab = GroupeController::getThemesByGroupe(); ?>
 
             <form method="POST" action="./../Controller/routeur.php">
                 <input type="hidden" name="controleur" value="PropositionController">
                 <input type="hidden" name="action" value="createProposition">
-
+                <input type="hidden" name="idMembre" value="<?php echo $_POST['idMembre']; ?>">
+                <?php
+                echo '<input type="hidden" name="id" value="' . $_POST["id"] . '">';
+                echo '<input type="hidden" name="nomGroupe" value="' . $_POST["nomGroupe"] . '">';
+                echo '<input type="hidden" name="couleurGroupe" value="' . $_POST["couleurGroupe"] . '">';
+                echo '<input type="hidden" name="imageGroupe" value="' . $_POST["imageGroupe"] . '">';
+                echo '<input type="hidden" name="dateCreation" value="' . $_POST["dateCreation"] . '">';
+                echo '<input type="hidden" name="description" value="' . $_POST["description"] . '">';
+                ?>
                 <div>
                     <label for="titre">Titre : </label>
                     <input type="text" name="titre" id="titre" required>
@@ -36,14 +44,14 @@
 
 
                 <div>
-                <label for="theme">Thème : </label>
-                <select name="idTheme" id="theme" required>
-                    <?php
-                    foreach ($tab as $theme) {
-                        echo '<option value="' . htmlspecialchars($theme["idTheme"]) . '">' . htmlspecialchars($theme["nomTheme"]) . '</option>';
-                    }
-                    ?>
-                </select>
+                    <label for="theme">Thème : </label>
+                    <select name="idTheme" id="theme" required>
+                        <?php
+                        foreach ($tab as $theme) {
+                            echo '<option value="' . htmlspecialchars($theme["idTheme"]) . '">' . htmlspecialchars($theme["nomTheme"]) . '</option>';
+                        }
+                        ?>
+                    </select>
                 </div>
 
                 <?php print_r($_POST); ?>
