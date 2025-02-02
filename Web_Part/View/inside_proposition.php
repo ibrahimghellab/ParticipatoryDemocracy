@@ -95,6 +95,7 @@
         }
 
         ?>
+        </div>;
 </div>
 <div class="Vote">
     <h3>Résultats du vote</h3>
@@ -131,18 +132,7 @@
     <?php } ?>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.vote-progress').forEach(function(bar) {
-        let finalWidth = bar.getAttribute('data-width') + "%";
-        bar.style.width = '0%'; // Initialise à 0%
-        setTimeout(() => {
-            bar.style.transition = "width 1.5s ease-out"; // Animation fluide
-            bar.style.width = finalWidth; // Applique la largeur finale
-        }, 100); // Petit délai pour forcer le reflow
-    });
-});
-</script>
+
 </div>
 
 
@@ -186,5 +176,16 @@ document.addEventListener('DOMContentLoaded', function() {
             </form>
         </div>
 </body>
-
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.vote-progress').forEach(function(bar) {
+        let finalWidth = bar.getAttribute('data-width') + "%";
+        bar.style.width = '0%'; // Initialise à 0%
+        setTimeout(() => {
+            bar.style.transition = "width 1.5s ease-out"; // Animation fluide
+            bar.style.width = finalWidth; // Applique la largeur finale
+        }, 100); // Petit délai pour forcer le reflow
+    });
+});
+</script>
 </html>
