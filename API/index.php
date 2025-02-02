@@ -32,9 +32,14 @@
 
 
 require_once("config/connexion.php");
+
 require_once("Model/groupe.php");
 require_once("Model/user.php");
 require_once("Model/commentaire.php");
+require_once("Model/proposition.php");
+require_once("Model/membre.php");
+require_once("Model/vote.php");
+require_once("Model/theme.php");
 
 Connexion::connect();
 $error = array();
@@ -60,6 +65,9 @@ try {
                 break;
             case "vote":
                 require_once("router/routeVote.php");
+                break;
+            case "theme":
+                require_once("router/routeTheme.php");
                 break;
             default:
                 throw new Exception("Rien ne correspond");
