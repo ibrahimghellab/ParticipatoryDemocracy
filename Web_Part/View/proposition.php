@@ -93,6 +93,7 @@
 
 
                 for ($i = 0; $i < count($tab); $i++) {
+                    print_r($tab[$i]);
                     echo "<div class='proposition'>";
                     echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
                     echo '<input type="hidden" name="idMembre" value="' . $idMembre . '">';
@@ -101,7 +102,7 @@
                     echo '<input type="hidden" name="titre" value="' . $tab[$i]["titre"] . '">';
                     echo '<input type="hidden" name="description" value="' . $tab[$i]["description"] . '">';
                     echo '<input type="hidden" name="dateCreation" value="' . $tab[$i]["dateCreation"] . '">';
-                    echo '<input type="hidden" name="theme" value="' . $tab[$i]["theme"] . '">';
+                    echo '<input type="hidden" name="theme" value="' . $tab[$i]["idTheme"] . '">';
                     echo '<input type="hidden" name="controleur" value="PropositionController">';
                     echo '<input type="hidden" name="action" value="afficherProposition">';
                     echo '<button type="submit" class="proposition-button">';
@@ -120,6 +121,7 @@
                     require_once(__DIR__ . "/../Model/user.php");
                     $users = Groupe::getMembresByGroupe();
                     for ($i = 0; $i < count($users); $i++) {
+                        print_r($users[$i]);
                         echo "<div class='user'>";
                         echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
                         echo '<input type="hidden" name="controleur" value="MembreController">';
