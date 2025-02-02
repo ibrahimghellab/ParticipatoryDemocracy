@@ -20,7 +20,15 @@
                 <input type="hidden" name="controleur" value="VoteController">
                 <input type="hidden" name="action" value="createVote">
                 <input type="hidden" name="idProposition" value=<?php echo $_POST['idProposition']; ?>>
-
+                <?php
+                echo '    <input type="hidden" name="idProposition" value="' . $_POST["idProposition"] . '">';
+                echo ' <input type="hidden" name="idMembre" value="' . $_POST["idMembre"] . '">';
+                echo ' <input type="hidden" name="idGroupe" value="' . $_POST["idGroupe"] . '">';
+                echo '<input type="hidden" name="titre" value="' . $_POST["titre"] . '">';
+                echo '<input type="hidden" name="description" value="' . $_POST["description"] . '">';
+                echo '<input type="hidden" name="dateCreation" value="' . $_POST["dateCreation"] . '">';
+                echo '<input type="hidden" name="theme" value="' . $_POST["theme"] . '">';
+                ?>
                 <div>
                     <label for="typeScrutin">Type de Scrutin</label>
                     <input type="text" name="typeScrutin" id="typeScrutin" required>
@@ -32,7 +40,8 @@
 
                 <div>
                     <label for="choixVote">Choix du vote</label>
-                    <input type="text" id="choixVote" name="choixVote" list="choixVote-vote" placeholder="Ajoutez un choix de vote">
+                    <input type="text" id="choixVote" name="choixVote" list="choixVote-vote"
+                        placeholder="Ajoutez un choix de vote">
                     <datalist id="choixVote-vote">
                         <option value="Technologie"></option>
                         <option value="Sport"></option>
