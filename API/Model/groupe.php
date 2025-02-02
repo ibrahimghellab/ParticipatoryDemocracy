@@ -75,7 +75,7 @@ class Groupe
         if (isset($tab["nom"]) && isset($tab["image"]) && isset($tab["couleur"]) && isset($tab["description"]) && isset($tab["themes"])) {
             require_once(__DIR__ . "/../config/connexion.php");
 
-            $requetePreparee = Connexion::pdo()->prepare("CALL createGroupe(" . $id . ",:nom,:img,:clr,:descr,@idGrp)");
+            $requetePreparee = Connexion::pdo()->prepare("SELECT createGroupe(" . $id . ",:nom,:img,:clr,:descr)");
 
             $requetePreparee->bindParam(":nom", $tab["nom"], PDO::PARAM_STR);
             $requetePreparee->bindParam(":img", $tab["image"], PDO::PARAM_STR);
@@ -83,54 +83,44 @@ class Groupe
             $requetePreparee->bindParam(":descr", $tab["description"], PDO::PARAM_STR);
             try {
                 $requetePreparee->execute();
-                $result = Connexion::pdo()->query("SELECT @idGrp AS idGroupe")->fetch(PDO::FETCH_ASSOC);
-                $idGrp = $result['idGroupe'];
+                $idGrp = $requetePreparee->fetchColumn();
             } catch (PDOException $e) {
+                echo $e->getMessage();
                 http_response_code(500);
-                return json_encode($response = [
-                    "code" => http_response_code(500),
-                    "message" => $e->getMessage()
-                ], JSON_PRETTY_PRINT);
+                return json_encode(array("message" => "false"), JSON_PRETTY_PRINT);
             }
 
 
 
             foreach ($tab["themes"] as $theme) {
-                $requetePreparee = Connexion::pdo()->prepare("INSERT INTO Theme(nomTheme,bugetTheme,limiteBudgetTheme) VALUES (:nomTheme,0,0)");
+                $requetePreparee = Connexion::pdo()->prepare("INSERT INTO Theme(nomTheme,budgetTheme,limiteBudgetTheme) VALUES (:nomTheme,0,0)");
                 $requetePreparee->bindParam(":nomTheme", $theme, PDO::PARAM_STR);
 
                 try {
                     $requetePreparee->execute();
                     $themeId = Connexion::pdo()->lastInsertId();
                 } catch (PDOException $e) {
+                    echo $e->getMessage();
                     http_response_code(500);
-                    return json_encode($response = [
-                        "code" => http_response_code(500),
-                        "message" => $e->getMessage()
-                    ], JSON_PRETTY_PRINT);
+                    return json_encode(array("message" => "false"), JSON_PRETTY_PRINT);
                 }
 
 
-                $requeteTheme = Connexion::pdo()->prepare("INSERT INTO GroupeTheme (idGroupe, idTheme) VALUES (:idGroupe, :idTheme)");
+                $requeteTheme = Connexion::pdo()->prepare("INSERT INTO ThemeGroupe (idGroupe, idTheme) VALUES (:idGroupe, :idTheme)");
                 $requeteTheme->bindParam(":idGroupe", $idGrp, PDO::PARAM_INT);
                 $requeteTheme->bindParam(":idTheme", $themeId, PDO::PARAM_INT);
                 try {
                     $requeteTheme->execute();
                 } catch (PDOException $e) {
+                    echo $e->getMessage();
                     http_response_code(500);
-                    return json_encode($response = [
-                        "code" => http_response_code(500),
-                        "message" => $e->getMessage()
-                    ], JSON_PRETTY_PRINT);
+                    return json_encode(array("message" => "false"), JSON_PRETTY_PRINT);
                 }
             }
 
         } else {
             http_response_code(500);
-            $response = [
-                "code" => http_response_code(500),
-                "message" => "ERREUR: Le groupe n'as pas été inséré."
-            ];
+            return json_encode(array("message" => "false"), JSON_PRETTY_PRINT);
         }
 
         return (json_encode(array("message" => "true"), JSON_PRETTY_PRINT));
