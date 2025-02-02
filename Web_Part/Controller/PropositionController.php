@@ -58,6 +58,12 @@ class PropositionController
         return $tab;
     }
 
+    public static function getChoixVoteByProposition()
+    {
+        $tab = Proposition::getChoixVoteByProposition();
+        return $tab;
+    }
+
 
 
     // public static function createCommentaire()
