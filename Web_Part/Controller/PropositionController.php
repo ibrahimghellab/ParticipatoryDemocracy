@@ -8,13 +8,10 @@ class PropositionController
         $result = Proposition::createProposition();
 
         if ($result["message"] == "true") {
-            echo "reussi";
-            require_once(__DIR__ . "/../View/createProposition.php");
+            require_once(__DIR__ . "/../View/proposition.php");
 
         } else {
-            require_once(__DIR__ . "/../View/login.php");
-
-            echo "echec";
+            require_once(__DIR__ . "/../View/createProposition.php");
         }
 
 
