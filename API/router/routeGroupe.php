@@ -10,6 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo json_encode(Groupe::getMembresByGroupe($url[1]), JSON_PRETTY_PRINT);
     } elseif (!empty($url[1]) && is_numeric($url[1]) && $url[2] == "propositions") {
         echo json_encode(Groupe::getPropositionsByGroupe($url[1]), JSON_PRETTY_PRINT);
+    } elseif (!empty($url[1]) && is_numeric($url[1]) && $url[2] == "themes") {
+        echo json_encode(Groupe::getThemesByGroupe($url[1]), JSON_PRETTY_PRINT);
     } else {
         throw new Exception("TestGroupe");
     }
