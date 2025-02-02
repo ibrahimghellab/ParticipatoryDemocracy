@@ -157,3 +157,11 @@ CREATE TABLE ThemeGroupe(
    FOREIGN KEY(idGroupe) REFERENCES Groupe(idGroupe),
    FOREIGN KEY(idTheme) REFERENCES Theme(idTheme)
 );
+
+CREATE TABLE ChoixVote(
+   idChoixVote INT,
+   possibiliteChoixVote VARCHAR(150),
+   idVote INT,
+   PRIMARY KEY(idChoixVote),
+   FOREIGN KEY(idVote) REFERENCES Vote(idVote)
+);
