@@ -33,15 +33,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
 
                     <?php
+                    require_once(__DIR__ . "/../Controller/GroupeController.php");
                     $tab = GroupeController::getThemesByGroupe();
                     print_r($tab);
                     echo '<tr>';
                     echo '<td>' . $_POST['nomGroupe'] . '</td>';
                     echo '<td><div style="width:20px;height:20px;background-color:' . $_POST['couleurGroupe'] . ';"></div></td>';
-                    echo '<td><img src="' . $_POST['imageGroupe'] . '" alt="Image du groupe" style="width:50px;height:50px;"></td>';                    echo '<td>' . $_POST['dateCreation'] . '</td>';
+                    echo '<td><img src="' . $_POST['imageGroupe'] . '" alt="Image du groupe" style="width:50px;height:50px;"></td>';
+                    echo '<td>' . $_POST['dateCreation'] . '</td>';
                     echo '<td>' . $_POST['description'] . '</td>';
                     echo '<td>';
                     foreach ($tab as $theme) {
@@ -56,13 +58,24 @@
 
             <div class="colonne">
                 <?php require_once(__DIR__ . "/../Controller/PropositionController.php");
-
+                require_once(__DIR__ . "/../Model/groupe.php");
+                $users = Groupe::getMembresByGroupe();
+                $idMembre = null;
+                for ($i = 0; $i < count($users); $i++) {
+                    if ($users[$i]["idInternaute"] == $_SESSION["id"]) {
+                        $idMembre = $users[$i]["idMembre"];
+                    }
+                }
                 echo '<form method="POST" action="./../Controller/routeur.php">';
                 echo '<input type="hidden" name="controleur" value="PropositionController">';
                 echo '<input type="hidden" name="action" value="afficherFormulaire">';
                 echo '<input type="hidden" name="id" value="' . $_POST["id"] . '">';
-
-         
+                echo '<input type="hidden" name="idMembre" value="' . $idMembre . '">';
+                echo '<input type="hidden" name="nomGroupe" value="' . $_POST["nomGroupe"] . '">';
+                echo '<input type="hidden" name="couleurGroupe" value="' . $_POST["couleurGroupe"] . '">';
+                echo '<input type="hidden" name="imageGroupe" value="' . $_POST["imageGroupe"] . '">';
+                echo '<input type="hidden" name="dateCreation" value="' . $_POST["dateCreation"] . '">';
+                echo '<input type="hidden" name="description" value="' . $_POST["description"] . '">';
 
                 echo '<div class="submit">';
                 echo '<button type="submit" id="new-proposition">+ Nouvelle Proposition</button>';
@@ -72,16 +85,13 @@
 
                 echo '<h2>Propositions</h2>';
 
-                require_once(__DIR__ . "/../Model/groupe.php");
+
                 $tab = Groupe::getPropositionsByGroupe();
+                print_r($_POST);
+                echo "<br>";
                 print_r($tab);
-                $users = Groupe::getMembresByGroupe();
-                $idMembre = null;
-                for ($i = 0; $i < count($users); $i++) {
-                    if ($users[$i]["idInternaute"] == $_SESSION["id"]) {
-                        $idMembre = $users[$i]["idMembre"];
-                    }
-                }
+
+
                 for ($i = 0; $i < count($tab); $i++) {
                     echo "<div class='proposition'>";
                     echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
