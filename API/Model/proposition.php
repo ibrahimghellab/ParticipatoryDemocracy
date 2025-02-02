@@ -28,21 +28,20 @@ class Proposition
     {
         $body = file_get_contents("php://input");
         $tab = json_decode($body, true);
-        if (isset($tab["titre"]) && isset($tab["description"]) && isset($tab["theme"]) && isset($tab["status"]) && isset($tab["idMembre"])) {
+        if (isset($tab["titre"]) && isset($tab["description"]) && isset($tab["idTheme"]) && isset($tab["idMembre"])) {
             require_once(__DIR__ . "/../config/connexion.php");
 
-            $sql = "INSERT INTO Proposition(titre, description, dateCreation, theme, status, voteDemande,idVote,idMembre,idTheme) VALUES (:titre, :description, CURRENT_DATE(), :theme, :status,0, null,:idMembre,:idTheme);";
+            $sql = "INSERT INTO Proposition(titre, description, dateCreation, theme, status, voteDemande,budgetGlobal,idVote,idMembre,idTheme) VALUES (:titre, :description, CURRENT_DATE(), null, 'Validé',0,0, null,:idMembre,:idTheme);";
             $requetePreparee = Connexion::pdo()->prepare($sql);
             $requetePreparee->bindParam(":titre", $tab["titre"], PDO::PARAM_STR);
             $requetePreparee->bindParam(":description", $tab["description"], PDO::PARAM_STR);
-            $requetePreparee->bindParam(":theme", $tab["theme"], PDO::PARAM_STR);
-            $requetePreparee->bindParam(":status", $tab["status"], PDO::PARAM_STR);
             $requetePreparee->bindParam(":idMembre", $tab["idMembre"], PDO::PARAM_INT);
             $requetePreparee->bindParam(":idTheme", $tab["idTheme"], PDO::PARAM_INT);
 
             try {
                 $requetePreparee->execute();
             } catch (PDOException $e) {
+                echo $e->getMessage();
                 header("HTTP/1.1 500 Internal Server Error");
                 return json_encode(array("message" => "false"));
             }
