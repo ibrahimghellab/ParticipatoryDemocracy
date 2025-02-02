@@ -239,5 +239,22 @@ class Groupe
         }
     }
 
+    public static function getThemesByGroupe($id)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        require_once(__DIR__ . "/../Model/theme.php");
+        $requeteAvecTags = "SELECT * FROM Theme T INNER JOIN ThemeGroupe TG ON T.idTheme = TG.idTheme WHERE TG.idGroupe = :idGroupe;";
+        $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
+        $requetePreparee->bindParam(":idGroupe", $id, PDO::PARAM_INT);
+        try {
+            $requetePreparee->execute();
+            $requetePreparee->setFetchmode(PDO::FETCH_CLASS, "Theme");
+            return $requetePreparee->fetchAll();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
 }
 ?>
