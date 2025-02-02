@@ -159,7 +159,7 @@ CREATE TABLE ThemeGroupe(
 );
 
 CREATE TABLE ChoixVote(
-   idChoixVote INT,
+   idChoixVote INT AUTO_INCREMENT,
    possibiliteChoixVote VARCHAR(150),
    idVote INT,
    PRIMARY KEY(idChoixVote),
