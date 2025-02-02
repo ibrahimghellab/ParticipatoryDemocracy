@@ -14,5 +14,10 @@ class VoteController
         require_once(__DIR__ . "/../View/createVote.php");
     }
 
+    public static function getChoixVote($id)
+    {
+        $tab = json_decode(Vote::getChoixVote($id), true);
+        return $tab;
+    }
 }
 ?>

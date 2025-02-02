@@ -90,8 +90,12 @@
                 print_r($_POST);
                 echo "<br>";
                 print_r($tab);
-
-
+                $isAdmin = false;
+                for ($i = 0; $i < count($users); $i++) {
+                    if ($users[$i]["idInternaute"] == $_SESSION["id"] && $users[$i]["nomRole"] == "Administrateur") {
+                        $isAdmin = true;
+                    }
+                }
                 for ($i = 0; $i < count($tab); $i++) {
                     print_r($tab[$i]);
                     echo "<div class='proposition'>";
@@ -128,11 +132,14 @@
                         echo '<input type="hidden" name="action" value="deleteMembre">';
                         echo '<input type="hidden" name="idMembre" value="' . $users[$i]["idMembre"] . '">';
                         echo $users[$i]["nom"] . " " . $users[$i]["prenom"];
-                        if ($users[$i]["idInternaute"] != $_SESSION["id"]) {
-                            echo '<button type="submit" class="delete-user">';
-                            echo 'delete';
-                            echo '</button>';
-                        } else {
+                        if ($isAdmin) {
+                            if ($users[$i]["idInternaute"] != $_SESSION["id"]) {
+                                echo '<button type="submit" class="delete-user">';
+                                echo 'delete';
+                                echo '</button>';
+                            }
+                        }
+                        if ($users[$i]["idInternaute"] == $_SESSION["id"]) {
                             echo '<button type="submit" class="delete-user">';
                             echo 'Quitter le groupe';
                             echo '</button>';

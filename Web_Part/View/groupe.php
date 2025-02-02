@@ -19,7 +19,7 @@
     <main>
         <div class="container">
             <div class="groupes">
-                
+
                 <!-- Bouton pour ajouter un nouveau groupe -->
                 <div class="submit">
                     <form method="POST" action="./../Controller/routeur.php">
@@ -37,10 +37,9 @@
                         session_start();
                     }
                     $tab = UserController::getGroupesByUserId($_SESSION["id"]);
-
                     foreach ($tab as $groupe) {
                         echo '<div class="groupe">';
-                        
+
                         // Image du groupe
                         echo '<div class="img">';
                         echo '<img src="../' . ltrim($groupe["imageGroupe"], "/") . '" alt="Image du groupe" class="groupe-image">';
@@ -58,8 +57,8 @@
                         echo '<input type="hidden" name="controleur" value="GroupeController">';
                         echo '<input type="hidden" name="action" value="getPropositionsByGroupe">';
                         echo '<button type="submit" id="submit2">';
-                        echo '<div style="display:flex;align-items:center;width:100%;pointer-events:none;">' . $groupe["nomGroupe"] . 
-                             '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $groupe["couleurGroupe"] . '; margin-left: 10px;"></div></div>';
+                        echo '<div style="display:flex;align-items:center;width:100%;pointer-events:none;">' . $groupe["nomGroupe"] .
+                            '<div style="border-radius:50%;width:20px;height:20px;background-color:' . $groupe["couleurGroupe"] . '; margin-left: 10px;"></div></div>';
                         echo '</button>';
                         echo '</form>';
 

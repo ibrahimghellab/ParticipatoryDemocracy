@@ -58,6 +58,8 @@ class Vote
         }
         return $result;
     }
+
+
 }
 
 ?>
