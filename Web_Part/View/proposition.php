@@ -61,6 +61,9 @@
                 echo '<input type="hidden" name="controleur" value="PropositionController">';
                 echo '<input type="hidden" name="action" value="afficherFormulaire">';
                 echo '<input type="hidden" name="id" value="' . $_POST["id"] . '">';
+
+         
+
                 echo '<div class="submit">';
                 echo '<button type="submit" id="new-proposition">+ Nouvelle Proposition</button>';
                 echo '</div>';
