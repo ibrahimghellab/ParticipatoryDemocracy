@@ -36,9 +36,8 @@ class Proposition extends Modele
         $data = [
             'titre' => $_POST['titre'],
             'description' => $_POST["description"],
-            'theme' => $_POST['theme'],
-            'status' => $_POST['status'],
-            'idMembre' => $_SESSION["idMembre"]
+            'idTheme' => $_POST['idTheme'],
+            'idMembre' => $_POST['idMembre']
         ];
 
         // Convertir les données en format JSON
