@@ -32,5 +32,11 @@ class GroupeController
         return $tab;
     }
 
+    public static function getThemesByGroupe()
+    {
+        $tab = Groupe::getThemesByGroupe();
+        return $tab;
+    }
+
 }
 ?>
