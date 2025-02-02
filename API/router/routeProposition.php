@@ -17,6 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     } elseif (!empty($url[1]) && is_numeric($url[1]) && $url[2] == "statVote") {
         echo json_encode(Proposition::getStatVote($url[1]), JSON_PRETTY_PRINT);
 
+    } elseif (!empty($url[1]) && is_numeric($url[1]) && $url[2] == "choix") {
+        echo json_encode(Proposition::getChoixVoteByProposition($url[1]), JSON_PRETTY_PRINT);
     } else {
         throw new Exception("Test ??");
     }
