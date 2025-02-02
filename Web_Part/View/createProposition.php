@@ -16,6 +16,9 @@
     </header>
     <main>
         <div>
+        <?php   require_once(__DIR__ . "/../Controller/GroupeController.php");
+        $tab = GroupeController::getThemesByGroupe(); ?>
+
             <form method="POST" action="./../Controller/routeur.php">
                 <input type="hidden" name="controleur" value="PropositionController">
                 <input type="hidden" name="action" value="createProposition">
@@ -33,8 +36,14 @@
 
 
                 <div>
-                    <label for="theme">Thème : </label>
-                    <input type="text" name="theme" id="theme" required>
+                <label for="theme">Thème : </label>
+                <select name="theme" id="theme" required>
+                    <?php
+                    foreach ($tab as $theme) {
+                        echo '<option value="' . htmlspecialchars($theme["nomTheme"]) . '">' . htmlspecialchars($theme["nomTheme"]) . '</option>';
+                    }
+                    ?>
+                </select>
                 </div>
 
     
