@@ -37,16 +37,16 @@
 
                 <div>
                 <label for="theme">Thème : </label>
-                <select name="theme" id="theme" required>
+                <select name="idTheme" id="theme" required>
                     <?php
                     foreach ($tab as $theme) {
-                        echo '<option value="' . htmlspecialchars($theme["nomTheme"]) . '">' . htmlspecialchars($theme["nomTheme"]) . '</option>';
+                        echo '<option value="' . htmlspecialchars($theme["idTheme"]) . '">' . htmlspecialchars($theme["nomTheme"]) . '</option>';
                     }
                     ?>
                 </select>
                 </div>
 
-    
+                <?php print_r($_POST); ?>
 
                 <div class="submit">
                     <button type="submit" id="submit-button">Créer</button>
