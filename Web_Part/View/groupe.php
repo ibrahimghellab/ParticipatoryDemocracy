@@ -54,6 +54,7 @@
                         echo '<input type="hidden" name="imageGroupe" value="' . $groupe["imageGroupe"] . '">';
                         echo '<input type="hidden" name="dateCreation" value="' . $groupe["dateCreation"] . '">';
                         echo '<input type="hidden" name="description" value="' . $groupe["description"] . '">';
+
                         echo '<input type="hidden" name="controleur" value="GroupeController">';
                         echo '<input type="hidden" name="action" value="getPropositionsByGroupe">';
                         echo '<button type="submit" id="submit2">';
