@@ -33,13 +33,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
+
                     <?php
+                    $tab = GroupeController::getThemesByGroupe();
+                    print_r($tab);
                     echo '<tr>';
                     echo '<td>' . $_POST['nomGroupe'] . '</td>';
                     echo '<td><div style="width:20px;height:20px;background-color:' . $_POST['couleurGroupe'] . ';"></div></td>';
                     echo '<td><img src="' . $_POST['imageGroupe'] . '" alt="Image du groupe" style="width:50px;height:50px;"></td>';                    echo '<td>' . $_POST['dateCreation'] . '</td>';
                     echo '<td>' . $_POST['description'] . '</td>';
-                    echo '<td>' . $_POST['theme'] . '</td>';
+                    echo '<td>';
+                    foreach ($tab as $theme) {
+                        echo $theme["nomTheme"] . " ";
+                    }
+                    echo '</td>';
                     echo '</tr>';
 
                     ?>
@@ -52,6 +60,7 @@
                 echo '<form method="POST" action="./../Controller/routeur.php">';
                 echo '<input type="hidden" name="controleur" value="PropositionController">';
                 echo '<input type="hidden" name="action" value="afficherFormulaire">';
+                echo '<input type="hidden" name="id" value="' . $_POST["id"] . '">';
                 echo '<div class="submit">';
                 echo '<button type="submit" id="new-proposition">+ Nouvelle Proposition</button>';
                 echo '</div>';
