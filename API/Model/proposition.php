@@ -183,6 +183,30 @@ class Proposition
 
     }
 
+    public static function getChoixVoteByProposition($id)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        require_once(__DIR__ . "/../Model/vote.php");
+
+        $requeteAvecTags = "SELECT possibiliteChoixVote FROM Vote V INNER JOIN ChoixVote CV ON V.idVote=CV.idVote INNER JOIN Proposition P ON V.idVote=P.idVote WHERE idProposition=:id;";
+        $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
+
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+
+        try {
+            $requetePreparee->execute();
+            $requetePreparee->setFetchmode(PDO::FETCH_ASSOC);
+            return $requetePreparee->fetchAll();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
+    }
+
+
+
+
     public static function getStatVote($id)
     {
         require_once(__DIR__ . "/../config/connexion.php");
