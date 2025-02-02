@@ -21,7 +21,6 @@
                 <input type="hidden" name="action" value="createVote">
                 <input type="hidden" name="idProposition" value=<?php echo $_POST['idProposition']; ?>>
                 <?php
-                echo '    <input type="hidden" name="idProposition" value="' . $_POST["idProposition"] . '">';
                 echo ' <input type="hidden" name="idMembre" value="' . $_POST["idMembre"] . '">';
                 echo ' <input type="hidden" name="idGroupe" value="' . $_POST["idGroupe"] . '">';
                 echo '<input type="hidden" name="titre" value="' . $_POST["titre"] . '">';
@@ -40,7 +39,7 @@
 
                 <div>
                     <label for="choixVote">Choix du vote</label>
-                    <input type="text" id="choixVote" name="choixVote" list="choixVote-vote"
+                    <input type="text" id="choixVote" name="choixVotes" list="choixVote-vote"
                         placeholder="Ajoutez un choix de vote">
                     <datalist id="choixVote-vote">
                         <option value="Technologie"></option>
@@ -58,7 +57,7 @@
                     <ul id="choixVote-container"></ul>
 
                     <!-- Champ caché pour envoyer les choix sous forme de liste JSON -->
-                    <input type="hidden" name="choixVotes" id="choixVotes-input">
+                    <input type="hidden" name="choixVote" id="choixVotes-input">
                 </div>
 
                 <div class="submit">
