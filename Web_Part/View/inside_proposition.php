@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <?php require_once(__DIR__ . "/../View/navbar_connecte.php"); ?>
+    <?php require_once(__DIR__ . "/../View/navbar_connecte.php");
+?>
     <!-- Tableau à droite -->
     <div class="main">
         <div id="tableau">
@@ -21,6 +22,8 @@
                         <th>Description</th>
                         <th>Date de Création</th>
                         <th>Thème</th>
+                        
+
                     </tr>
                 </thead>
                 <tbody>
@@ -30,6 +33,7 @@
                         <td><?php echo $_POST["description"]; ?></td>
                         <td><?php echo $_POST["dateCreation"]; ?></td>
                         <td><?php echo $_POST["theme"]; ?></td>
+
                     </tr>
                 </tbody>
             </table>
@@ -44,9 +48,6 @@
             ?>
         </div>
 
-
-
-    </div>
     <!-- Section Vote -->
     <div class="votes">
         <?php
@@ -93,12 +94,62 @@
             echo ' </div>';
         }
 
-
-        print_r($_POST);
-
-        print_r(PropositionController::getStatVote());
         ?>
+</div>
+<div class="Vote">
+    <h3>Résultats du vote</h3>
+    <?php 
+    require_once(__DIR__ . "/../Controller/PropositionController.php");
 
+    $stat = PropositionController::getStatVote();
+    $choixVotes = []; // Tableau associatif pour stocker les résultats
+    $totalVotes = 0; // Variable pour calculer le pourcentage
+
+    if (!empty($stat) && is_array($stat)) {
+        foreach ($stat as $vote) {
+            $choix = $vote["choix"] ?? "Inconnu";
+            $count = $vote["COUNT(*)"] ?? 0;
+            $choixVotes[$choix] = $count;
+            $totalVotes += $count;
+        }
+    }
+
+    // Assurer que "oui" et "non" existent toujours
+    $choixVotes += ["oui" => 0, "non" => 0];
+
+    $totalVotes = array_sum($choixVotes); // Recalcul total votes
+
+    foreach ($choixVotes as $choix => $count) {
+        $pourcentage = ($totalVotes > 0) ? round(($count / $totalVotes) * 100) : 0;
+    ?>
+        <div class="vote-result">
+            <p>Choix : <strong><?= htmlspecialchars($choix) ?></strong> / Nombre de vote(s) : <strong><?= htmlspecialchars($count) ?></strong></p>
+            <div class="vote-bar">
+                <div class="vote-progress" data-width="<?= $pourcentage ?>"></div>
+            </div>
+        </div>
+    <?php } ?>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.vote-progress').forEach(function(bar) {
+        let finalWidth = bar.getAttribute('data-width') + "%";
+        bar.style.width = '0%'; // Initialise à 0%
+        setTimeout(() => {
+            bar.style.transition = "width 1.5s ease-out"; // Animation fluide
+            bar.style.width = finalWidth; // Applique la largeur finale
+        }, 100); // Petit délai pour forcer le reflow
+    });
+});
+</script>
+</div>
+
+
+
+
+        </div>
+    </div>
         <div class="commentaires-container">
             <div class="commentaires">
                 <?php
@@ -134,7 +185,6 @@
                 <button type="submit" class="comment-submit-button">Envoyer</button>
             </form>
         </div>
-    </div>
 </body>
 
 </html>
