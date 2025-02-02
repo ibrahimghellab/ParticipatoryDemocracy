@@ -96,37 +96,6 @@ class UserController
         return json_decode($response, true);
     }
 
-    // public static function updateUser($id)
-    // {
-    //     $body = file_get_contents("php://input");
-    //     $tab = json_decode($body, true);
-    //     $result = false;
-    //     if (isset($tab["nom"]) && isset($tab["prenom"]) && isset($tab["adresse"]) && isset($tab["email"]) && isset($tab["password"])) {
-    //         require_once(__DIR__ . "/../config/connexion.php");
-
-    //         $requetePreparee = Connexion::pdo()->prepare("UPDATE Internaute SET nom=:nom, prenom=:prenom,adresse=:adresse,email=:email,hash=:hash,salt=:salt WHERE idInternaute=:id;");
-    //         $requetePreparee->bindParam(":nom", $tab["nom"], PDO::PARAM_STR);
-    //         $requetePreparee->bindParam(":prenom", $tab["prenom"], PDO::PARAM_STR);
-    //         $requetePreparee->bindParam(":adresse", $tab["adresse"], PDO::PARAM_STR);
-    //         $requetePreparee->bindParam(":email", $tab["email"], PDO::PARAM_STR);
-    //         $salt = bin2hex(random_bytes(16));
-    //         $hash = hash("sha256", $tab["password"] . $salt);
-    //         $requetePreparee->bindParam(":hash", $hash, PDO::PARAM_STR);
-    //         $requetePreparee->bindParam(":salt", $salt, PDO::PARAM_STR);
-    //         $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
-    //         try {
-    //             $requetePreparee->execute();
-    //         } catch (PDOException $e) {
-    //             header("HTTP/1.1 500 Internal Server Error");
-    //             return json_encode(array("message" => "false"));
-    //         }
-    //     } else {
-    //         header("HTTP/1.1 500 Internal Server Error");
-    //         return json_encode(array("message" => "false"));
-    //     }
-
-    //     return json_encode(array("message" => "true"));
-    // }
 
     public static function updateUser()
     {
