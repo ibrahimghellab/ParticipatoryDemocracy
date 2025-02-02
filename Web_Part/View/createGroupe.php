@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,13 @@
     <link rel="stylesheet" href="../CSS/default.css">
     <title>Créer un groupe</title>
 </head>
+
 <body>
 
     <header>
-        <?php include(__DIR__ . "/../View/navbar_connecte.php"); ?>
+        <?php include(__DIR__ . "/../View/navbar_connecte.php");
+        print_r($_POST) ?>
+
     </header>
 
     <main>
@@ -121,4 +125,5 @@
     </script>
 
 </body>
+
 </html>
