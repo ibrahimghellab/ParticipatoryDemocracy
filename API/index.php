@@ -83,43 +83,4 @@ try {
     echo json_encode($error, JSON_PRETTY_PRINT);
 }
 
-
-
-/* if (!empty($_GET["demande"])) {
-     $url = explode("/", $_GET["demande"]);
-     switch ($url[0]) {
-         case "groupe":
-             if (!empty($url[1])) {
-                 echo json_encode(Groupe::getGroupeById($url[1]), JSON_PRETTY_PRINT);
-             } else {
-
-                 throw new Exception("Test erreur");
-             }
-             break;
-         case "user":
-             if (!empty($url[1])) {
-                 echo json_encode(User::getUserById($url[1]), JSON_PRETTY_PRINT);
-             } else {
-
-                 throw new Exception("Test erreur");
-             }
-             break;
-         case "users":
-             echo json_encode(User::getAll(), JSON_PRETTY_PRINT);
-             break;
-         case "groupes":
-             echo json_encode(Groupe::getAll(), JSON_PRETTY_PRINT);
-             break;
-         default:
-             throw new Exception("Rien ne correspond");
-     }
- }
-         }*/
-
-
-
-
-
-
-
 ?>
