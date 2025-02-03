@@ -29,7 +29,7 @@ class Membre extends Modele
         curl_setopt($ch, CURLOPT_POST, true);
         // Récupérer les données du formulaire
         $data = [
-            'idInternaute' => $_POST['idInternaute'],
+            'email' => $_POST['email'],
             'idRole' => $_POST['idRole'],
             'idGroupe' => $_POST['idGroupe']
         ];
