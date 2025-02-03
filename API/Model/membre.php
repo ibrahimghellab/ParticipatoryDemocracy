@@ -5,18 +5,19 @@ class Membre
     {
         $body = file_get_contents("php://input");
         $tab = json_decode($body, true);
-        if (isset($tab["idInternaute"]) && isset($tab["idRole"]) && isset($tab["idGroupe"])) {
+        if (isset($tab["email"]) && isset($tab["role"]) && isset($tab["idGroupe"])) {
             require_once(__DIR__ . "/../config/connexion.php");
 
-            $requetePreparee = Connexion::pdo()->prepare("INSERT INTO Membre(dateAdhesion,status,idInternaute,idRole,idGroupe) VALUES(CURRENT_DATE(),'Actif' ,:idInternaute,:idRole,:idGroupe);");
-            $requetePreparee->bindParam(":idInternaute", $tab["idInternaute"], PDO::PARAM_INT);
-            $requetePreparee->bindParam(":idRole", $tab["idRole"], PDO::PARAM_INT);
+            $requetePreparee = Connexion::pdo()->prepare("INSERT INTO Membre(dateAdhesion, status, idInternaute, idRole, idGroupe) VALUES (CURRENT_DATE(), 'Actif', (SELECT idInternaute FROM Internaute WHERE email = :email), (SELECT idRole FROM Role WHERE nomRole = :role), :idGroupe);");
+            $requetePreparee->bindParam(":email", $tab["email"], PDO::PARAM_STR);
+            $requetePreparee->bindParam(":role", $tab["role"], PDO::PARAM_STR);
             $requetePreparee->bindParam(":idGroupe", $tab["idGroupe"], PDO::PARAM_INT);
 
 
             try {
                 $requetePreparee->execute();
             } catch (PDOException $e) {
+                echo $e->getMessage();
                 header("HTTP/1.1 500 Internal Server Error");
                 return json_encode(array("message" => "false"));
             }
