@@ -15,6 +15,26 @@ class UserController
         }
     }
 
+    public static function createAccountToken()
+    {
+        
+        $tab = json_decode(User::sendPostRequest(), true);
+        if ($tab["message"] == "true") {
+            print_r($_GET);
+            require_once(__DIR__ . "/../View/loginToken.php");
+            require_once(__DIR__ . "/../View/popup-sign-up-succes.html");
+            header("Location: ./../View/loginToken.php?token=".$_GET["token"]."&idGroupe=".$_GET["idGroupe"]."&role=".$_GET["role"]);
+            exit();
+        } else {
+        echo "fail";
+            require_once(__DIR__ . "/../View/signupToken.php");
+            require_once(__DIR__ . "/../View/popup-sign-up-fail.html");
+
+
+        }
+        
+    }
+
     public static function connect()
     {
         session_start();
@@ -23,6 +43,28 @@ class UserController
             $_SESSION["id"] = $tab["id"];
             require_once(__DIR__ . "/../View/groupe.php");
             require_once(__DIR__ . "/../View/popup-log-in-success.html");
+        } else {
+            require_once(__DIR__ . "/../View/login.php");
+            require_once(__DIR__ . "/../View/popup-log-in-fail.html");
+        }
+    }
+
+    public static function connectToken(){
+        session_start();
+        require_once(__DIR__ . "/MembreController.php");
+        $tab = json_decode(User::connect(), true);
+        if (isset($tab["id"]) && $tab["id"] > 0) {
+            $_SESSION["id"] = $tab["id"];
+            
+            
+            $tab2 = Membre::createMembre();
+            if($tab2["message"]=="true"){
+
+                require_once(__DIR__ . "/../View/groupe.php");
+                require_once(__DIR__ . "/../View/popup-log-in-success.html");
+            }else{
+                require_once(__DIR__ . "/../View/popup-log-in-fail.html");
+            }
         } else {
             require_once(__DIR__ . "/../View/login.php");
             require_once(__DIR__ . "/../View/popup-log-in-fail.html");
@@ -123,6 +165,11 @@ class UserController
             require_once(__DIR__ . "/../View/popup-sign-up-fail.html");
 
         }
+    }
+
+    public static function afficherFormulaireToken()
+    {
+        require_once(__DIR__ . "/../View/signup.php");
     }
 
 }
