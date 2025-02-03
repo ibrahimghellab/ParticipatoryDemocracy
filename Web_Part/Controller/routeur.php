@@ -16,7 +16,21 @@ $tableauControleurs = [
 $controleur = "UserController";
 $action = "connect"; // Par défaut pour ce projet
 
+/*if(isset($_GET["token"])){
+    $controleur = "MembreController";
+    $action = "connect";
+    $idGroupe = $_GET["idGroupe"];
+    $email = $_GET["email"];
+    $role = $_GET["role"];
+    UserController::afficherFormulaireToken();
+    MembreController::connect($idGroupe, $email, $role);
+    exit;
+}
+*/
 // Vérifier si un contrôleur est spécifié et valide
+
+
+
 if (isset($_POST["controleur"]) && array_key_exists($_POST["controleur"], $tableauControleurs)) {
     $controleur = $_POST["controleur"];
 }
