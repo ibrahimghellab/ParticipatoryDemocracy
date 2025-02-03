@@ -9,8 +9,14 @@ class MembreController
 
     public static function createMembre()
     {
-        Membre::createMembre();
-        require_once(__DIR__ . "/../View/proposition.php");
+        $tab=Membre::createMembre();
+        require_once(__DIR__ . "/../View/groupe.php");
+        return $tab;
+    }
+
+    public static function sendMembreInvit()
+    {
+        Membre::sendMembreInvit();
     }
 
     public static function deleteMembre()
