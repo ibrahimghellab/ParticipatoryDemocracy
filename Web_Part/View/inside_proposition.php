@@ -41,14 +41,14 @@
             </table>
         </div>
 
-        <div class="reactions">
+        <!-- <div class="reactions">
             <?php
-            echo "reaction : ";
+            /*echo "reaction : ";
             require_once(__DIR__ . "/../Controller/PropositionController.php");
             $tab = PropositionController::getReactionByProposition();
-            print_r($tab);
+            print_r($tab);*/
             ?>
-        </div>
+        </div> -->
 
         <!-- Section Vote -->
         <div class="votes">
@@ -70,10 +70,8 @@
             if (empty($tab)) {
                 echo '<button type="submit" class="vote-submit-button">Déclencher vote</button>';
                 echo ' </form>';
-                echo '</div>';
             } else {
                 echo ' </form>';
-                echo '</div>';
                 echo '<div class="voter">';
                 echo ' <form method="POST" action="./../Controller/routeur.php">';
                 echo '  <input type="hidden" name="controleur" value="MembreController">';
@@ -97,8 +95,6 @@
             }
 
             ?>
-        </div>;
-    </div>
     <div class="Vote">
         <h3>Résultats du vote</h3>
         <?php
