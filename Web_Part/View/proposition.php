@@ -38,7 +38,6 @@
                     <?php
                     require_once(__DIR__ . "/../Controller/GroupeController.php");
                     $tab = GroupeController::getThemesByGroupe();
-                    print_r($tab);
                     echo '<tr>';
                     echo '<td>' . $_POST['nomGroupe'] . '</td>';
                     echo '<td><div style="width:20px;height:20px;background-color:' . $_POST['couleurGroupe'] . ';"></div></td>';
@@ -87,9 +86,7 @@
 
 
                 $tab = Groupe::getPropositionsByGroupe();
-                print_r($_POST);
                 echo "<br>";
-                print_r($tab);
                 $isAdmin = false;
                 for ($i = 0; $i < count($users); $i++) {
                     if ($users[$i]["idInternaute"] == $_SESSION["id"] && $users[$i]["nomRole"] == "Administrateur") {
@@ -97,7 +94,6 @@
                     }
                 }
                 for ($i = 0; $i < count($tab); $i++) {
-                    print_r($tab[$i]);
                     echo "<div class='proposition'>";
                     echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
                     echo '<input type="hidden" name="idMembre" value="' . $idMembre . '">';
@@ -125,7 +121,6 @@
                     require_once(__DIR__ . "/../Model/user.php");
                     $users = Groupe::getMembresByGroupe();
                     for ($i = 0; $i < count($users); $i++) {
-                        print_r($users[$i]);
                         echo "<div class='user'>";
                         echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';
                         echo '<input type="hidden" name="controleur" value="MembreController">';
