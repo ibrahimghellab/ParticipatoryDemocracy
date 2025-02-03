@@ -30,7 +30,6 @@
                 echo '<input type="hidden" name="imageGroupe" value="' . $_POST["imageGroupe"] . '">';
                 echo '<input type="hidden" name="dateCreation" value="' . $_POST["dateCreation"] . '">';
                 echo '<input type="hidden" name="description" value="' . $_POST["description"] . '">';
-                print_r($_POST);
                 ?>
                 <div>
                     <label for="titre">Email de la personne que vous souhaiter ajouter : </label>
