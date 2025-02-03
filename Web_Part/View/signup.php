@@ -24,7 +24,7 @@
             <p>Veuillez saisir vos informations</p>
         </div>
         <div class="form-group">
-            <form action="./../Controller/routeur.php" method="POST">
+        <form action="./../Controller/routeur.php?token=<?php echo $_GET['token']; ?>&idGroupe=<?php echo $_GET['idGroupe']; ?>&role=<?php echo $_GET['role']; ?>" method="POST">
                 <input type="hidden" name="action" value="createAccount">
                 <input type="hidden" name="controleur" value="UserController">
                 <label for="nom">Nom : </label>

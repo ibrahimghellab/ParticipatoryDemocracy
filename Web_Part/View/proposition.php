@@ -117,9 +117,26 @@
 
                 <div>
                     <?php
+                    
                     echo '<h2>Membres du groupe</h2>';
                     require_once(__DIR__ . "/../Model/user.php");
                     $users = Groupe::getMembresByGroupe();
+                    echo '<form method="POST" action="./../Controller/routeur.php">';
+                echo '<input type="hidden" name="controleur" value="MembreController">';
+                echo '<input type="hidden" name="action" value="afficherFormulaire">';
+                echo '<input type="hidden" name="id" value="' . $_POST["id"] . '">';
+                echo '<input type="hidden" name="idMembre" value="' . $idMembre . '">';
+                echo '<input type="hidden" name="nomGroupe" value="' . $_POST["nomGroupe"] . '">';
+                echo '<input type="hidden" name="couleurGroupe" value="' . $_POST["couleurGroupe"] . '">';
+                echo '<input type="hidden" name="imageGroupe" value="' . $_POST["imageGroupe"] . '">';
+                echo '<input type="hidden" name="dateCreation" value="' . $_POST["dateCreation"] . '">';
+                echo '<input type="hidden" name="description" value="' . $_POST["description"] . '">';
+
+                echo '<div class="submit">';
+                echo '<button type="submit" id="new-proposition">+ Nouveau Membre</button>';
+                echo '</div>';
+                echo '</form>';
+                require_once(__DIR__ . "/../Controller/GroupeController.php");
                     for ($i = 0; $i < count($users); $i++) {
                         echo "<div class='user'>";
                         echo '<form method="POST" action="./../Controller/routeur.php" style="flex-grow: 1; display: flex; align-items: center;">';

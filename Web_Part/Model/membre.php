@@ -17,9 +17,17 @@ class Membre extends Modele
             $this->set($cle, $valeur);
         }
     }
-
-    public static function createMembre()
+    public static function sendMembreInvit()
     {
+        $token = bin2hex(random_bytes(16));
+        $destinataire = $_POST["email"];
+        $objet = "Invitation à rejoindre notre groupe";
+        $corps = "Bonjour,%0A%0AVous%20avez%20reçu%20une%20invitation%20à%20rejoindre%20notre%20groupe.%20Cliquez%20sur%20le%20lien%20pour%20accepter%20ou%20refuser:%20" . urlencode("https://projets.iut-orsay.fr/saes3-ttroles/Web_Part/View/signupToken.php?token=" . $token.'&idGroupe='.$_POST["id"].'&role='.$_POST["role"]);
+        $mailto_link = "mailto:" . $destinataire . "?subject=" . urlencode($objet) . "&body=" . $corps;
+        echo "Cliquez pour envoyer l'invitation : <a href='" . $mailto_link . "'>Envoyer l'invitation</a>";        
+    }
+
+    public static function createMembre(){
         $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/membre';
         // Initialiser cURL
         $ch = curl_init($url);
@@ -29,9 +37,9 @@ class Membre extends Modele
         curl_setopt($ch, CURLOPT_POST, true);
         // Récupérer les données du formulaire
         $data = [
-            'email' => $_POST['email'],
-            'idRole' => $_POST['idRole'],
-            'idGroupe' => $_POST['idGroupe']
+            'idInternaute' => $_SESSION['id'],
+            'role' => $_POST['role'],
+            'idGroupe' => $_POST['idGroupeInvite']
         ];
 
         // Convertir les données en format JSON
@@ -44,8 +52,7 @@ class Membre extends Modele
         // Exécuter la requête et récupérer la réponse
         $response = curl_exec($ch);
 
-        return json_encode($response, true);
-
+        return json_decode($response, true);
     }
 
     public static function deleteMembre()
