@@ -69,8 +69,11 @@ try {
             case "theme":
                 require_once("router/routeTheme.php");
                 break;
+            case "roles":
+                require_once("router/routeRole.php");
+                break;
             default:
-                throw new Exception("Rien ne correspond");
+                throw new Exception("Rien ne correspond");   
         }
     } else {
         require_once("documentation/index.html");
