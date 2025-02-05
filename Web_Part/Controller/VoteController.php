@@ -19,5 +19,12 @@ class VoteController
         $tab = json_decode(Vote::getChoixVote($id), true);
         return $tab;
     }
+
+    public static function validerVote()
+    {
+        $tab = json_decode(Vote::validerVote(), true);
+        require_once(__DIR__ . "/../View/inside_proposition.php");
+        return $tab;
+    }
 }
 ?>
