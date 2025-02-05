@@ -52,7 +52,7 @@ class Groupe extends Modele
         }
 
         // Vérifier la taille du fichier
-        if ($file["size"] > 500000) { // 500KB limite
+        if ($file["size"] > 1000000) { // 500KB limite
             echo "Désolé, votre fichier est trop volumineux.";
             $uploadOk = false;
         }
