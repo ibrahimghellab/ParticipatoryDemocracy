@@ -28,23 +28,29 @@ nav ul li {
 }
 
 nav ul li a {
-  color: white;
+  color: white; /* Même couleur que le menu */
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
   display: inline-block; 
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 
+nav li{
+  color: white;
+}
+
 nav ul li a:hover {
-  color: #7190c0;
+  color: #b0c6e1; /* Une teinte plus claire au survol */
+  transform: scale(1.1); /* Effet d'agrandissement */
 }
 
 .menu {
   position: relative;
   display: flex;
   align-items: center;  
-
+}
 .dropdown {
   position: relative;
 }
@@ -61,7 +67,7 @@ nav ul li a:hover {
 
 
 .menu-btn:hover {
-  background-color: #555;
+  background-color: #444;
 }
 
 .liste-pages {
@@ -69,7 +75,7 @@ nav ul li a:hover {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #333;
+  background-color: #444;
   min-width: 180px;
   z-index: 1;
 }
