@@ -157,9 +157,8 @@ class User
             $requetePreparee->execute();
             if ($requetePreparee->rowCount() > 0) {
                 $resultat = $requetePreparee->fetch(PDO::FETCH_ASSOC);
-                $idInternaute = $resultat['idInternaute']; // Récupère l'ID dans une variable
+                $idInternaute = $resultat['idInternaute']; 
             } else {
-                // Gérer le cas où l'email n'existe pas
                 throw new Exception("L'email n'est pas dans la base");
             }
             $u = static::getUserById($idInternaute);
