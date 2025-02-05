@@ -68,5 +68,25 @@ class Vote extends Modele
         return $response;
     }
 
+    public static function validerVote()
+    {
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/vote/' . $_POST["idVote"]; // Exemple d'URL d'API
+
+        // Initialiser cURL
+        $ch = curl_init($url);
+
+        // Définir les options cURL pour une requête PUT
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Retourner la réponse sous forme de chaîne
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT'); // Méthode PUT
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json'            // Type de contenu JSON
+        ));
+
+        // Exécuter la requête et récupérer la réponse
+        $response = curl_exec($ch);
+        return $response;
+
+    }
+
 }
 ?>
