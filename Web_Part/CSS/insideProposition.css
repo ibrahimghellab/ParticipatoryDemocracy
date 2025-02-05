@@ -1,4 +1,3 @@
-/* Base Reset */
 * {
     margin: 0;
     padding: 0;
@@ -14,27 +13,27 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* L'espace est distribué vers le haut */
+    justify-content: flex-start; 
 }
 
-/* Conteneur principal */
+
 .main {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Assure que l'espace est distribué entre les éléments */
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
-    overflow: hidden; /* Évite que le contenu déborde */
+    justify-content: space-between; 
+    height: 100vh; 
+    overflow: hidden; 
 }
 
-/* Style du tableau */
+
 #tableau {
     width: auto;
     padding: 20px;
     border-radius: 8px;
-    flex-grow: 1; /* Permet au tableau de prendre l'espace disponible */
+    flex-grow: 1; 
 }
 
-/* Style du tableau */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -43,46 +42,44 @@ table {
 }
 
 table th, table td {
-    border: 1px solid #ddd; /* Bordures des cellules */
-    padding: 8px; /* Espacement dans les cellules */
-    text-align: left; /* Alignement du texte */
+    border: 1px solid #ddd; 
+    padding: 8px; 
+    text-align: left; 
 }
 
 table th {
-    background-color: #007bff; /* Couleur d'en-tête */
-    color: white; /* Texte blanc */
+    background-color: #007bff;
+    color: white;
     font-weight: bold;
 }
 
 table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Couleur de fond pour les lignes paires */
+    background-color: #f9f9f9; 
 }
 
 table tr:hover {
-    background-color: #f1f1f1; /* Couleur au survol */
+    background-color: #f1f1f1; 
 }
 
-/* Conteneur pour les commentaires */
-/* Conteneur pour les commentaires */
-/* Conteneur pour les commentaires */
+
 .commentaires-container {
     width: 100%;
-    max-height: calc(100vh - 100px); /* Augmentation importante de l'espace pour les commentaires */
-    overflow-y: auto; /* Permet de faire défiler les commentaires si nécessaire */
+    max-height: calc(100vh - 100px); 
+    overflow-y: auto; 
     padding: 10px;
     margin-bottom: 85px;
 }
 
 
-/* Section des commentaires */
+
 .commentaires {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Ajoute un espacement de 20px entre chaque commentaire */
+    gap: 10px; 
     max-height: 1200px;
 }
 
-/* Style des commentaires */
+
 .commentaire-item {
     background-color: white;
     padding: 15px;
@@ -93,18 +90,17 @@ table tr:hover {
     margin-left: auto;
     margin-right: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px; /* Ajoute de l'espace entre les commentaires */
+    margin-bottom: 15px; 
 }
 
-/* Champ de commentaire fixe en bas */
 .comment-section {
-    position: fixed; /* Fixe la barre en bas de la page */
-    bottom: 0; /* Positionne la barre au bas de la page */
+    position: fixed; 
+    bottom: 0; 
     width: 100%;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère au-dessus de la barre */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); 
     padding: 15px 0;
     text-align: center;
-    z-index: 10; /* Assure que la barre soit au-dessus des autres éléments */
+    z-index: 10; 
 }
 
 .comment-input {
@@ -130,33 +126,31 @@ table tr:hover {
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;  /* Utilisation de flexbox pour aligner les éléments horizontalement */
-    align-items: center;  /* Aligne les éléments verticalement au centre */
-    justify-content: flex-start;  /* Les éléments sont alignés à gauche */
-    flex-wrap: nowrap;  /* Empêche les éléments de passer à la ligne suivante */
-    width: 100%; /* Garantit que l'élément occupe toute la largeur disponible */
+    display: flex;  
+    align-items: center; 
+    justify-content: flex-start; 
+    flex-wrap: nowrap;  
+    width: 100%; 
 }
 
-/* Conteneur pour les options de vote */
 .vote-options {
-    display: flex;  /* Utilisation de flexbox pour aligner les boutons radio horizontalement */
-    align-items: center;  /* Centrer les éléments verticalement */
-    margin-right: 15px;  /* Un petit espace à droite des boutons radio */
+    display: flex;  
+    align-items: center; 
+    margin-right: 15px;  
 }
 
-/* Style des labels des options de vote */
+
 .vote-options label {
     font-size: 16px;
     color: #333;
-    margin-right: 15px;  /* Espacement entre les labels */
+    margin-right: 15px; 
 }
 
-/* Style des boutons radio */
+
 .vote-options input[type="radio"] {
-    margin-right: 5px;  /* Espacement à droite des boutons radio */
+    margin-right: 5px; 
 }
 
-/* Style du bouton de soumission de vote */
 .vote-submit-button {
     background-color: #b0c6e1;
     color: white;
@@ -165,17 +159,15 @@ table tr:hover {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    display: inline-block;  /* Cela garantit que le bouton se trouve sur la même ligne */
-    margin-left: 20px;  /* Un peu d'espace entre les options de vote et le bouton */
+    display: inline-block; 
+    margin-left: 20px; 
 }
 
-/* Changement de couleur au survol du bouton */
 .vote-submit-button:hover {
     background-color: #b0c6e1;
 }
 
-/* Conteneur principal des résultats de vote */
-/* Conteneur de la section des résultats */
+
 .Vote {
     
     padding: 15px;
