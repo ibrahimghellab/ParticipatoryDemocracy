@@ -253,6 +253,20 @@ class Proposition
         return json_encode(array("message" => "true"));
     }
 
+    public static function validerProposition($id)
+    {
+        require_once(__DIR__ . "/../config/connexion.php");
+        $requetePreparee = Connexion::pdo()->prepare("UPDATE Proposition SET status='Validé' WHERE idProposition=:id;");
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+        try {
+            $requetePreparee->execute();
+        } catch (PDOException $e) {
+            header("HTTP/1.1 500 Internal Server Error");
+            return json_encode(array("message" => "false"));
+        }
+        return json_encode(array("message" => "true"));
+    }
+
 
 }
 ?>
