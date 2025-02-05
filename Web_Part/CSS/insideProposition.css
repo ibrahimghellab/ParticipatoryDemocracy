@@ -29,6 +29,7 @@ body {
 /* Style du tableau */
 #tableau {
     width: auto;
+    height: 0px;
     padding: 20px;
     border-radius: 8px;
     flex-grow: 1; /* Permet au tableau de prendre l'espace disponible */
@@ -63,13 +64,16 @@ table tr:hover {
 }
 
 /* Conteneur pour les commentaires */
+/* Conteneur pour les commentaires */
+/* Conteneur pour les commentaires */
 .commentaires-container {
     width: 100%;
-    max-height: calc(100vh - 120px); /* Réduit la hauteur pour faire de la place pour la barre de commentaire */
+    max-height: calc(100vh - 400px); /* Augmentation importante de l'espace pour les commentaires */
     overflow-y: auto; /* Permet de faire défiler les commentaires si nécessaire */
     padding: 10px;
     margin-bottom: 85px;
 }
+
 
 /* Section des commentaires */
 .commentaires {
