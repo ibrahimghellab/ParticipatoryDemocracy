@@ -78,7 +78,9 @@ SELECT i.nom, i.prenom
 FROM Internaute i
 JOIN Membre m ON i.idInternaute = m.idInternaute
 LEFT JOIN MembreVote mv ON m.idMembre = mv.idMembre
-WHERE mv.idMembre IS NULL;
+WHERE mv.idMembre IS NULL
+ORDER BY i.idInternaute ASC
+LIMIT 0, 25;
 
 -- 11. Historique des activités d'un membre spécifique
 SELECT 
