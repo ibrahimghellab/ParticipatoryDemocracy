@@ -1,9 +1,9 @@
 body {
-    background-image: url('./background2.svg'); /* Chemin vers votre image */
-    background-size: cover; /* L'image occupe tout l'écran en gardant ses proportions */
-    background-repeat: no-repeat; /* Évite la répétition de l'image */
-    background-position: center; /* Centre l'image */
-    height: 100vh; /* Assure que le fond couvre toute la hauteur de la page */
+    background-image: url('./background2.svg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center;
+    height: 100vh; 
     margin: 0;
     padding: 0;
 }
@@ -38,10 +38,10 @@ label {
 }
 
 label {
-    font-size: 1rem; /* Taille standard pour du texte descriptif */
-    font-weight: 400; /* Poids normal pour un style discret */
-    color: #555; /* Couleur légèrement plus claire que les titres */
-    line-height: 1.6; /* Amélioration de la lisibilité */
+    font-size: 1rem; 
+    font-weight: 400; 
+    color: #555;
+    line-height: 1.6; 
 }
 
 input[type="text"],
@@ -56,7 +56,7 @@ input[type="number"] {
 }
 
 input[type="number"] {
-    max-width: 100px; /* Limite la largeur pour les champs numériques */
+    max-width: 100px; 
 }
 
 input[type="color"] {
