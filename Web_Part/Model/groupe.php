@@ -69,7 +69,7 @@ class Groupe extends Modele
             if (move_uploaded_file($file["tmp_name"], $target_file)) {
 
                 // Envoyer les informations à l'API
-                $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/groupe/' . $_SESSION["id"];
+                $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/groupe/' . $_SESSION["id"];
 
                 $ch = curl_init($url);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -106,7 +106,7 @@ class Groupe extends Modele
 
     public static function deleteGroupe()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/groupe/' . $_POST["id"]; // Exemple d'URL d'API
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/groupe/' . $_POST["id"]; // Exemple d'URL d'API
         // Initialiser cURL
         $ch = curl_init($url);
 
@@ -131,7 +131,7 @@ class Groupe extends Modele
 
     public static function getPropositionsByGroupe()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/groupe/' . $_POST["id"] . '/propositions';
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/groupe/' . $_POST["id"] . '/propositions';
 
         // Initialiser cURL
         $ch = curl_init($url);
@@ -156,7 +156,7 @@ class Groupe extends Modele
 
     public static function getMembresByGroupe()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/groupe/' . $_POST["id"] . '/membres';
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/groupe/' . $_POST["id"] . '/membres';
 
         // Initialiser cURL
         $ch = curl_init($url);
@@ -181,7 +181,7 @@ class Groupe extends Modele
 
     public static function getThemesByGroupe()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/groupe/' . $_POST["id"] . '/themes';
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/groupe/' . $_POST["id"] . '/themes';
 
         // Initialiser cURL
         $ch = curl_init($url);
