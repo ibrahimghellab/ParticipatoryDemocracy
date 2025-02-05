@@ -5,7 +5,6 @@ class Vote
     {
         $body = file_get_contents("php://input");
         $tab = json_decode($body, true);
-        print_r($tab);
         $idVote = null;
         if (isset($tab["idProposition"]) && isset($tab["typeScrutin"]) && isset($tab["dateFin"]) && isset($tab["choixVote"])) {
             require_once(__DIR__ . "/../config/connexion.php");
