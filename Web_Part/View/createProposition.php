@@ -16,7 +16,8 @@
     <main>
         <div>
             <?php require_once(__DIR__ . "/../Controller/GroupeController.php");
-            $tab = GroupeController::getThemesByGroupe(); ?>
+            $tab = GroupeController::getThemesByGroupe();
+            print_r($_POST) ?>
 
             <form method="POST" action="./../Controller/routeur.php">
                 <input type="hidden" name="controleur" value="PropositionController">
@@ -52,7 +53,7 @@
                         ?>
                     </select>
                 </div>
-                
+
                 <div class="submit">
                     <button type="submit" id="submit-button">Créer</button>
                 </div>
