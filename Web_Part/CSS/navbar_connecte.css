@@ -1,4 +1,3 @@
-/* Style global pour la barre de navigation */
 nav {
   display: flex;
   justify-content: space-between;
@@ -6,18 +5,15 @@ nav {
   padding: 10px 20px;
 }
 
-/* Logo de la barre de navigation */
 nav img {
-  height: 50px; /* Ajuste la taille du logo */
+  height: 50px; 
 }
 
-/* Style pour la section droite de la nav */
 .nav-right {
   display: flex;
   align-items: center;
 }
 
-/* Liste des éléments du menu */
 nav ul {
   list-style-type: none;
   display: flex;
@@ -25,33 +21,29 @@ nav ul {
   padding: 0;
 }
 
-/* Style pour chaque élément du menu */
 nav ul li {
   margin: 0 15px;
   display: flex;
-  align-items: center;  /* Aligne verticalement les éléments */
+  align-items: center; 
 }
 
-/* Liens du menu */
 nav ul li a {
   color: white;
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
-  display: inline-block;  /* Assure l'alignement correct */
+  display: inline-block; 
 }
 
-/* Changement de couleur au survol des liens */
+
 nav ul li a:hover {
-  color: #f0a500;
+  color: #7190c0;
 }
 
-/* Style pour le menu déroulant */
 .menu {
   position: relative;
   display: flex;
-  align-items: center;  /* Aligne le bouton et les éléments de menu */
-}
+  align-items: center;  
 
 .dropdown {
   position: relative;
@@ -62,17 +54,16 @@ nav ul li a:hover {
   border: none;
   cursor: pointer;
   font-size: 16px;
-  background: none; /* Enlève le fond du bouton */
-  color: white;  /* Garde le texte visible */
-  display: inline-block;  /* Assure l'alignement avec les autres éléments */
+  background: none; 
+  color: white;  
+  display: inline-block;  
 }
 
-/* Changement de couleur du bouton au survol */
+
 .menu-btn:hover {
-  background-color: #555; /* Ajoute un léger fond au survol pour l'interaction */
+  background-color: #555;
 }
 
-/* Liste des éléments du menu déroulant */
 .liste-pages {
   display: none;
   position: absolute;
@@ -89,13 +80,11 @@ nav ul li a:hover {
   display: block;
 }
 
-/* Changement de couleur au survol des éléments du menu déroulant */
 .liste-pages a:hover {
   background-color: #444;
-  color: #f0a500;
+  color: #7190c0;
 }
 
-/* Affichage du menu déroulant au survol */
 .menu:hover .liste-pages {
   display: block;
 }
