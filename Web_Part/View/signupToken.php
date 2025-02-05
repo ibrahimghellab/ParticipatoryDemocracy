@@ -40,7 +40,7 @@
                 <input type="text" name="adresse" id="adresse" required>
 
                 <label for="email">Email : </label>
-                <input type="text" name="email" id="email" required>
+                <input type="email" name="email" id="email" required>
 
                 <label for="password">Mot de passe : </label>
                 <input type="password" name="password" id="password" required>
