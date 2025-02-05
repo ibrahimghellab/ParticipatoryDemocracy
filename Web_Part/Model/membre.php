@@ -22,14 +22,14 @@ class Membre extends Modele
         $token = bin2hex(random_bytes(16));
         $destinataire = $_POST["email"];
         $objet = "Invitation à rejoindre notre groupe";
-        $corps = "Bonjour,%0A%0AVous%20avez%20reçu%20une%20invitation%20à%20rejoindre%20notre%20groupe.%20Cliquez%20sur%20le%20lien%20pour%20accepter%20ou%20refuser:%20" . urlencode("https://projets.iut-orsay.fr/saes3-ttroles/Web_Part/View/signupToken.php?token=" . $token . '&idGroupe=' . $_POST["id"] . '&role=' . $_POST["role"]);
+        $corps = "Bonjour,%0A%0AVous%20avez%20reçu%20une%20invitation%20à%20rejoindre%20notre%20groupe.%20Cliquez%20sur%20le%20lien%20pour%20accepter%20ou%20refuser:%20" . urlencode("https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/Web_Part/View/signupToken.php?token=" . $token . '&idGroupe=' . $_POST["id"] . '&role=' . $_POST["role"]);
         $mailto_link = "mailto:" . $destinataire . "?subject=" . urlencode($objet) . "&body=" . $corps;
         header("Location: " . $mailto_link);
     }
 
     public static function createMembre()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/membre';
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/membre';
         // Initialiser cURL
         $ch = curl_init($url);
 
@@ -58,7 +58,7 @@ class Membre extends Modele
 
     public static function deleteMembre()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/membre/' . $_POST['idMembre'];
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/membre/' . $_POST['idMembre'];
         // Initialiser cURL
         $ch = curl_init($url);
 
@@ -74,7 +74,7 @@ class Membre extends Modele
 
     public static function vote()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/membre/' . $_POST['idMembre'] . '/vote/' . $_POST['idVote'];
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/membre/' . $_POST['idMembre'] . '/vote/' . $_POST['idVote'];
 
         // Initialiser cURL
         $ch = curl_init($url);
@@ -116,7 +116,7 @@ class Membre extends Modele
 
     public static function updateVote()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/membre/' . $_POST['idMembre'] . '/vote/' . $_POST['idVote'];
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/membre/' . $_POST['idMembre'] . '/vote/' . $_POST['idVote'];
 
         // Initialiser cURL
         $ch = curl_init($url);
@@ -153,7 +153,7 @@ class Membre extends Modele
 
     public static function getMembreById($id)
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/membre/' . $id;
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/membre/' . $id;
 
         // Initialiser cURL
         $ch = curl_init($url);
