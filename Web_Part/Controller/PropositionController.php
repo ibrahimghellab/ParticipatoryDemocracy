@@ -29,7 +29,7 @@ class PropositionController
 
     public static function getInfoByProposition()
     {
-        $tab = json_decode(Proposition::getInfoByProposition(), true);
+        $tab = Proposition::getInfoByProposition();
         return $tab;
     }
 
@@ -68,7 +68,7 @@ class PropositionController
 
     public static function validerProposition()
     {
-        $tab = json_decode(Proposition::validerProposition(), true);
+        $tab = Proposition::validerProposition();
         require_once(__DIR__ . "/../View/inside_proposition.php");
         return $tab;
     }

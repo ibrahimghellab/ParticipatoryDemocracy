@@ -87,7 +87,7 @@
                 echo ' <button type="submit" class="vote-submit-button">Voter</button>';
                 echo ' </form>';
                 echo ' </div>';
-                if (MembreController::getMembreById($_POST["idMembre"])["nomRole"] == "Scrutateur" && $tab["status"] == "En cours") {
+                if (MembreController::getMembreById($_POST["idMembre"])["nomRole"] == "Administrateur" && $tab["status"] == "En cours") {
                     echo '<div class="validerVote">';
                     echo ' <form method="POST" action="./../Controller/routeur.php">';
                     echo ' <input type="hidden" name="controleur" value="VoteController">';
@@ -104,6 +104,7 @@
                     echo ' </form>';
                     echo ' </div>';
                 }
+
 
             }
 
@@ -151,7 +152,26 @@
                         echo '</div>';
                     }
                 }
-            } ?>
+            }
+            $infoProp = PropositionController::getInfoByProposition();
+            if (MembreController::getMembreById($_POST["idMembre"])["nomRole"] == "Scrutateur" && $tab["status"] == "Validé" && $infoProp["status"] != "Validé") {
+                echo '<div class="validerProposition">';
+                echo ' <form method="POST" action="./../Controller/routeur.php">';
+                echo ' <input type="hidden" name="controleur" value="PropositionController">';
+                echo ' <input type="hidden" name="action" value="validerProposition">';
+                echo ' <input type="hidden" name="idProposition" value="' . $_POST["idProposition"] . '">';
+                echo ' <input type="hidden" name="idMembre" value="' . $_POST["idMembre"] . '">';
+                echo ' <input type="hidden" name="idGroupe" value="' . $_POST["idGroupe"] . '">';
+                echo ' <input type="hidden" name="titre" value="' . $_POST["titre"] . '">';
+                echo ' <input type="hidden" name="description" value="' . $_POST["description"] . '">';
+                echo ' <input type="hidden" name="dateCreation" value="' . $_POST["dateCreation"] . '">';
+                echo ' <input type="hidden" name="theme" value="' . $_POST["theme"] . '">';
+                echo ' <button type="submit" class="vote-submit-button">Valider proposition</button>';
+                echo ' </form>';
+                echo ' </div>';
+            }
+            ?>
+
         </div>
 
 
@@ -205,16 +225,13 @@
     document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.vote-progress').forEach(function (bar) {
             let finalWidth = bar.getAttribute('data-width') + "%";
-            bar.style.width = '0%'; 
+            bar.style.width = '0%';
             setTimeout(() => {
-                bar.style.transition = "width 1.5s ease-out"; 
-                bar.style.width = finalWidth; 
+                bar.style.transition = "width 1.5s ease-out";
+                bar.style.width = finalWidth;
             }, 100);
         });
     });
-
-
-    
 </script>
 
 </html>
