@@ -80,7 +80,7 @@ CREATE TABLE Proposition(
    voteDemande BOOLEAN,
    budgetGlobal DECIMAL(15,2),
    idTheme INT NOT NULL,
-   idVote INT NOT NULL,
+   idVote INT NULL,
    idMembre INT NOT NULL,
    PRIMARY KEY(idProposition),
    UNIQUE(idVote),
