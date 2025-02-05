@@ -19,7 +19,7 @@ class Vote extends Modele
 
     public static function createVote()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/vote/'; // Exemple d'URL d'API
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/vote/'; // Exemple d'URL d'API
 
         // Initialiser cURL
         $ch = curl_init($url);
@@ -51,7 +51,7 @@ class Vote extends Modele
 
     public static function getChoixVote($id)
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/vote/' . $id . '/choix'; // Exemple d'URL d'API
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/vote/' . $id . '/choix'; // Exemple d'URL d'API
 
         // Initialiser cURL
         $ch = curl_init($url);
@@ -70,7 +70,7 @@ class Vote extends Modele
 
     public static function validerVote()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/vote/' . $_POST["idVote"]; // Exemple d'URL d'API
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/vote/' . $_POST["idVote"]; // Exemple d'URL d'API
 
         // Initialiser cURL
         $ch = curl_init($url);
