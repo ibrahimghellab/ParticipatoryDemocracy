@@ -13,7 +13,6 @@
     session_start();
     require_once(__DIR__ . "/../View/navbar_connecte.php");
     ?>
-    <!-- Tableau à droite -->
     <div class="main">
         <div id="tableau">
             <table>
@@ -43,16 +42,7 @@
             </table>
         </div>
 
-        <!-- <div class="reactions">
-            <?php
-            /*echo "reaction : ";
-            require_once(__DIR__ . "/../Controller/PropositionController.php");
-            $tab = PropositionController::getReactionByProposition();
-            print_r($tab);*/
-            ?>
-        </div> -->
 
-        <!-- Section Vote -->
         <div class="votes">
             <?php
             require_once(__DIR__ . "/../Controller/PropositionController.php");
@@ -97,7 +87,6 @@
                 echo ' <button type="submit" class="vote-submit-button">Voter</button>';
                 echo ' </form>';
                 echo ' </div>';
-                print_r($tab);
                 if (MembreController::getMembreById($_POST["idMembre"])["nomRole"] == "Scrutateur" && $tab["status"] == "En cours") {
                     echo '<div class="validerVote">';
                     echo ' <form method="POST" action="./../Controller/routeur.php">';
@@ -136,12 +125,10 @@
                 $choixVotes = [];
                 $totalVotes = 0;
 
-                // Initialiser tous les choix avec 0 votes
                 foreach ($choixPossibles as $choix) {
                     $choixVotes[$choix["possibiliteChoixVote"]] = 0;
                 }
 
-                // Remplir avec les résultats du vote
                 if (!empty($stat) && is_array($stat)) {
                     foreach ($stat as $vote) {
                         $choix = $vote["choix"] ?? "Inconnu";
@@ -152,7 +139,6 @@
                 }
 
                 if (isset($tab["status"]) && $tab["status"] == "Validé") {
-                    // Affichage des résultats
                     foreach ($choixVotes as $choix => $count) {
                         $pourcentage = ($totalVotes > 0) ? round(($count / $totalVotes) * 100) : 0;
                         echo '<div class="vote-result">';
@@ -183,7 +169,6 @@
             require_once(__DIR__ . "/../Controller/UserController.php");
             require_once(__DIR__ . "/../Controller/MembreController.php");
             $tab = PropositionController::getCommentaireByProposition();
-            print_r($tab);
             // Affichage des commentaires
             for ($i = 0; $i < count($tab); $i++) {
                 $commentaire = $tab[$i]["texte"];
@@ -220,13 +205,16 @@
     document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.vote-progress').forEach(function (bar) {
             let finalWidth = bar.getAttribute('data-width') + "%";
-            bar.style.width = '0%'; // Initialise à 0%
+            bar.style.width = '0%'; 
             setTimeout(() => {
-                bar.style.transition = "width 1.5s ease-out"; // Animation fluide
-                bar.style.width = finalWidth; // Applique la largeur finale
-            }, 100); // Petit délai pour forcer le reflow
+                bar.style.transition = "width 1.5s ease-out"; 
+                bar.style.width = finalWidth; 
+            }, 100);
         });
     });
+
+
+    
 </script>
 
 </html>
