@@ -154,7 +154,7 @@
                 }
             }
             $infoProp = PropositionController::getInfoByProposition();
-            if (MembreController::getMembreById($_POST["idMembre"])["nomRole"] == "Scrutateur" && $tab["status"] == "Validé" && $infoProp["status"] != "Validé") {
+            if (isset(MembreController::getMembreById($_POST["idMembre"])["nomRole"]) && isset($tab["status"]) && isset($infoProp["status"]) && MembreController::getMembreById($_POST["idMembre"])["nomRole"] == "Scrutateur" && $tab["status"] == "Validé" && $infoProp["status"] != "Validé") {
                 echo '<div class="validerProposition">';
                 echo ' <form method="POST" action="./../Controller/routeur.php">';
                 echo ' <input type="hidden" name="controleur" value="PropositionController">';
