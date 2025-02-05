@@ -4,8 +4,9 @@ require_once(__DIR__ . "/../Model/membre.php");
 
 Connexion::connect();
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    if(!empty($url[1]) && is_numeric($url[1])){
-        Membre::getMembreById($url[1]);
+    if (!empty($url[1]) && is_numeric($url[1])) {
+        echo json_encode(Membre::getMembreById($url[1]), JSON_PRETTY_PRINT);
+
     }
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($url[1]) && is_numeric($url[1]) && !empty($url[2]) && $url[2] == "vote" && !empty($url[3]) && is_numeric($url[3])) {
