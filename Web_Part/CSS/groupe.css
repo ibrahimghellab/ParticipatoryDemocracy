@@ -1,11 +1,9 @@
-/* Réinitialisation */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Style général */
 body {
   font-family: "Roboto", sans-serif;
   background-image: url("../assets/background2.svg");
@@ -17,13 +15,11 @@ body {
   flex-direction: column;
 }
 
-/* Conteneur principal */
 .container {
   display: flex;
   height: 100vh;
 }
 
-/* Section des groupes */
 .page-groupe .groupes {
   width: 50%;
   background-color: #f5f5f5;
@@ -36,23 +32,21 @@ body {
   height: 100%;
 }
 
-/* Conteneur des groupes en grille */
 .groupes-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Deux groupes par ligne */
+  grid-template-columns: repeat(2, 1fr); 
   gap: 20px;
   width: 100%;
   padding: 10px;
 }
 
-/* Conteneur du bouton "Nouveau Groupe" */
+
 .submit {
   width: 100%;
   margin-bottom: 20px;
   text-align: center;
 }
 
-/* Bouton "Nouveau Groupe" */
 #new-groupe {
   display: block;
   text-align: center;
@@ -74,7 +68,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Style des groupes */
 .groupe {
   background-color: #ffffff;
   display: flex;
@@ -93,7 +86,6 @@ body {
   height: 250px;
 }
 
-/* Image du groupe */
 .groupe-image {
   width: 150px;
   height: 150px;
@@ -103,7 +95,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* Titre du groupe */
 .groupe-title {
   font-size: 1.1rem;
   font-weight: bold;
