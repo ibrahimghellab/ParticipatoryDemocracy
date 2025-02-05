@@ -12,7 +12,7 @@
 }
 
 .proposition-button:hover {
-    background-color: #0056b3;
+    background-color: #b0c6e1;
     transform: scale(1.05); /* Agrandissement au survol */
 }
 
@@ -75,7 +75,7 @@
     font-size: 1rem;
     font-weight: 600;
     color: white;
-    background-color: #b0c6e1; /* Bleu par défaut */
+    background-color: #7190c0; /* Bleu par défaut */
     border-radius: 5px; /* Coins arrondis */
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease; /* Animation */
@@ -103,8 +103,8 @@
 
   #new-proposition {
     padding: 10px;
-    margin-top: 20px;
-    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 10px;
     display: block;
     text-align: center;
     font-size: 1rem;
@@ -116,6 +116,7 @@
     transition: background-color 0.3s ease, transform 0.2s ease; /* Animation */
     cursor: pointer;
     border: none;
+    margin-bottom: 30px;;
   }
   
   #new-proposition:hover {
@@ -133,4 +134,10 @@
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
     height: 100%;
+  }
+
+  h2{
+
+    margin-top: 25px;
+
   }
