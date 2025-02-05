@@ -28,7 +28,7 @@
                 <input type="hidden" name="action" value="connect">
                 <input type="hidden" name="controleur" value="UserController">
                 <div class="input-field">
-                    <input type="text" name="email" id="email" required>
+                    <input type="email" name="email" id="email" required>
                     <label for="email">Email : </label>
                 </div>
 
