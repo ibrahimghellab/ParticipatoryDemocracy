@@ -63,9 +63,11 @@ class UserController
                 require_once(__DIR__ . "/../View/groupe.php");
                 require_once(__DIR__ . "/../View/popup-log-in-success.html");
             } else {
+                require_once(__DIR__ . "/../View/login.php");
                 require_once(__DIR__ . "/../View/popup-log-in-fail.html");
             }
         } else {
+
             require_once(__DIR__ . "/../View/login.php");
             require_once(__DIR__ . "/../View/popup-log-in-fail.html");
         }
@@ -79,7 +81,9 @@ class UserController
 
         session_destroy();
 
-        require_once(__DIR__ . "/../View/deconnexion.php");
+
+        require_once(__DIR__ . " ./../View/deconnexion.php");
+        require_once(__DIR__ . "./../View/popup-disconnect-success.html");
 
     }
 
@@ -159,11 +163,7 @@ class UserController
         $tab = json_decode(User::deleteUser(), true);
         if ($tab["message"] == "true") {
             require_once(__DIR__ . "/../View/signup.php");
-            require_once(__DIR__ . "/../View/popup-sign-up-succes.html");
-        } else {
-            require_once(__DIR__ . "/../View/groupe.php");
-            require_once(__DIR__ . "/../View/popup-sign-up-fail.html");
-
+            require_once(__DIR__ . "/../View/popup-delete-account-success.html");
         }
     }
 
