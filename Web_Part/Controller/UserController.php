@@ -17,21 +17,21 @@ class UserController
 
     public static function createAccountToken()
     {
-        
+
         $tab = json_decode(User::sendPostRequest(), true);
         if ($tab["message"] == "true") {
             require_once(__DIR__ . "/../View/loginToken.php");
             require_once(__DIR__ . "/../View/popup-sign-up-succes.html");
-            header("Location: ./../View/loginToken.php?token=".$_GET["token"]."&idGroupe=".$_GET["idGroupe"]."&role=".$_GET["role"]);
+            header("Location: ./../View/loginToken.php?token=" . $_GET["token"] . "&idGroupe=" . $_GET["idGroupe"] . "&role=" . $_GET["role"]);
             exit();
         } else {
-        echo "fail";
+            echo "fail";
             require_once(__DIR__ . "/../View/signupToken.php");
             require_once(__DIR__ . "/../View/popup-sign-up-fail.html");
 
 
         }
-        
+
     }
 
     public static function connect()
@@ -48,20 +48,21 @@ class UserController
         }
     }
 
-    public static function connectToken(){
+    public static function connectToken()
+    {
         session_start();
         require_once(__DIR__ . "/MembreController.php");
         $tab = json_decode(User::connect(), true);
         if (isset($tab["id"]) && $tab["id"] > 0) {
             $_SESSION["id"] = $tab["id"];
-            
-            
+
+
             $tab2 = Membre::createMembre();
-            if($tab2["message"]=="true"){
+            if ($tab2["message"] == "true") {
 
                 require_once(__DIR__ . "/../View/groupe.php");
                 require_once(__DIR__ . "/../View/popup-log-in-success.html");
-            }else{
+            } else {
                 require_once(__DIR__ . "/../View/popup-log-in-fail.html");
             }
         } else {
@@ -85,7 +86,7 @@ class UserController
 
     public static function getUserDataFromAPI($userId)
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/' . $userId;
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/user/' . $userId;
 
         // Initialiser cURL
         $ch = curl_init($url);
@@ -113,7 +114,7 @@ class UserController
 
     public static function getGroupesByUserId($userId)
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/' . $userId . '/groupes';
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/user/' . $userId . '/groupes';
 
         // Initialiser cURL
         $ch = curl_init($url);
