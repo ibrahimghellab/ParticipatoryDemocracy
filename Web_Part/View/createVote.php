@@ -53,10 +53,8 @@
                     </datalist>
                     <button type="button" id="add-choixVote">Ajouter</button>
 
-                    <!-- Liste des choix sélectionnés -->
                     <ul id="choixVote-container"></ul>
 
-                    <!-- Champ caché pour envoyer les choix sous forme de liste JSON -->
                     <input type="hidden" name="choixVote" id="choixVotes-input">
                 </div>
 
@@ -74,17 +72,14 @@
         const choixVoteContainer = document.getElementById("choixVote-container");
         const choixVotesInput = document.getElementById("choixVotes-input");
 
-        let choixVotes = []; // Liste des choix sélectionnés
+        let choixVotes = [];
 
-        // Ajouter un choix
         addChoixVoteBtn.addEventListener("click", function() {
             let choixVoteValue = choixVoteInput.value.trim();
 
-            // Vérifier que la valeur n'est pas vide et qu'elle n'est pas déjà ajoutée
             if (choixVoteValue !== "" && !choixVotes.includes(choixVoteValue)) {
                 choixVotes.push(choixVoteValue);
 
-                // Créer un élément de liste avec un bouton de suppression
                 let li = document.createElement("li");
                 li.textContent = choixVoteValue;
 
@@ -94,7 +89,6 @@
                 removeBtn.style.cursor = "pointer";
 
                 removeBtn.addEventListener("click", function() {
-                    // Supprimer l'élément de la liste et mettre à jour
                     choixVotes = choixVotes.filter(t => t !== choixVoteValue);
                     li.remove();
                     updateChoixVotesInput();
@@ -103,15 +97,12 @@
                 li.appendChild(removeBtn);
                 choixVoteContainer.appendChild(li);
 
-                // Mettre à jour le champ caché
                 updateChoixVotesInput();
 
-                // Vider l'input après ajout
                 choixVoteInput.value = "";
             }
         });
 
-        // Met à jour le champ caché avec la liste des choix en JSON
         function updateChoixVotesInput() {
             choixVotesInput.value = JSON.stringify(choixVotes);
         }
