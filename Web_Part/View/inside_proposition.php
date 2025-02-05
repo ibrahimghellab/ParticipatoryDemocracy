@@ -148,23 +148,26 @@
     </div>
     </div>
     <div class="commentaires-container">
-        <div class="commentaires">
-            <?php
-            require_once(__DIR__ . "/../Controller/PropositionController.php");
-            require_once(__DIR__ . "/../Controller/UserController.php");
-            require_once(__DIR__ . "/../Controller/MembreController.php");
-            $tab = PropositionController::getCommentaireByProposition();
-            print_r($tab);
-            // Affichage des commentaires
-            for ($i = 0; $i < count($tab); $i++) {
-                $commentaire = $tab[$i]["texte"];
-                $id = $tab[$i]["idMembre"];
-                $userData=MembreController::getMembreById($id);
-                echo "<div class='commentaire-item'>" . $commentaire . " ." . $userData["nom"] . " ". $userData["prenom"] . "</div>";
-            }
-            ?>
-        </div>
+    <div class="commentaires">
+        <?php
+        require_once(__DIR__ . "/../Controller/PropositionController.php");
+        require_once(__DIR__ . "/../Controller/UserController.php");
+        require_once(__DIR__ . "/../Controller/MembreController.php");
+        $tab = PropositionController::getCommentaireByProposition();
+        // Affichage des commentaires
+        for ($i = 0; $i < count($tab); $i++) {
+            $commentaire = $tab[$i]["texte"];
+            $id = $tab[$i]["idMembre"];
+            $userData = MembreController::getMembreById($id);
+            echo "<div class='commentaire-item'>";
+            echo "<div class='commentaire-user'>" . $userData["nom"] . " " . $userData["prenom"] . "</div>";
+            echo "<div class='commentaire-text'>" . $commentaire . "</div>";
+            echo "</div>";
+        }
+        ?>
     </div>
+</div>
+
 
     <!-- Champ de commentaire -->
     <div class="comment-section">
