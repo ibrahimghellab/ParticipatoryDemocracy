@@ -135,17 +135,17 @@ class User
         require_once(__DIR__ . "/../config/connexion.php");
 
         $requetePreparee = Connexion::pdo()->prepare("
-        SET @membreIds = (SELECT GROUP_CONCAT(idMembre) FROM Membre WHERE idInternaute = :id);
 DELETE FROM InternauteNotification WHERE idInternaute = :id;
-DELETE FROM MembreVote WHERE idMembre IN (@membreIds);
-DELETE FROM MembreReaction WHERE idMembre IN (@membreIds);
-DELETE FROM Signaler WHERE idMembre IN (@membreIds);
-DELETE FROM CommentaireReaction WHERE idCommentaire IN (SELECT idCommentaire FROM Commentaire WHERE idMembre IN (@membreIds));
-DELETE FROM Commentaire WHERE idMembre IN (@membreIds);
-DELETE FROM PropositionReaction WHERE idProposition IN (SELECT idProposition FROM Proposition WHERE idMembre IN (@membreIds));
-DELETE FROM Proposition WHERE idMembre IN (@membreIds);
-DELETE FROM Membre WHERE idMembre IN (@membreIds);
+DELETE FROM MembreVote WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idInternaute = :id);
+DELETE FROM MembreReaction WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idInternaute = :id);
+DELETE FROM Signaler WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idInternaute = :id);
+DELETE FROM CommentaireReaction WHERE idCommentaire IN (SELECT idCommentaire FROM Commentaire WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idInternaute = :id));
+DELETE FROM Commentaire WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idInternaute = :id);
+DELETE FROM PropositionReaction WHERE idProposition IN (SELECT idProposition FROM Proposition WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idInternaute = :id));
+DELETE FROM Proposition WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idInternaute = :id);
+DELETE FROM Membre WHERE idInternaute = :id;
 DELETE FROM Internaute WHERE idInternaute = :id;
+
 ");
         $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
         try {
