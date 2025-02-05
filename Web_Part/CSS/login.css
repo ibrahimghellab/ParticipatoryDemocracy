@@ -11,11 +11,11 @@ form {
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 450px; /* Augmenté pour un meilleur rendu */
+  max-width: 450px; 
   transition: all 0.1s ease-in-out;
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Espacement uniforme entre les éléments */
+  gap: 15px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
@@ -25,10 +25,10 @@ label {
   font-weight: 600;
   font-size: 14px;
   color: #000;
-  font-size: 1rem; /* Taille standard pour du texte descriptif */
-  font-weight: 400; /* Poids normal pour un style discret */
-  color: #555; /* Couleur légèrement plus claire que le h1 */
-  line-height: 1.6; /* Amélioration de la lisibilité */
+  font-size: 1rem; 
+  font-weight: 400; 
+  color: #555;
+  line-height: 1.6; 
 }
 
 input {
@@ -75,11 +75,11 @@ input:focus {
 
 body{
 
-  background-image: url('../assets/background.svg'); /* Chemin vers votre image */
-  background-size: cover; /* L'image occupe tout l'écran en gardant ses proportions */
-  background-repeat: no-repeat; /* Évite la répétition de l'image */
-  background-position: center; /* Centre l'image */
-  height: 100vh; /* Assure que le fond couvre toute la hauteur de la page */
+  background-image: url('../assets/background.svg');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center; 
+  height: 100vh; 
   margin: 0;
   padding: 0;
 
