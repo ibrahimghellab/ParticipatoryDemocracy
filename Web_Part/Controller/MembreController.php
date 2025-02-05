@@ -35,4 +35,9 @@ class MembreController
             require_once(__DIR__ . "/../View/inside_proposition.php");
         }
     }
+
+    public static function getMembreById($id){
+        $tab = Membre::getMembreById($id);
+        return $tab;
+    }
 }
