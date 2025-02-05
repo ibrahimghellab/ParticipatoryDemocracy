@@ -45,6 +45,7 @@
                 <div>
                     <input type="password" id="password" name="password" value="********">
                 </div>
+                <p>Saisissez votre mot de passe sinon votre compte sera perdu</p>
                 <div class="submit">
                     <button type="submit" id="submit-button">Sauvegarder</button>
                 </div>
