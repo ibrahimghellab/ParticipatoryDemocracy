@@ -20,7 +20,6 @@
         <div class="container">
             <div class="groupes">
 
-                <!-- Bouton pour ajouter un nouveau groupe -->
                 <div class="submit">
                     <form method="POST" action="./../Controller/routeur.php">
                         <input type="hidden" name="controleur" value="GroupeController">
@@ -29,7 +28,6 @@
                     </form>
                 </div>
 
-                <!-- Conteneur pour afficher les groupes en grille -->
                 <div class="groupes-container">
                     <?php
                     require_once(__DIR__ . "/../Controller/UserController.php");
@@ -40,12 +38,10 @@
                     foreach ($tab as $groupe) {
                         echo '<div class="groupe">';
 
-                        // Image du groupe
                         echo '<div class="img">';
                         echo '<img src="../' . ltrim($groupe["imageGroupe"], "/") . '" alt="Image du groupe" class="groupe-image">';
                         echo '</div>';
 
-                        // Formulaire pour afficher les propositions du groupe
                         echo '<form method="POST" action="./../Controller/routeur.php" class="form-groupe-button">';
                         echo '<input type="hidden" name="id" value="' . $groupe["idGroupe"] . '">';
                         echo '<input type="hidden" name="nomGroupe" value="' . $groupe["nomGroupe"] . '">';
@@ -62,7 +58,6 @@
                         echo '</button>';
                         echo '</form>';
 
-                        // Bouton pour supprimer le groupe
                         echo '<form method="POST" action="./../Controller/routeur.php" class="delete-form">';
                         echo '<input type="hidden" name="id" value="' . $groupe["idGroupe"] . '">';
                         echo '<input type="hidden" name="controleur" value="GroupeController">';
@@ -70,10 +65,10 @@
                         echo '<button type="submit" id="delete-button"><img src="./../assets/poubelle.svg" alt="Supprimer Groupe" class="trash-icon"></button>';
                         echo '</form>';
 
-                        echo '</div>'; // Fin .groupe
+                        echo '</div>'; 
                     }
                     ?>
-                </div> <!-- Fin .groupes-container -->
+                </div> 
             </div>
         </div>
     </main>
