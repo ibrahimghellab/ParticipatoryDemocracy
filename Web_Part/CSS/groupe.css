@@ -111,7 +111,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* Bouton pour afficher les propositions */
+
 #submit2 {
   background: none;
   border: none;
@@ -125,7 +125,6 @@ body {
   background-color: rgba(0, 123, 255, 0.1);
 }
 
-/* Bouton de suppression */
 #delete-button {
   background: none;
   border: none;
@@ -144,7 +143,6 @@ body {
   border-radius: 50%;
 }
 
-/* Style du tableau */
 table {
   width: 100%;
   border-collapse: collapse;
