@@ -9,7 +9,7 @@ class MembreController
 
     public static function createMembre()
     {
-        $tab=Membre::createMembre();
+        $tab = Membre::createMembre();
         require_once(__DIR__ . "/../View/groupe.php");
         return $tab;
     }

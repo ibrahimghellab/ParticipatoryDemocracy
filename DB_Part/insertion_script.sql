@@ -74,6 +74,7 @@ INSERT INTO Role (nomRole) VALUES
 ('Contributeur'),
 ('Observateur'),
 ('Évaluateur'),
+('Scrutateur'),
 ('Animateur');
 
 -- Insertion dans la table Reaction
