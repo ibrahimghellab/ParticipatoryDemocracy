@@ -25,7 +25,6 @@
                     <tr>
                         <th>Nom du groupe</th>
                         <th>Couleur du groupe</th>
-                        <th>Nom de l'image</th>
                         <th>Date de création</th>
                         <th>Description</th>
                         <th>Theme du Groupe</th>
@@ -41,7 +40,6 @@
                     echo '<tr>';
                     echo '<td>' . $_POST['nomGroupe'] . '</td>';
                     echo '<td><div style="width:20px;height:20px;background-color:' . $_POST['couleurGroupe'] . ';"></div></td>';
-                    echo '<td><img src="' . $_POST['imageGroupe'] . '" alt="Image du groupe" style="width:50px;height:50px;"></td>';
                     echo '<td>' . $_POST['dateCreation'] . '</td>';
                     echo '<td>' . $_POST['description'] . '</td>';
                     echo '<td>';
@@ -121,6 +119,7 @@
                     echo '<h2>Membres du groupe</h2>';
                     require_once(__DIR__ . "/../Model/user.php");
                     $users = Groupe::getMembresByGroupe();
+                    print_r($users);
                     echo '<form method="POST" action="./../Controller/routeur.php">';
                 echo '<input type="hidden" name="controleur" value="MembreController">';
                 echo '<input type="hidden" name="action" value="afficherFormulaire">';
@@ -143,7 +142,10 @@
                         echo '<input type="hidden" name="controleur" value="MembreController">';
                         echo '<input type="hidden" name="action" value="deleteMembre">';
                         echo '<input type="hidden" name="idMembre" value="' . $users[$i]["idMembre"] . '">';
-                        echo $users[$i]["nom"] . " " . $users[$i]["prenom"];
+                        echo '<div class="role-info">';
+                        echo $users[$i]["nom"] . " " . $users[$i]["prenom"] . "     -     " . $users[$i]["nomRole"];
+                        echo '</div>';
+
                         if ($isAdmin) {
                             if ($users[$i]["idInternaute"] != $_SESSION["id"]) {
                                 echo '<button type="submit" class="delete-user">';
