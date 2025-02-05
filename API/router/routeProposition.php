@@ -29,7 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo Proposition::addReaction($url[1], $url[3]);
     }
 } elseif ($_SERVER["REQUEST_METHOD"] == "PUT") {
-    echo Proposition::updateProposition($url[1]);
+    if (!empty($url[1]) && is_numeric($url[1]) && empty($url[2])) {
+        echo Proposition::updateProposition($url[1]);
+    } elseif (!empty($url[1]) && is_numeric($url[1]) && $url[2] == "valider") {
+        echo Proposition::validerProposition($url[1]);
+    }
 } elseif ($_SERVER["REQUEST_METHOD"] == "DELETE") {
     echo Proposition::deleteProposition($url[1]);
 }
