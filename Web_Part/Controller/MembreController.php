@@ -36,7 +36,8 @@ class MembreController
         }
     }
 
-    public static function getMembreById($id){
+    public static function getMembreById($id)
+    {
         $tab = Membre::getMembreById($id);
         return $tab;
     }
