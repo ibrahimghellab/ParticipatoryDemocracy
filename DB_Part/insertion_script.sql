@@ -67,15 +67,9 @@ INSERT INTO Theme (nomTheme, budgetTheme, limiteBudgetTheme) VALUES
 INSERT INTO Role (nomRole) VALUES
 ('Administrateur'),
 ('Modérateur'),
-('Membre actif'),
-('Membre standard'),
-('Visiteur'),
-('Expert'),
-('Contributeur'),
-('Observateur'),
-('Évaluateur'),
+('Membre'),
 ('Scrutateur'),
-('Animateur');
+('Décideur');
 
 -- Insertion dans la table Reaction
 INSERT INTO Reaction (emoticone) VALUES
@@ -97,11 +91,11 @@ INSERT INTO Membre (dateAdhesion, status, idInternaute, idRole, idGroupe) VALUES
 ('2024-01-03', 'Inactif', 3, 3, 3),
 ('2024-01-04', 'Actif', 4, 4, 4),
 ('2024-01-05', 'Actif', 5, 5, 5),
-('2024-01-06', 'Inactif', 6, 6, 6),
-('2024-01-07', 'Actif', 7, 7, 7),
-('2024-01-08', 'Actif', 8, 8, 8),
-('2024-01-09', 'Inactif', 9, 9, 9),
-('2024-01-10', 'Actif', 10, 10, 10);
+('2024-01-06', 'Inactif', 6, 4, 6),
+('2024-01-07', 'Actif', 7, 3, 7),
+('2024-01-08', 'Actif', 8, 2, 8),
+('2024-01-09', 'Inactif', 9, 1, 9),
+('2024-01-10', 'Actif', 10, 1, 10);
 
 -- Insertion dans la table Proposition
 INSERT INTO Proposition (titre, description, dateCreation, theme, status, voteDemande, budgetGlobal, idTheme, idVote, idMembre) VALUES
