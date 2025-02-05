@@ -22,7 +22,7 @@ class Proposition extends Modele
     public static function createProposition()
     {
         session_start();
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/proposition/';
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/proposition/';
 
         // Initialiser cURL
         $ch = curl_init($url);
@@ -64,7 +64,7 @@ class Proposition extends Modele
 
     public static function getCommentaireByProposition()
     {
-        $url = "https://projets.iut-orsay.fr/saes3-ttroles/API/proposition/" . $_POST["idProposition"] . "/commentaires";
+        $url = "https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/proposition/" . $_POST["idProposition"] . "/commentaires";
         $ch = curl_init($url);
 
         // Définir les options cURL pour une requête GET
@@ -88,7 +88,7 @@ class Proposition extends Modele
 
     public static function getReactionByProposition()
     {
-        $url = "https://projets.iut-orsay.fr/saes3-ttroles/API/proposition/" . $_POST["idProposition"] . "/reactions";
+        $url = "https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/proposition/" . $_POST["idProposition"] . "/reactions";
         $ch = curl_init($url);
 
         // Définir les options cURL pour une requête GET
@@ -112,7 +112,7 @@ class Proposition extends Modele
 
     public static function getVoteByProposition()
     {
-        $url = "https://projets.iut-orsay.fr/saes3-ttroles/API/proposition/" . $_POST["idProposition"] . "/votes";
+        $url = "https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/proposition/" . $_POST["idProposition"] . "/votes";
         $ch = curl_init($url);
 
         // Définir les options cURL pour une requête GET
@@ -136,7 +136,7 @@ class Proposition extends Modele
 
     public static function getInfoByProposition()
     {
-        $url = "https://projets.iut-orsay.fr/saes3-ttroles/API/proposition/" . $_POST["idProposition"] . "/infos";
+        $url = "https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/proposition/" . $_POST["idProposition"] . "/infos";
         $ch = curl_init($url);
 
         // Définir les options cURL pour une requête GET
@@ -160,7 +160,7 @@ class Proposition extends Modele
 
     public static function getStatVote()
     {
-        $url = "https://projets.iut-orsay.fr/saes3-ttroles/API/proposition/" . $_POST["idProposition"] . "/statVote";
+        $url = "https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/proposition/" . $_POST["idProposition"] . "/statVote";
         $ch = curl_init($url);
 
         // Définir les options cURL pour une requête GET
@@ -184,7 +184,7 @@ class Proposition extends Modele
 
     public static function getChoixVoteByProposition()
     {
-        $url = "https://projets.iut-orsay.fr/saes3-ttroles/API/proposition/" . $_POST["idProposition"] . "/choix";
+        $url = "https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/proposition/" . $_POST["idProposition"] . "/choix";
         $ch = curl_init($url);
 
         // Définir les options cURL pour une requête GET
@@ -208,7 +208,7 @@ class Proposition extends Modele
 
     public static function validerProposition()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/proposition/' . $_POST["idProposition"] . '/valider';
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/proposition/' . $_POST["idProposition"] . '/valider';
         $ch = curl_init($url);
 
         // Définir les options cURL pour une requête PUT
