@@ -12,7 +12,6 @@
 <body class="page-proposition">
     <?php require_once(__DIR__ . "/../View/navbar_connecte.php"); ?>
     <main class="main-container">
-        <!-- Liste des groupes à gauche -->
         <div class="groupes">
             <?php
             require_once(__DIR__ . "/../View/groupe.php");
