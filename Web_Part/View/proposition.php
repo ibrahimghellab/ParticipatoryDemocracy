@@ -12,7 +12,7 @@
 <body class="page-proposition">
     <?php require_once(__DIR__ . "/../View/navbar_connecte.php"); ?>
     <main class="main-container">
-        <div class="groupes">
+        <div class="groupes2">
             <?php
             require_once(__DIR__ . "/../View/groupe.php");
             ?>
