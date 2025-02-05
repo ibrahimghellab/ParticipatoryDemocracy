@@ -167,7 +167,7 @@ class Proposition
         require_once(__DIR__ . "/../config/connexion.php");
         require_once(__DIR__ . "/../Model/vote.php");
 
-        $requeteAvecTags = "SELECT * FROM Vote V INNER JOIN Proposition P ON V.idVote=P.idVote WHERE idProposition=:id;";
+        $requeteAvecTags = "SELECT V.idVote,V.typeScrutin,V.dateDebut,V.status,V.dateFin,P.titre,P.description,P.dateCreation,P.theme,P.budgetGlobal,P.idTheme,P.idVote,P.idMembre FROM Vote V INNER JOIN Proposition P ON V.idVote=P.idVote WHERE idProposition=:id;";
         $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
 
         $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
@@ -179,6 +179,7 @@ class Proposition
 
         } catch (PDOException $e) {
             echo $e->getMessage();
+            return json_encode(array("message" => "false"));
         }
 
     }
