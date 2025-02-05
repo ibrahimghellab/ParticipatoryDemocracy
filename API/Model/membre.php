@@ -5,7 +5,7 @@ class Membre
     public static function getMembreById($id)
     {
         require_once(__DIR__ . "/../config/connexion.php");
-        $requeteAvecTags = "SELECT * FROM Membre M INNER JOIN Internaute I ON M.idInternaute=I.idInternaute WHERE M.idMembre= :id ;";
+        $requeteAvecTags = "SELECT * FROM Membre M INNER JOIN Internaute I ON M.idInternaute=I.idInternaute INNER JOIN Role R ON M.idRole=R.idRole WHERE M.idMembre= :id ;";
         $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
         $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
         try {
