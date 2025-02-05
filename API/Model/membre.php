@@ -1,6 +1,23 @@
 <?php
 class Membre
 {
+
+    public static function getMembreById($id){
+        require_once(__DIR__ . "/../config/connexion.php");
+        $requeteAvecTags = "SELECT * FROM Membre M INNER JOIN Internaute I ON M.idInternaute=I.idInternaute WHERE I.idInternaute= :id ;";
+        $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+        try {
+            $requetePreparee->execute();
+
+            $requetePreparee->setFetchmode(PDO::FETCH_ASSOC);
+            return $requetePreparee->fetch();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     public static function createMembre()
     {
         $body = file_get_contents("php://input");
