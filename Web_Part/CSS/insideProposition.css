@@ -67,7 +67,7 @@ table tr:hover {
 /* Conteneur pour les commentaires */
 .commentaires-container {
     width: 100%;
-    max-height: calc(100vh - 500px); /* Augmentation importante de l'espace pour les commentaires */
+    max-height: calc(100vh - 100px); /* Augmentation importante de l'espace pour les commentaires */
     overflow-y: auto; /* Permet de faire défiler les commentaires si nécessaire */
     padding: 10px;
     margin-bottom: 85px;
@@ -79,6 +79,7 @@ table tr:hover {
     display: flex;
     flex-direction: column;
     gap: 10px; /* Ajoute un espacement de 20px entre chaque commentaire */
+    max-height: 1200px;
 }
 
 /* Style des commentaires */
