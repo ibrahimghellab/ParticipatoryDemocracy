@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/insideProposition.css">
-    <title><?php echo $_POST["titre"]; ?></title>
-</head>
+    <title><?php echo $_POST["titre"]; ?></title>            
+    
 
+</head>
 <body>
+    <?php session_start(); ?>
+
     <?php require_once(__DIR__ . "/../View/navbar_connecte.php");
     ?>
     <!-- Tableau à droite -->
@@ -149,14 +152,15 @@
             <?php
             require_once(__DIR__ . "/../Controller/PropositionController.php");
             require_once(__DIR__ . "/../Controller/UserController.php");
-
+            require_once(__DIR__ . "/../Controller/MembreController.php");
             $tab = PropositionController::getCommentaireByProposition();
+            print_r($tab);
             // Affichage des commentaires
             for ($i = 0; $i < count($tab); $i++) {
                 $commentaire = $tab[$i]["texte"];
                 $id = $tab[$i]["idMembre"];
-
-                echo "<div class='commentaire-item'>" . $commentaire . " ." . $id . "</div>";
+                $userData=MembreController::getMembreById($id);
+                echo "<div class='commentaire-item'>" . $commentaire . " ." . $userData["nom"] . " ". $userData["prenom"] . "</div>";
             }
             ?>
         </div>
