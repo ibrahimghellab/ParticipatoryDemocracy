@@ -35,46 +35,44 @@ img {
 
 a {
   display: inline-block;
-  padding: 5px 10px; /* Ajustez les dimensions selon vos besoins */
+  padding: 5px 10px; 
   text-decoration: none;
-  color: #fff; /* Couleur du texte */
-  background-color: #7190c0; /* Couleur de fond */
+  color: #fff;
+  background-color: #7190c0; 
   border: none;
-  border-radius: 5px; /* Ajoute des coins arrondis */
-  font-family: Arial, sans-serif; /* Police pour un rendu soigné */
-  font-size: 16px; /* Taille du texte */
+  border-radius: 5px; 
+  font-family: Arial, sans-serif; 
+  font-size: 16px;
   text-align: center;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 a:hover {
-  background-color: #5a759e; /* Couleur plus foncée pour le survol */
-  transform: scale(1.05); /* Effet d'agrandissement */
+  background-color: #5a759e; 
+  transform: scale(1.05); 
 }
 
 a:active {
-  transform: scale(0.95); /* Effet de clic */
-}
+  transform: scale(0.95); 
 
 h1 {
-  font-family: 'Roboto', sans-serif; /* Police moderne et élégante */
-  font-size: 2.5rem; /* Taille adaptée pour attirer l'attention */
-  font-weight: 700; /* Gras pour le rendre impactant */
-  color: #333; /* Couleur discrète */
+  font-family: 'Roboto', sans-serif; 
+  font-size: 2.5rem; 
+  font-weight: 700; 
+  color: #333; 
   margin-bottom: 10px;
   text-align: center;
 }
 
 p {
-  font-family: 'Roboto', sans-serif; /* Cohérence avec le h1 */
-  font-size: 1rem; /* Taille standard pour du texte descriptif */
-  font-weight: 400; /* Poids normal pour un style discret */
-  color: #555; /* Couleur légèrement plus claire que le h1 */
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem; 
+  font-weight: 400; 
+  color: #555;
   margin-bottom: 20px;
   text-align: center;
-  line-height: 1.6; /* Amélioration de la lisibilité */
+  line-height: 1.6; 
 }
 
-/* Optionnel : Importation de la police Roboto via Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
