@@ -4,7 +4,7 @@ class Theme extends Modele
 {
     public static function getThemeById()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/theme/' . $_POST["theme"];
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/theme/' . $_POST["theme"];
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
