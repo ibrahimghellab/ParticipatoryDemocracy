@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/navbar.css">
     <link rel="stylesheet" href="../CSS/createGroupe.css">
     <link rel="stylesheet" href="../CSS/default.css">
     <title>Créer une demande</title>
@@ -53,9 +52,7 @@
                         ?>
                     </select>
                 </div>
-
-                <?php print_r($_POST); ?>
-
+                
                 <div class="submit">
                     <button type="submit" id="submit-button">Créer</button>
                 </div>
