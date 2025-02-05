@@ -22,7 +22,7 @@ class User extends Modele
 
     public static function sendPostRequest()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/'; // Exemple d'URL d'API
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/user/'; // Exemple d'URL d'API
 
         // Initialiser cURL
         $ch = curl_init($url);
@@ -56,7 +56,7 @@ class User extends Modele
     }
     public static function getUserDataFromAPI($userId)
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/' . $userId;
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/user/' . $userId;
 
         // Initialiser cURL
         $ch = curl_init($url);
@@ -83,7 +83,7 @@ class User extends Modele
 
     public static function connect()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/get-id'; // URL de l'API
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/user/get-id'; // URL de l'API
 
         // Initialiser cURL
         $ch = curl_init($url);
@@ -119,7 +119,7 @@ class User extends Modele
     public static function updateUser()
     {
         session_start();
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/' . $_SESSION["id"]; // Exemple d'URL d'API
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/user/' . $_SESSION["id"]; // Exemple d'URL d'API
 
         // Initialiser cURL
         $ch = curl_init($url);
@@ -155,7 +155,7 @@ class User extends Modele
     public static function deleteUser()
     {
         session_start();
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/user/' . $_SESSION["id"]; // Exemple d'URL d'API
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/user/' . $_SESSION["id"]; // Exemple d'URL d'API
         // Initialiser cURL
         $ch = curl_init($url);
 
