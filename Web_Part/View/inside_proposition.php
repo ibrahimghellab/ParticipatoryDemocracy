@@ -181,14 +181,18 @@
             <?php
             require_once(__DIR__ . "/../Controller/PropositionController.php");
             require_once(__DIR__ . "/../Controller/UserController.php");
-
+            require_once(__DIR__ . "/../Controller/MembreController.php");
             $tab = PropositionController::getCommentaireByProposition();
+            print_r($tab);
             // Affichage des commentaires
             for ($i = 0; $i < count($tab); $i++) {
                 $commentaire = $tab[$i]["texte"];
                 $id = $tab[$i]["idMembre"];
-
-                echo "<div class='commentaire-item'>" . $commentaire . " ." . $id . "</div>";
+                $userData = MembreController::getMembreById($id);
+                echo "<div class='commentaire-item'>";
+                echo "<div class='commentaire-user'>" . $userData["nom"] . " " . $userData["prenom"] . "</div>";
+                echo "<div class='commentaire-text'>" . $commentaire . "</div>";
+                echo "</div>";
             }
             ?>
         </div>
