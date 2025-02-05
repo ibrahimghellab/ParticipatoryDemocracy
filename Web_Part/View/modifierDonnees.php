@@ -14,7 +14,7 @@
 <body>
     <header>
         <?php
-        session_start(); // Start the session
+        session_start(); 
         include(__DIR__ . "/../View/navbar_connecte.php");
         include(__DIR__ . "/../Model/user.php");
         ?>
