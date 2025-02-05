@@ -1,6 +1,9 @@
+body{
+  overflow: auto;
+}
 
 .proposition-button {
-    background-color: #007bff;
+    background-color: #7190c0;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -65,11 +68,10 @@
 }
 
 .proposition, .user {
-    width: 100%; 
     box-sizing: border-box;
 }
 
-.proposition-button {
+/* .proposition-button {
     padding: 10px;
     display: block;
     text-align: center;
@@ -81,16 +83,17 @@
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease; 
     cursor: pointer;
-    border: none;}
+    border: none;} */
 
-#tableau {
-    width: 100%;
-    background-color: #ffffff;
-    padding: 20px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-    overflow: auto;
-    height: 100%;
-  }
+    #tableau {
+      flex: 2; /* Makes tableau take up twice as much space as groupes */
+      background-color: #ffffff;
+      padding: 20px;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+      overflow: auto;
+      height: 100%;
+      min-width: 0; /* Prevents flex items from overflowing */
+    }
   
   .main-container {
     display: flex;
@@ -98,12 +101,11 @@
     justify-content: space-between;
     align-items: flex-start;
     height: 100vh;
-    padding: 20px;
+    gap: 20px; /* Add space between groupes and tableau */
   }
 
   #new-proposition {
     padding: 10px;
-    margin-top: 30px;
     margin-bottom: 10px;
     display: block;
     text-align: center;
@@ -116,7 +118,7 @@
     transition: background-color 0.3s ease, transform 0.2s ease; 
     cursor: pointer;
     border: none;
-    margin-bottom: 30px;;
+    margin-bottom: 30px;
   }
   
   #new-proposition:hover {
@@ -125,19 +127,34 @@
   }
 
   .groupes {
-    width: 75%;
+    margin-top: 30px;
+    flex: 1; /* This allows the div to grow and take available space */
     background-color: #f5f5f5;
     padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
+    overflow: auto;
     height: 100%;
+  }
+
+  .groupes2 {
+    flex: 1; /* This allows the div to grow and take available space */
+    background-color: #f5f5f5;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 100%;
+    min-width: 0; /* Prevents flex items from overflowing */
   }
 
   h2{
 
     margin-top: 25px;
+    margin-bottom: 25px;
 
   }
