@@ -44,7 +44,7 @@ nav ul li a:hover {
   position: relative;
   display: flex;
   align-items: center;  
-
+}
 .dropdown {
   position: relative;
 }
