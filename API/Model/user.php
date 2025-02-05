@@ -134,11 +134,24 @@ class User
     {
         require_once(__DIR__ . "/../config/connexion.php");
 
-        $requetePreparee = Connexion::pdo()->prepare("DELETE FROM Internaute WHERE idInternaute=:id;");
+        $requetePreparee = Connexion::pdo()->prepare("
+        SET @membreId = (SELECT idMembre FROM Membre WHERE idInternaute = :id);
+        DELETE FROM InternauteNotification WHERE idInternaute = :id;
+        DELETE FROM MembreVote WHERE idMembre = @membreId;
+        DELETE FROM MembreReaction WHERE idMembre = @membreId;
+        DELETE FROM Signaler WHERE idMembre = @membreId;
+        DELETE FROM CommentaireReaction WHERE idCommentaire IN (SELECT idCommentaire FROM Commentaire WHERE idMembre = @membreId);
+        DELETE FROM Commentaire WHERE idMembre = @membreId;
+        DELETE FROM PropositionReaction WHERE idProposition IN (SELECT idProposition FROM Proposition WHERE idMembre = @membreId);
+        DELETE FROM Proposition WHERE idMembre = @membreId;
+        DELETE FROM Membre WHERE idInternaute = :id;
+        DELETE FROM Internaute WHERE idInternaute = :id;
+");
         $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
         try {
             $requetePreparee->execute();
         } catch (PDOException $e) {
+            echo $e->getMessage();
             header("HTTP/1.1 500 Internal Server Error");
             return json_encode(array("message" => "false"));
         }
@@ -157,7 +170,7 @@ class User
             $requetePreparee->execute();
             if ($requetePreparee->rowCount() > 0) {
                 $resultat = $requetePreparee->fetch(PDO::FETCH_ASSOC);
-                $idInternaute = $resultat['idInternaute']; 
+                $idInternaute = $resultat['idInternaute'];
             } else {
                 throw new Exception("L'email n'est pas dans la base");
             }
