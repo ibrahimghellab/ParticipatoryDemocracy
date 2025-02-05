@@ -73,18 +73,19 @@
                 echo '<input type="hidden" name="imageGroupe" value="' . $_POST["imageGroupe"] . '">';
                 echo '<input type="hidden" name="dateCreation" value="' . $_POST["dateCreation"] . '">';
                 echo '<input type="hidden" name="description" value="' . $_POST["description"] . '">';
-
+                
+                
+                echo '<h2>Propositions</h2>';
                 echo '<div class="submit">';
                 echo '<button type="submit" id="new-proposition">+ Nouvelle Proposition</button>';
                 echo '</div>';
                 echo '</form>';
                 require_once(__DIR__ . "/../Controller/GroupeController.php");
 
-                echo '<h2>Propositions</h2>';
+                
 
 
                 $tab = Groupe::getPropositionsByGroupe();
-                echo "<br>";
                 $isAdmin = false;
                 for ($i = 0; $i < count($users); $i++) {
                     if ($users[$i]["idInternaute"] == $_SESSION["id"] && $users[$i]["nomRole"] == "Administrateur") {
@@ -119,8 +120,7 @@
                     echo '<h2>Membres du groupe</h2>';
                     require_once(__DIR__ . "/../Model/user.php");
                     $users = Groupe::getMembresByGroupe();
-                    print_r($users);
-                    echo '<form method="POST" action="./../Controller/routeur.php">';
+                echo '<form method="POST" action="./../Controller/routeur.php">';
                 echo '<input type="hidden" name="controleur" value="MembreController">';
                 echo '<input type="hidden" name="action" value="afficherFormulaire">';
                 echo '<input type="hidden" name="id" value="' . $_POST["id"] . '">';
