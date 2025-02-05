@@ -187,12 +187,43 @@ class Groupe
 
         require_once(__DIR__ . "/../config/connexion.php");
 
-        $requetePreparee = Connexion::pdo()->prepare("DELETE FROM Membre WHERE idGroupe=:idG1 ; DELETE FROM Groupe WHERE idGroupe=:idG2;");
-        $requetePreparee->bindParam(":idG1", $id, PDO::PARAM_INT);
-        $requetePreparee->bindParam(":idG2", $id, PDO::PARAM_INT);
+        $requetePreparee = Connexion::pdo()->prepare("
+DELETE FROM Signaler 
+WHERE idCommentaire IN (
+    SELECT idCommentaire FROM Commentaire 
+    WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idGroupe=:id)
+);
+
+DELETE FROM CommentaireReaction 
+WHERE idCommentaire IN (
+    SELECT idCommentaire FROM Commentaire 
+    WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idGroupe=:id)
+);
+DELETE FROM Commentaire 
+WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idGroupe=:id);
+
+DELETE FROM Signaler 
+WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idGroupe=:id);
+
+DELETE FROM MembreReaction 
+WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idGroupe=:id);
+
+DELETE FROM MembreVote 
+WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idGroupe=:id);
+
+DELETE FROM Proposition 
+WHERE idMembre IN (SELECT idMembre FROM Membre WHERE idGroupe=:id);
+
+DELETE FROM Membre WHERE idGroupe=:id;
+
+DELETE FROM ThemeGroupe WHERE idGroupe=:id;
+
+DELETE FROM Groupe WHERE idGroupe=:id;
+
+        ");
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
         try {
             $requetePreparee->execute();
-            $result = true;
         } catch (PDOException $e) {
             http_response_code(500);
             return json_encode($response = [
@@ -201,22 +232,12 @@ class Groupe
             ], JSON_PRETTY_PRINT);
         }
 
-        if ($result) {
-            http_response_code(200);
-            $response = [
-                "code" => http_response_code(200),
-                "message" => "Groupe  supprimé."
-            ];
 
-        } else {
-            http_response_code(500);
-            $response = [
-                "code" => http_response_code(500),
-                "message" => "ERREUR: Le groupe n'as pas été supprimé."
-            ];
-        }
-
-
+        http_response_code(200);
+        $response = [
+            "code" => http_response_code(200),
+            "message" => "Groupe  supprimé."
+        ];
 
         return (json_encode($response, JSON_PRETTY_PRINT));
 
