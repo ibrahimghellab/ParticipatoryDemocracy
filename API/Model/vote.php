@@ -59,6 +59,30 @@ class Vote
         return $result;
     }
 
+    public static function validerVote($id)
+    {
+
+        $body = file_get_contents("php://input");
+        $tab = json_decode($body, true);
+        $result = false;
+        require_once(__DIR__ . "/../config/connexion.php");
+
+        $requetePreparee = Connexion::pdo()->prepare("UPDATE Vote SET status='Validé' WHERE idVote=:id;");
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
+        try {
+            $requetePreparee->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            header("HTTP/1.1 500 Internal Server Error");
+            return json_encode(array("message" => "false"));
+        }
+
+
+        return json_encode(array("message" => "true"));
+    }
+
+
+
 
 }
 
