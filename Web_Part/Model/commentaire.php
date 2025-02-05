@@ -17,7 +17,7 @@ class Commentaire extends Modele
 
     public static function createCommentaire()
     {
-        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/API/commentaire/' . $_POST["idMembre"] . '/' . $_POST["idProposition"];
+        $url = 'https://projets.iut-orsay.fr/saes3-ttroles/ParticipatoryDemocracy/API/commentaire/' . $_POST["idMembre"] . '/' . $_POST["idProposition"];
 
         // Initialiser cURL
         $ch = curl_init($url);
