@@ -10,7 +10,6 @@
         <ul>
             <li><a href="./../View/groupe.php">Mes groupes</a></li>
 
-            <!-- Menu déroulant -->
             <li class="menu">
                 <div class="dropdown">
                     <button class="btn menu-btn">menu</button>
