@@ -2,9 +2,10 @@
 class Membre
 {
 
-    public static function getMembreById($id){
+    public static function getMembreById($id)
+    {
         require_once(__DIR__ . "/../config/connexion.php");
-        $requeteAvecTags = "SELECT * FROM Membre M INNER JOIN Internaute I ON M.idInternaute=I.idInternaute WHERE I.idInternaute= :id ;";
+        $requeteAvecTags = "SELECT * FROM Membre M INNER JOIN Internaute I ON M.idInternaute=I.idInternaute WHERE M.idMembre= :id ;";
         $requetePreparee = Connexion::pdo()->prepare($requeteAvecTags);
         $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
         try {
@@ -26,7 +27,7 @@ class Membre
             require_once(__DIR__ . "/../config/connexion.php");
 
             $requetePreparee = Connexion::pdo()->prepare("INSERT INTO Membre(dateAdhesion, status, idInternaute, idRole, idGroupe) VALUES (CURRENT_DATE(), 'Actif', :idInternaute, (SELECT idRole FROM Role WHERE nomRole = :role), :idGroupe);");
-           
+
             $requetePreparee->bindParam(":idInternaute", $tab["idInternaute"], PDO::PARAM_INT);
             $requetePreparee->bindParam(":role", $tab["role"], PDO::PARAM_STR);
             $requetePreparee->bindParam(":idGroupe", $tab["idGroupe"], PDO::PARAM_INT);
