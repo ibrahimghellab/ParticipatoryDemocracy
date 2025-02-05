@@ -206,7 +206,7 @@ table tr:hover {
 
 .vote-progress {
     height: 100%;
-    background: linear-gradient(90deg, #28a745 0%, #218838 100%);
+    background: linear-gradient(90deg, #7190c0 0%, #7190c0 100%);
     text-align: right;
     line-height: 20px;
     color: white;
@@ -218,6 +218,7 @@ table tr:hover {
 .commentaire-user {
     font-weight: bold;
     font-size: 16px;
-    color: #7190c0; /* Tu peux modifier la couleur si tu veux */
-    margin-bottom: 5px; /* Espacement entre le nom et le commentaire */
+    color: #7190c0; 
+    margin-bottom: 5px; 
 }
+
