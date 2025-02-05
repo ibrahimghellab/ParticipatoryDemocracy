@@ -110,18 +110,18 @@
     font-size: 1rem;
     font-weight: 600;
     color: white;
-    background-color: #7190c0; /* Bleu par défaut */
-    border-radius: 5px; /* Coins arrondis */
+    background-color: #7190c0;
+    border-radius: 5px; 
     text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation */
+    transition: background-color 0.3s ease, transform 0.2s ease; 
     cursor: pointer;
     border: none;
     margin-bottom: 30px;;
   }
   
   #new-proposition:hover {
-    background-color: #b0c6e1; /* Bleu plus foncé */
-    transform: scale(1.05); /* Agrandissement au survol */
+    background-color: #b0c6e1; 
+    transform: scale(1.05); 
   }
 
   .groupes {
