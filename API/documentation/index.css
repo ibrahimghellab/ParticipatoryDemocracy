@@ -8,7 +8,6 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
 }
-/* Reset CSS */
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +23,7 @@ body {
   margin: 0 auto;
 }
 
-/* Header */
+
 header {
   background-color: var(--mid-color);
   padding: 20px 0;
@@ -40,7 +39,6 @@ header p {
   font-size: 1.2em;
 }
 
-/* Navigation */
 nav {
   background-color: #333;
   color: var(--text-color);
@@ -66,7 +64,6 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Section */
 section {
   padding: 40px 0;
   margin-bottom: 20px;
@@ -86,7 +83,6 @@ section ul li {
   margin-bottom: 10px;
 }
 
-/* Footer */
 footer {
   background-color: var(--mid-color);
   text-align: center;
