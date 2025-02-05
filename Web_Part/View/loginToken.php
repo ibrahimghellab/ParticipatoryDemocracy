@@ -31,7 +31,7 @@
                 <input type="hidden" name="idGroupeInvite" value="<?php echo $_GET['idGroupe']; ?>">
                 <input type="hidden" name="role" value="<?php echo $_GET['role']; ?>">
                 <div class="input-field">
-                    <input type="text" name="email" id="email" required>
+                    <input type="email" name="email" id="email" required>
                     <label for="email">Email : </label>
                 </div>
 
