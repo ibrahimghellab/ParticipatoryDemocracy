@@ -53,21 +53,38 @@ class Membre
         require_once(__DIR__ . "/../config/connexion.php");
 
         $requetePreparee = Connexion::pdo()->prepare(
-            "DELETE FROM CommentaireReaction 
-             WHERE idCommentaire IN (
-                 SELECT idCommentaire 
-                 FROM Commentaire 
-                 WHERE idMembre = :idM1
-             );
-             
-             DELETE FROM Commentaire 
-             WHERE idMembre = :idM2;
-             
-             DELETE FROM Membre 
-             WHERE idMembre = :idM3;"
+            "-- Supprimer les réactions aux commentaires du membre
+DELETE FROM CommentaireReaction 
+WHERE idCommentaire IN (
+    SELECT idCommentaire FROM Commentaire 
+    WHERE idMembre = :id
+);
+
+-- Supprimer les commentaires liés aux propositions du membre
+DELETE FROM Commentaire 
+WHERE idProposition IN (
+    SELECT idProposition FROM Proposition 
+    WHERE idMembre = :id
+);
+
+-- Supprimer les commentaires du membre
+DELETE FROM Commentaire 
+WHERE idMembre = :id;
+
+-- Supprimer les votes du membre
+DELETE FROM MembreVote 
+WHERE idMembre = :id;
+
+-- Supprimer les propositions du membre
+DELETE FROM Proposition 
+WHERE idMembre = :id;
+
+-- Supprimer le membre
+DELETE FROM Membre 
+WHERE idMembre = :id;
+        "
         );
-        $requetePreparee->bindParam(":idM1", $id, PDO::PARAM_INT);
-        $requetePreparee->bindParam(":idM2", $id, PDO::PARAM_INT);
+        $requetePreparee->bindParam(":id", $id, PDO::PARAM_INT);
         $requetePreparee->bindParam(":idM3", $id, PDO::PARAM_INT);
 
         try {
