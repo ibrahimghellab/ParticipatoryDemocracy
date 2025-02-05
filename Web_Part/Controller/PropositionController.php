@@ -66,6 +66,13 @@ class PropositionController
 
 
 
+    public static function validerProposition()
+    {
+        $tab = json_decode(Proposition::validerProposition(), true);
+        require_once(__DIR__ . "/../View/inside_proposition.php");
+        return $tab;
+    }
+
     // public static function createCommentaire()
     // {
     //     $idM = $_POST['id'];
