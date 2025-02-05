@@ -10,7 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo Vote::createVote();
 } elseif ($_SERVER["REQUEST_METHOD"] == "PUT") {
-
+    if (!empty($url[1]) && is_numeric($url[1])) {
+        echo Vote::validerVote($url[1]);
+    }
 } elseif ($_SERVER["REQUEST_METHOD"] == "DELETE") {
 }
 
