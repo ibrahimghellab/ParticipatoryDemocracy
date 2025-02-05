@@ -11,7 +11,7 @@ body {
 main {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Align items to the top */
+    align-items: flex-start; 
     height: 100vh;
     padding: 20px;
 }
@@ -24,17 +24,17 @@ main {
 form {
     padding: 10px 30px;
     width: 100%;
-    max-width: 600px; /* Largeur maximale pour une meilleure lisibilité */
+    max-width: 600px; 
     transition: all 0.1s ease-in-out;
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Espace entre les éléments */
+    gap: 25px; 
     border-radius: 12px;
 }
 
 h2 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 700; /* Texte en gras */
+    font-weight: 700;
     font-size: 1.5rem;
     color: #555;
     line-height: 1.6;
@@ -45,8 +45,8 @@ h2 {
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    padding: 15px; /* Meilleure zone cliquable */
-    font-size: 16px; /* Police lisible */
+    padding: 15px;
+    font-size: 16px; 
     width: 100%;
     box-sizing: border-box;
     border: 1px solid #ddd;
@@ -57,13 +57,13 @@ input[type="password"] {
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-    border-color: #7190c0; /* Couleur de la bordure en focus */
+    border-color: #7190c0; 
     outline: none;
 }
 
 button {
-    flex: 1; /* Les boutons prennent le même espace disponible */
-    max-width: 200px; /* Largeur maximale */
+    flex: 1; 
+    max-width: 200px; 
     background-color: #7190c0;
     color: #fff;
     padding: 15px;
