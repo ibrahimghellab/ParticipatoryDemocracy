@@ -20,7 +20,6 @@ class UserController
         
         $tab = json_decode(User::sendPostRequest(), true);
         if ($tab["message"] == "true") {
-            print_r($_GET);
             require_once(__DIR__ . "/../View/loginToken.php");
             require_once(__DIR__ . "/../View/popup-sign-up-succes.html");
             header("Location: ./../View/loginToken.php?token=".$_GET["token"]."&idGroupe=".$_GET["idGroupe"]."&role=".$_GET["role"]);
