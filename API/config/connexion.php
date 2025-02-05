@@ -11,17 +11,13 @@ class Connexion
     static private $tabUTF8 = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
 
 
-    // l'attribut static qui matérialisera la connexion
     static private $pdo;
 
-    // le getter public de cet attribut
     static public function pdo()
     {
         return self::$pdo;
     }
 
-    // la fonction static de connexion qui initialise $pdo et lance la tentative de connexion
-    // remarque : PDO = PHP Data Object = une ckasse native PHP adaptée à la connexion à la BD
     static public function connect()
     {
         $h = self::$hostname;
