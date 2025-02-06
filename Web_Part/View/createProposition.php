@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/createGroupe.css">
-    <link rel="stylesheet" href="../CSS/default.css">
     <title>Créer une demande</title>
 </head>
 
@@ -16,8 +15,7 @@
     <main>
         <div>
             <?php require_once(__DIR__ . "/../Controller/GroupeController.php");
-            $tab = GroupeController::getThemesByGroupe();
-            print_r($_POST) ?>
+            $tab = GroupeController::getThemesByGroupe(); ?>
 
             <form method="POST" action="./../Controller/routeur.php">
                 <input type="hidden" name="controleur" value="PropositionController">
