@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/navbar.css">
     <link rel="stylesheet" href="../CSS/createGroupe.css">
-    <link rel="stylesheet" href="../CSS/default.css">
     <title>Créer vote</title>
 </head>
 
@@ -66,47 +64,47 @@
     </main>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const choixVoteInput = document.getElementById("choixVote");
-        const addChoixVoteBtn = document.getElementById("add-choixVote");
-        const choixVoteContainer = document.getElementById("choixVote-container");
-        const choixVotesInput = document.getElementById("choixVotes-input");
+        document.addEventListener("DOMContentLoaded", function () {
+            const choixVoteInput = document.getElementById("choixVote");
+            const addChoixVoteBtn = document.getElementById("add-choixVote");
+            const choixVoteContainer = document.getElementById("choixVote-container");
+            const choixVotesInput = document.getElementById("choixVotes-input");
 
-        let choixVotes = [];
+            let choixVotes = [];
 
-        addChoixVoteBtn.addEventListener("click", function() {
-            let choixVoteValue = choixVoteInput.value.trim();
+            addChoixVoteBtn.addEventListener("click", function () {
+                let choixVoteValue = choixVoteInput.value.trim();
 
-            if (choixVoteValue !== "" && !choixVotes.includes(choixVoteValue)) {
-                choixVotes.push(choixVoteValue);
+                if (choixVoteValue !== "" && !choixVotes.includes(choixVoteValue)) {
+                    choixVotes.push(choixVoteValue);
 
-                let li = document.createElement("li");
-                li.textContent = choixVoteValue;
+                    let li = document.createElement("li");
+                    li.textContent = choixVoteValue;
 
-                let removeBtn = document.createElement("button");
-                removeBtn.textContent = "❌";
-                removeBtn.style.marginLeft = "10px";
-                removeBtn.style.cursor = "pointer";
+                    let removeBtn = document.createElement("button");
+                    removeBtn.textContent = "❌";
+                    removeBtn.style.marginLeft = "10px";
+                    removeBtn.style.cursor = "pointer";
 
-                removeBtn.addEventListener("click", function() {
-                    choixVotes = choixVotes.filter(t => t !== choixVoteValue);
-                    li.remove();
+                    removeBtn.addEventListener("click", function () {
+                        choixVotes = choixVotes.filter(t => t !== choixVoteValue);
+                        li.remove();
+                        updateChoixVotesInput();
+                    });
+
+                    li.appendChild(removeBtn);
+                    choixVoteContainer.appendChild(li);
+
                     updateChoixVotesInput();
-                });
 
-                li.appendChild(removeBtn);
-                choixVoteContainer.appendChild(li);
+                    choixVoteInput.value = "";
+                }
+            });
 
-                updateChoixVotesInput();
-
-                choixVoteInput.value = "";
+            function updateChoixVotesInput() {
+                choixVotesInput.value = JSON.stringify(choixVotes);
             }
         });
-
-        function updateChoixVotesInput() {
-            choixVotesInput.value = JSON.stringify(choixVotes);
-        }
-    });
     </script>
 
 </body>
