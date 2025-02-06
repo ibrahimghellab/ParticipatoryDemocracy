@@ -1,6 +1,6 @@
 body{
   
-    background-image: url('./background2.svg'); 
+    background-image: url('../assets/background2.svg'); 
     background-size: cover; 
     background-repeat: no-repeat; 
     background-position: center; 
