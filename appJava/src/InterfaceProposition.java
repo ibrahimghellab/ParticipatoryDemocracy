@@ -21,19 +21,19 @@ public class InterfaceProposition {
         Login.clearFrame();
         Login.connect();
         
-        String sql = "SELECT P.titre, P.budgetGlobal, T.budgetTheme";
+        String sql = "SELECT P.titre, P.budgetGlobal, T.budgetTheme, T.nomTheme";
         sql += " FROM Membre M";
-        sql += " JOIN MembreVote MV ON MV.idMembre = M.idMembre";
         sql += " JOIN Proposition P ON P.idMembre = M.idMembre";
         sql += " JOIN Theme T ON T.idTheme = P.idTheme";
         sql += " WHERE M.idGroupe = " + Login.sessionIdGroupe;
+        System.out.println(sql);
         int budgetGroupe = 0;
         try {
             Statement st = Login.co.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
             	budgetGroupe += rs.getInt("budgetGlobal");
-                propositions.add(rs.getString("titre") + " - Budget globale : " + rs.getInt("budgetGlobal") + " - Budget thème : " + rs.getInt("budgetTheme"));
+                propositions.add(rs.getString("titre") + " - Budget globale : " + rs.getInt("budgetGlobal") + " - Budget du thème '"+ rs.getString("nomTheme") +"' : " + rs.getInt("budgetTheme"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -46,23 +46,38 @@ public class InterfaceProposition {
         listePropositions = new JList<>(modelListe);
         listePropositions.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         JScrollPane scrollPane = new JScrollPane(listePropositions);
+        scrollPane.getViewport().setBackground(Color.decode("#ebf9f6"));
+        listePropositions.setBackground(Color.decode("#ebf9f6"));
         Login.frame.add(scrollPane, BorderLayout.CENTER);
+        
 
         labelBudget = new JLabel("");
         labelBudget.setText("Budget global du groupe : " + budgetGroupe );
+        labelBudget.setBackground(Color.decode("#b0c6e1"));
+        labelBudget.setOpaque(true);
         Login.frame.add(labelBudget, BorderLayout.NORTH);
 
         boutonModifier1 = new JButton("Modifier Budget Global");
         Login.frame.add(boutonModifier1, BorderLayout.SOUTH);
 
         boutonModifier2 = new JButton("Modifier Budget Thème");
+        boutonModifier1.setBackground(Color.decode("#7190c0"));
+        boutonModifier2.setBackground(Color.decode("#7190c0"));
+        boutonModifier1.setForeground(Color.WHITE);
+        boutonModifier2.setForeground(Color.WHITE);
+        
         boutonProp = new JButton("Proposition Validé");
+        boutonProp.setBackground(Color.decode("#7190c0"));
+        boutonProp.setForeground(Color.WHITE);
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.add(boutonModifier1);
         buttonPanel.add(boutonModifier2); 
         buttonPanel.add(boutonProp); 
         Login.frame.add(buttonPanel, BorderLayout.SOUTH);
+        buttonPanel.setBackground(Color.decode("#b0c6e1"));
+        
+        Login.frame.setBackground(Color.decode("#b0c6e1"));
 
         Login.frame.repaint();
         Login.frame.revalidate();

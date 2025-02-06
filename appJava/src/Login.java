@@ -19,8 +19,10 @@ public class Login {
         frame.setSize(350, 250); 
         frame.setLayout(new BorderLayout());
         
+        
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3, 2, 10, 10));
+        panel.setBackground(Color.decode("#b0c6e1"));
         
         JLabel emailLabel = new JLabel("Email:");
         JTextField emailField = new JTextField();
@@ -28,6 +30,8 @@ public class Login {
         JPasswordField passwordField = new JPasswordField();
 
         JButton connectButton = new JButton("Connect");
+        connectButton.setBackground(Color.decode("#7190c0"));
+        connectButton.setForeground(Color.WHITE);
 
         panel.add(emailLabel);
         panel.add(emailField);

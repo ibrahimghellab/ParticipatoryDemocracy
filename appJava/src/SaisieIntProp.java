@@ -1,4 +1,6 @@
 import javax.swing.*;
+
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -15,9 +17,20 @@ public class SaisieIntProp{
 
                 int valeur = Integer.parseInt(input);
                 Login.connect();
-                String sql = "UPDATE Proposition SET budgetGlobal = " + valeur + " WHERE titre = '" + titre + "'";
+                String sql = "SELECT COUNT(*) AS cpt";
+                sql += " FROM Proposition P";
+                sql += " JOIN Theme T ON T.idTheme = P.idTheme";
+                sql += " WHERE titre = '" + titre + "' AND budgetTheme > " + valeur;
+                
                 try {
-					Statement st = Login.co.createStatement();
+                	Statement st = Login.co.createStatement();
+                	ResultSet rs = st.executeQuery(sql);
+                	rs.next();
+                	if (rs.getInt("cpt") < 1) {
+                		JOptionPane.showMessageDialog(Login.frame, "Le budget global ne doit pas dépasser au dessus du budget du theme", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+                		return;
+                	}
+                	sql = "UPDATE Proposition SET budgetGlobal = " + valeur + " WHERE titre = '" + titre + "'";
 					st.execute(sql);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
