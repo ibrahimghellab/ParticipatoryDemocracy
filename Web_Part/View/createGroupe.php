@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/navbar.css">
     <link rel="stylesheet" href="../CSS/createGroupe.css">
-    <link rel="stylesheet" href="../CSS/default.css">
     <title>Créer un groupe</title>
 </head>
 
@@ -71,47 +69,47 @@
     </main>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const themeInput = document.getElementById("theme");
-        const addThemeBtn = document.getElementById("add-theme");
-        const themeContainer = document.getElementById("theme-container");
-        const themesInput = document.getElementById("themes-input");
+        document.addEventListener("DOMContentLoaded", function () {
+            const themeInput = document.getElementById("theme");
+            const addThemeBtn = document.getElementById("add-theme");
+            const themeContainer = document.getElementById("theme-container");
+            const themesInput = document.getElementById("themes-input");
 
-        let themes = []; 
+            let themes = [];
 
-        addThemeBtn.addEventListener("click", function() {
-            let themeValue = themeInput.value.trim();
+            addThemeBtn.addEventListener("click", function () {
+                let themeValue = themeInput.value.trim();
 
-            if (themeValue !== "" && !themes.includes(themeValue)) {
-                themes.push(themeValue);
+                if (themeValue !== "" && !themes.includes(themeValue)) {
+                    themes.push(themeValue);
 
-                let li = document.createElement("li");
-                li.textContent = themeValue;
+                    let li = document.createElement("li");
+                    li.textContent = themeValue;
 
-                let removeBtn = document.createElement("button");
-                removeBtn.textContent = "❌";
-                removeBtn.style.marginLeft = "10px";
-                removeBtn.style.cursor = "pointer";
+                    let removeBtn = document.createElement("button");
+                    removeBtn.textContent = "❌";
+                    removeBtn.style.marginLeft = "10px";
+                    removeBtn.style.cursor = "pointer";
 
-                removeBtn.addEventListener("click", function() {
-                    themes = themes.filter(t => t !== themeValue);
-                    li.remove();
+                    removeBtn.addEventListener("click", function () {
+                        themes = themes.filter(t => t !== themeValue);
+                        li.remove();
+                        updateThemesInput();
+                    });
+
+                    li.appendChild(removeBtn);
+                    themeContainer.appendChild(li);
+
                     updateThemesInput();
-                });
 
-                li.appendChild(removeBtn);
-                themeContainer.appendChild(li);
+                    themeInput.value = "";
+                }
+            });
 
-                updateThemesInput();
-
-                themeInput.value = "";
+            function updateThemesInput() {
+                themesInput.value = JSON.stringify(themes);
             }
         });
-
-        function updateThemesInput() {
-            themesInput.value = JSON.stringify(themes);
-        }
-    });
     </script>
 
 </body>
