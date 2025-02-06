@@ -43,8 +43,9 @@ class UserController
             require_once(__DIR__ . "/../View/groupe.php");
             require_once(__DIR__ . "/../View/popup-log-in-success.html");
         } else {
-            require_once(__DIR__ . "/../View/login.php");
+
             require_once(__DIR__ . "/../View/popup-log-in-fail.html");
+            header("Location: ./../View/login.php");
         }
     }
 
