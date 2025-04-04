@@ -93,13 +93,6 @@ Web_Part/          # Partie web de l'application
 - **Application Java** : Lancez l'application pour gérer les propositions et les groupes.
 - **Interface Web** : Connectez-vous pour créer des groupes, proposer des projets, et voter.
 
-## Contributeurs
-
-- **Nom 1** : Développeur Backend
-- **Nom 2** : Développeur Frontend
-- **Nom 3** : Développeur Java
-- **Nom 4** : Administrateur Base de Données
-
 ## Licence
 
 Ce projet est sous licence MIT.
